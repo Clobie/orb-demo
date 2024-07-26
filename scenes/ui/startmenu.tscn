@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1kk3do4knsac"]
+
+[ext_resource type="FontFile" uid="uid://cjdt30pmhx8am" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_6nt7r"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.227451)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -86.5
+offset_right = 105.5
+offset_bottom = 86.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Button_Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 16
+text = "Play"
+expand_icon = true
+
+[node name="Button_Host" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 16
+text = "Host"
+expand_icon = true
+
+[node name="Button_Join" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 16
+text = "Join"
+expand_icon = true
+
+[node name="Button_Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+expand_icon = true
+
+[node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_right = 346.0
+grow_vertical = 0
+
+[node name="Label_Version" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.403922, 0.403922, 0.658824)
+theme_override_fonts/font = ExtResource("1_6nt7r")
+theme_override_font_sizes/font_size = 12
+text = "version/build placeholder"
