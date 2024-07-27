@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1kk3do4knsac"]
 
-[ext_resource type="FontFile" uid="uid://cjdt30pmhx8am" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_6nt7r"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="1_hw52x"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -26,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_hw52x")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -38,40 +39,30 @@ theme_override_constants/separation = 5
 [node name="Button_Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 16
 text = "Play"
 expand_icon = true
 
 [node name="Button_Host" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 16
 text = "Host"
 expand_icon = true
 
 [node name="Button_Join" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 16
 text = "Join"
 expand_icon = true
 
 [node name="Button_Settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 16
 text = "Settings"
 expand_icon = true
 
 [node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 16
 text = "Quit"
 expand_icon = true
 
@@ -82,10 +73,9 @@ anchor_bottom = 1.0
 offset_top = -24.0
 offset_right = 346.0
 grow_vertical = 0
+theme = ExtResource("1_hw52x")
 
 [node name="Label_Version" type="Label" parent="MarginContainer2"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.403922, 0.403922, 0.403922, 0.658824)
-theme_override_fonts/font = ExtResource("1_6nt7r")
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.332881, 0.332881, 0.332881, 1)
 text = "version/build placeholder"
