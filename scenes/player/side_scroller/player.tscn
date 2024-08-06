@@ -979,7 +979,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -16)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position_smoothing_speed = 8.0
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
