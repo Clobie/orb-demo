@@ -1,0 +1,128 @@
+game type
+	top down
+	autoshooter
+	has a storyline
+	quest objectives?
+	repeatable dungeons?
+	endless challenge mode?
+
+autoloads
+	scene loader
+		loading screen
+	save data
+	logger
+
+start menu
+	singleplayer button
+		load singleplayer character select
+	online button
+		load login menu
+	settings button
+		load settings menu
+	credits button
+		load credits menu
+	quit button
+		quit
+
+singleplayer character select menu
+	list of saved characters
+		char a
+		char b
+		char c
+		...
+	play button when character is selected
+		load full local character save data for specific character
+		load singleplayer game
+	create new character button
+		load create character menu
+	back button
+		go back to start menu
+
+multiplayer character select menu
+	list of saved characters
+		char a
+		char b
+		char c
+		...
+	play button when character is selected
+		load full local character save data for specific character
+		join multiplayer lobby
+	create new character button
+		load create character menu
+	back button
+		go back to start menu
+
+settings menu
+	video
+		resolution selection
+		vsync toggle
+		fullscreen / borderless / window selection
+		anti-aliasing selection
+		colorblind selection
+	audio
+		master volume slider
+		music volume slider
+		sfx volume slider
+		dialogue volume slider
+	controls
+		input setup, tba
+	other
+
+credits menu
+	just a list of credits
+
+lobby menu
+	chat panel
+	public game panel
+	join panel with name/pw
+
+joining a game
+	game host progress is what is used as the base
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+enemy xp bonuses
+	normal 100%
+	elite +100%
+	super elite +500%
+	boss +1000%
+
+level cap
+	99
+
+xp to level requirements
+	1	100
+	2	200
+	3	400
+	4	800
+	5	1600
+	1-98 = 98-99
+
+
+
+
+
+
+
+
