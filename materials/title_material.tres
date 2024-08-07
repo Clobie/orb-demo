@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://plpecofvqxdh"]
+
+[ext_resource type="Shader" path="res://shaders/distortion1.gdshader" id="1_kxftq"]
+
+[sub_resource type="Gradient" id="Gradient_rsqqd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lea0f"]
+frequency = 0.0167
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2de7h"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_rsqqd")
+noise = SubResource("FastNoiseLite_lea0f")
+
+[resource]
+shader = ExtResource("1_kxftq")
+shader_parameter/speed = 0.02
+shader_parameter/size = 0.02
+shader_parameter/noise = SubResource("NoiseTexture2D_2de7h")

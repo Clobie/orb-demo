@@ -997,6 +997,7 @@ texture = ExtResource("13_lsjyh")
 metadata/_edit_lock_ = true
 
 [node name="debug" type="TextEdit" parent="."]
+visible = false
 offset_left = -21.0
 offset_top = -55.0
 offset_right = 147.0
