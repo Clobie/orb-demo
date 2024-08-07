@@ -5,9 +5,10 @@ extends CharacterBody2D
 @onready var ledge_top_ray: RayCast2D = $Rays/RayCast2D_Ledge0
 @onready var ledge_mid_ray: RayCast2D = $Rays/RayCast2D_Ledge1
 @onready var wall_mid_ray: RayCast2D = $Rays/RayCast2D_Wall1
-
 @onready var camera_2d = $Camera2D
 
+
+@onready var projectile = preload("res://scenes/projectiles/energy_projectile/energy_projectile.tscn")
 
 var controllable: bool = true
 var can_jump: bool = true
@@ -38,8 +39,24 @@ func _process(delta: float) -> void:
 	#current_zoom.y = lerp(current_zoom.y, target_zoom, 0.1)
 	#camera_2d.zoom = current_zoom
 
+
 func _physics_process(delta: float) -> void:
 	pass
+	#if Input.is_mouse_button_pressed(1):
+		#shoot_projectile()
+
+func shoot_projectile():
+	var start_pos = global_position - Vector2(0, 20)
+	var mouse_position = get_global_mouse_position()
+	var direction = (mouse_position - start_pos).normalized()
+	var projectile = projectile.instantiate()
+	projectile.global_position = start_pos
+	projectile.direction = direction
+	get_tree().current_scene.add_child(projectile)
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
+		shoot_projectile()
 
 func move_axis() -> float:
 	var axis = Input.get_axis("left", "right")

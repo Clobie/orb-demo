@@ -459,3 +459,5 @@ sources/0 = SubResource("TileSetAtlasSource_4re78")
 texture_filter = 1
 tile_set = SubResource("TileSet_bw7vk")
 format = 2
+layer_0/name = "asdf"
+layer_0/navigation_enabled = false
