@@ -17,6 +17,7 @@ config/icon="res://assets/icons/icon.svg"
 
 [autoload]
 
+AudioManager="*res://autoloads/audio_manager.tscn"
 General="*res://autoloads/general.gd"
 
 [display]
@@ -25,6 +26,8 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="res://assets/textures/cursors/glove3.png"
+mouse_cursor/custom_image_hotspot=Vector2(5, 0)
 
 [input]
 

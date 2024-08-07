@@ -38,13 +38,23 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextEdit" type="TextEdit" parent="ColorRect/MarginContainer"]
 layout_mode = 2
-text = "Clobie
-Bobby
-Knups"
+text = "Developers:
+Clobie - github.com/clobie
+Knups - github.com/knups718
+Bobby - github.com/sil3ntb0b
+
+Textures:
+ZeggyGames - https://zegley.itch.io/2d-platformermetroidvania-asset-pack
+David G - https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art
+YD - https://opengameart.org/content/pointers-part-5
+
+Sounds:
+Crow Shade - https://crowshade.itch.io/horror-music-pack
+Daniel SoundsGood - https://danielsoundsgood.itch.io/free-deadly-kombat-sound-effects
+Tim - https://timothyadan.itch.io/magic-attacks-bundle"
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
-selecting_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false

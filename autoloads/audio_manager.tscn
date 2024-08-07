@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdvyc2wvsvwo0"]
+
+[ext_resource type="Script" path="res://autoloads/audio_manager.gd" id="1_7t8gc"]
+[ext_resource type="AudioStream" uid="uid://c6501ffqumuap" path="res://assets/audio/Magic Attacks/Arcane/Impact/Arcane_ImpactF1_Cut.wav" id="2_0hasl"]
+[ext_resource type="AudioStream" uid="uid://cvv7ts6nocvk4" path="res://assets/audio/MindsEyePack/1- Midnight Dreams.ogg" id="3_q1641"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_7t8gc")
+
+[node name="ArcaneSFX1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0hasl")
+
+[node name="MusicSFX1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q1641")

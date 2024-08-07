@@ -20,6 +20,8 @@ func _ready():
 	button_settings.disabled = true
 	button_online.disabled = true
 	player.camera_2d.enabled = false
+	if !AudioManager.music_sfx_1.playing:
+		AudioManager.music_sfx_1.play()
 
 func _process(delta):
 	pass
@@ -173,7 +175,6 @@ theme_override_font_sizes/font_size = 48
 text = "NAME"
 
 [node name="DirectionalLight2D_Darkness" type="DirectionalLight2D" parent="."]
-visible = false
 texture_filter = 1
 energy = 0.75
 blend_mode = 1

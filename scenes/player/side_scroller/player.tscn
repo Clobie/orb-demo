@@ -977,6 +977,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -16)
+limit_smoothed = true
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
