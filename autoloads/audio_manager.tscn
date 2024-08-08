@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdvyc2wvsvwo0"]
 
 [ext_resource type="Script" path="res://autoloads/audio_manager.gd" id="1_7t8gc"]
-[ext_resource type="AudioStream" path="res://_IGNORE/assets/audio/Magic Attacks/Arcane/Impact/Arcane_ImpactF1_Cut.wav" id="2_0hasl"]
+[ext_resource type="AudioStream" uid="uid://c6501ffqumuap" path="res://assets/audio/Magic Attacks/Arcane/Impact/Arcane_ImpactF1_Cut.wav" id="2_0hasl"]
 
 [sub_resource type="Animation" id="Animation_pn2hl"]
 resource_name = "MusicSFX1_to_MusicSFX2"
@@ -44,33 +44,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_3sl72"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MusicSFX1:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MusicSFX2:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_1lhfn"]
 resource_name = "MusicSFX2_to_MusicSFX1"
 tracks/0/type = "value"
@@ -110,6 +83,33 @@ tracks/2/keys = {
 "args": [],
 "method": &"stop"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_3sl72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MusicSFX1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MusicSFX2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cah6o"]

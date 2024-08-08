@@ -45,13 +45,14 @@ func fade_to_track(path):
 	if !curr.playing:
 		play_music(path)
 	else:
-		var next = get_next_music_player()
-		next.stream = load(path)
-		next.volume_db = -50
-		next.play()
-		if curr == $MusicSFX1:
-			$AnimationPlayer.play("MusicSFX1_to_MusicSFX2")
-		else:
-			$AnimationPlayer.play("MusicSFX2_to_MusicSFX1")
-		cycle_current_music_player()
-		current_music_path = path
+		if current_music_path != path:
+			var next = get_next_music_player()
+			next.stream = load(path)
+			next.volume_db = -50
+			next.play()
+			if curr == $MusicSFX1:
+				$AnimationPlayer.play("MusicSFX1_to_MusicSFX2")
+			else:
+				$AnimationPlayer.play("MusicSFX2_to_MusicSFX1")
+			cycle_current_music_player()
+			current_music_path = path
