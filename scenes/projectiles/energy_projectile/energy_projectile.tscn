@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://br21twcf2ex2i"]
+[gd_scene load_steps=11 format=3 uid="uid://br21twcf2ex2i"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/energy_projectile/energy_projectile.gd" id="1_al8im"]
 
@@ -32,52 +32,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9, 0.9)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k6b5i"]
-light_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_ekm4c"]
-colors = PackedColorArray(0.521569, 0, 0.952941, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_o85xj"]
-gradient = SubResource("Gradient_ekm4c")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dkctm"]
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 8.0
-emission_ring_radius = 8.0
-emission_ring_inner_radius = 5.0
-spread = 180.0
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
-orbit_velocity_min = -2.0
-orbit_velocity_max = 2.0
-radial_velocity_min = -1.0
-radial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_o85xj")
-
-[sub_resource type="Gradient" id="Gradient_juja0"]
-offsets = PackedFloat32Array(0.168724, 0.398693, 0.690909)
-colors = PackedColorArray(0.521569, 0, 0.952941, 1, 0.4, 0.662745, 1, 0.811765, 0.521569, 0, 0.952941, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fan7p"]
-gradient = SubResource("Gradient_juja0")
-width = 8
-height = 8
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.495726)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uspbw"]
 particle_flag_disable_z = true
 spread = 180.0
-initial_velocity_min = 125.0
-initial_velocity_max = 1000.0
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
 gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_juja0"]
+offsets = PackedFloat32Array(0.363128, 0.513967, 1)
+colors = PackedColorArray(0.521569, 0, 0.952941, 1, 0.4, 0.662745, 1, 0.811765, 0.521569, 0, 0.952941, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h2oe8"]
 gradient = SubResource("Gradient_juja0")
@@ -104,24 +68,17 @@ texture = SubResource("GradientTexture2D_wkx8a")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_gnwug")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_k6b5i")
-amount = 50
-process_material = SubResource("ParticleProcessMaterial_dkctm")
-texture = SubResource("GradientTexture2D_fan7p")
-preprocess = 1.0
-local_coords = true
-
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
 emitting = false
-amount = 50
+amount = 15
 process_material = SubResource("ParticleProcessMaterial_uspbw")
 texture = SubResource("GradientTexture2D_h2oe8")
-lifetime = 0.3
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 trail_enabled = true
-trail_lifetime = 0.1
+trail_lifetime = 0.2
 trail_sections = 2
 
 [node name="Timer" type="Timer" parent="."]

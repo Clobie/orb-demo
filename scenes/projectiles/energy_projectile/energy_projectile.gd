@@ -33,7 +33,7 @@ func explode():
 	$Sprite2D.visible = false
 	$PointLight2D.visible = false
 	$Timer.start()
-	$GPUParticles2D.emitting = false
+	#$GPUParticles2D.emitting = false
 	$GPUParticles2D2.emitting = true
 
 func _on_timer_timeout():

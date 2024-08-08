@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1l6ju2ninllo"]
+
+[ext_resource type="Shader" path="res://shaders/fire1.gdshader" id="1_n8gxb"]
+[ext_resource type="Texture2D" uid="uid://cfxrghx66j0kb" path="res://assets/icons/icon.svg" id="2_mit86"]
+
+[sub_resource type="Gradient" id="Gradient_1wqb5"]
+offsets = PackedFloat32Array(0, 0.0612245, 0.176871)
+colors = PackedColorArray(1, 0, 0, 0, 1, 0.533333, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_obbxx"]
+gradient = SubResource("Gradient_1wqb5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ks32r"]
+frequency = 0.0017
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t85fa"]
+seamless = true
+noise = SubResource("FastNoiseLite_ks32r")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ig4uc"]
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u3ae3"]
+seamless = true
+noise = SubResource("FastNoiseLite_ig4uc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dov3y"]
+shader = ExtResource("1_n8gxb")
+shader_parameter/texture1_scroll = Vector2(0.1, 0.34)
+shader_parameter/texture2_scroll = Vector2(0.02, 0)
+shader_parameter/noise_texture1 = SubResource("NoiseTexture2D_t85fa")
+shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_u3ae3")
+shader_parameter/color_texture = SubResource("GradientTexture1D_obbxx")
+
+[node name="Fire" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dov3y")
+texture = ExtResource("2_mit86")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cno18egptvj3n"]
+
+[ext_resource type="Script" path="res://scenes/lights/orb_light/orb_light.gd" id="1_rjsro"]
+[ext_resource type="Texture2D" uid="uid://bx23s7daekryr" path="res://assets/textures/lights/light01.png" id="3_mqo6e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u4ctc"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjui5"]
+radius = 86.0
+
+[sub_resource type="Gradient" id="Gradient_juja0"]
+offsets = PackedFloat32Array(0.168724, 0.398693, 0.690909)
+colors = PackedColorArray(0.521569, 0, 0.952941, 1, 0.4, 0.662745, 1, 0.811765, 0.521569, 0, 0.952941, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vwgah"]
+gradient = SubResource("Gradient_juja0")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.495726)
+
+[node name="OrbLight" type="RigidBody2D"]
+collision_layer = 6
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_u4ctc")
+gravity_scale = 0.0
+freeze_mode = 1
+script = ExtResource("1_rjsro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cjui5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_vwgah")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_mqo6e")
+texture_scale = 3.0

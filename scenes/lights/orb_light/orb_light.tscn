@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://p2sr3w8b5qcr"]
 
 [ext_resource type="Texture2D" uid="uid://cjdntw8bg7esq" path="res://assets/textures/projectiles/arcane_ball.tres" id="1_n1ca6"]
-[ext_resource type="Script" path="res://scenes/destructible/orb_light/orb_light.gd" id="1_uj62a"]
-[ext_resource type="Texture2D" uid="uid://bx23s7daekryr" path="res://assets/textures/lights/light01.png" id="2_kqbe8"]
+[ext_resource type="Script" path="res://scenes/lights/orb_light/orb_light.gd" id="1_uj62a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u4ctc"]
 friction = 0.0
@@ -10,6 +9,9 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjui5"]
 radius = 21.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ba8vn"]
+load_path = "res://.godot/imported/light01.png-ba9da9d7832bbf155a87da1e176d3c11.ctex"
 
 [node name="OrbLight" type="RigidBody2D"]
 collision_layer = 6
@@ -26,4 +28,4 @@ shape = SubResource("CircleShape2D_cjui5")
 texture = ExtResource("1_n1ca6")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-texture = ExtResource("2_kqbe8")
+texture = SubResource("CompressedTexture2D_ba8vn")
