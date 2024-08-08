@@ -25,5 +25,5 @@ func loop_physics_process(delta):
 		unit.can_jump = true
 		unit.can_double_jump = true
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

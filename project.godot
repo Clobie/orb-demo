@@ -19,6 +19,7 @@ config/icon="res://assets/icons/icon.svg"
 
 AudioManager="*res://autoloads/audio_manager.tscn"
 General="*res://autoloads/general.gd"
+SceneManager="*res://autoloads/scene_manager.tscn"
 
 [display]
 

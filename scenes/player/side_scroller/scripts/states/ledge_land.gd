@@ -19,7 +19,7 @@ func enter_state():
 func exit_state():
 	pass
 
-func loop_physics_process(delta):
+func loop_physics_process(_delta):
 	if anim.frame == 1:
 		statemachine.set_state("ledge_hold")
 	if unit.double_jump():
@@ -27,5 +27,5 @@ func loop_physics_process(delta):
 	elif unit.wall_jump():
 		statemachine.set_state("wall_jump")
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

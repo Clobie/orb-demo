@@ -54,5 +54,5 @@ func loop_physics_process(delta):
 			unit.run_speed * delta
 		)
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

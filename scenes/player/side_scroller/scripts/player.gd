@@ -22,20 +22,20 @@ var look_dir: int = 1
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 func shoot_projectile():
 	var start_pos = global_position - Vector2(0, 20)
 	var mouse_position = get_global_mouse_position()
 	var direction = (mouse_position - start_pos).normalized()
-	var projectile = projectile.instantiate()
-	projectile.global_position = start_pos
-	projectile.direction = direction
-	get_tree().current_scene.add_child(projectile)
+	var p = projectile.instantiate()
+	p.global_position = start_pos
+	p.direction = direction
+	get_tree().current_scene.add_child(p)
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:

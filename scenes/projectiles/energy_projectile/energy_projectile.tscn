@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" path="res://scenes/projectiles/energy_projectile/energy_projectile.gd" id="1_al8im"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qflsv"]
+friction = 0.0
+rough = true
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_brhov"]
-radius = 5.0
+radius = 11.0
 
 [sub_resource type="Gradient" id="Gradient_pboiu"]
 offsets = PackedFloat32Array(0.168724, 0.2, 0.690909)
@@ -68,9 +72,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.495726)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rhxaq"]
-radius = 5.0
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uspbw"]
 particle_flag_disable_z = true
 spread = 180.0
@@ -86,16 +87,15 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.495726)
 
-[node name="EnergyProjectile" type="CharacterBody2D"]
+[node name="EnergyProjectile" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 4
-motion_mode = 1
-wall_min_slide_angle = 3.14159
+physics_material_override = SubResource("PhysicsMaterial_qflsv")
+gravity_scale = 0.0
 script = ExtResource("1_al8im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_brhov")
-disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_wkx8a")
@@ -111,15 +111,6 @@ texture = SubResource("GradientTexture2D_fan7p")
 preprocess = 1.0
 local_coords = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_rhxaq")
-
-[node name="Timer" type="Timer" parent="."]
-
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 50
@@ -132,5 +123,7 @@ trail_enabled = true
 trail_lifetime = 0.1
 trail_sections = 2
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

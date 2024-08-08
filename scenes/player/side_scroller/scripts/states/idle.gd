@@ -31,5 +31,5 @@ func loop_physics_process(delta):
 	else:
 		statemachine.set_state("fall")
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

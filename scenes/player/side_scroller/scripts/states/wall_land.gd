@@ -33,5 +33,5 @@ func loop_physics_process(delta):
 	else:
 		pass#unit.apply_gravity(delta*0.05)
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

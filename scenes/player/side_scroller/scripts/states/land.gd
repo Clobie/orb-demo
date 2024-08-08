@@ -27,5 +27,5 @@ func loop_physics_process(delta):
 	if !unit.is_on_floor():
 		statemachine.set_state("fall")
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

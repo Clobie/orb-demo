@@ -29,5 +29,5 @@ func loop_physics_process(delta):
 		if !unit.can_ledge_hold():
 			statemachine.set_state("fall")
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass

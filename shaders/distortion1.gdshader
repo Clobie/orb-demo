@@ -10,5 +10,5 @@ void fragment(){
 	vec4 noise_color = texture(noise, fract(uv));
 	noise_color = clamp(noise_color * size, 0.0, 1.0);
 	vec4 color = texture(TEXTURE, UV + vec2(noise_color.g - size / 2.0,0.0));
-	COLOR = vec4(vec3(color.rgb), color.a);
+	COLOR = vec4(vec3(color.rgb/2.0), color.a);
 }

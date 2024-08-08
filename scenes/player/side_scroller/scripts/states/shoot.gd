@@ -26,5 +26,5 @@ func loop_physics_process(delta):
 		anim.frame = 0
 	unit.apply_gravity(delta)
 
-func loop_process(delta):
+func loop_process(_delta):
 	pass
