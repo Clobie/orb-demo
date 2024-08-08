@@ -40,6 +40,8 @@ func shoot_projectile():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		shoot_projectile()
+	if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
+		shoot_projectile()
 
 func move_axis() -> float:
 	var axis = Input.get_axis("left", "right")

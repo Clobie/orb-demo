@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://p2sr3w8b5qcr"]
+
+[ext_resource type="Texture2D" uid="uid://cjdntw8bg7esq" path="res://assets/textures/projectiles/arcane_ball.tres" id="1_n1ca6"]
+[ext_resource type="Script" path="res://scenes/destructible/orb_light/orb_light.gd" id="1_uj62a"]
+[ext_resource type="Texture2D" uid="uid://bx23s7daekryr" path="res://assets/textures/lights/light01.png" id="2_kqbe8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u4ctc"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjui5"]
+radius = 21.0
+
+[node name="OrbLight" type="RigidBody2D"]
+collision_layer = 6
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_u4ctc")
+gravity_scale = 0.0
+freeze_mode = 1
+script = ExtResource("1_uj62a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cjui5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n1ca6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_kqbe8")

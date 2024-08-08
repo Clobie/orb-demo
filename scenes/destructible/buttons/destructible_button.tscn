@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsl8r32mgnt4n"]
+[gd_scene load_steps=8 format=3 uid="uid://dsl8r32mgnt4n"]
 
 [ext_resource type="Script" path="res://scenes/destructible/buttons/destructible_button.gd" id="1_27hk8"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="1_j7ew7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i31kw"]
+light_mode = 1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ortxk"]
 friction = 0.0
@@ -10,7 +13,14 @@ bounce = 0.64
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgpcj"]
 size = Vector2(94, 24)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5uaf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m01mp"]
+bg_color = Color(0.252737, 0.534387, 0, 1)
+
 [node name="DestructibleButton" type="RigidBody2D"]
+material = SubResource("CanvasItemMaterial_i31kw")
 collision_layer = 4
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_ortxk")
@@ -35,6 +45,17 @@ offset_top = -12.0
 offset_right = 47.0
 offset_bottom = 12.0
 color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -47.0
+offset_top = -12.0
+offset_right = 47.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_n5uaf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m01mp")
+value = 100.0
+show_percentage = false
 
 [node name="Label" type="Label" parent="."]
 offset_left = -47.0
