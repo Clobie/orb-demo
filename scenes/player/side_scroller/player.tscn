@@ -941,7 +941,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 15
+collision_mask = 6
 script = ExtResource("1_k1u3f")
 metadata/_edit_lock_ = true
 
@@ -969,6 +969,12 @@ rotation = -1.5708
 target_position = Vector2(0, 7)
 collision_mask = 4
 metadata/_edit_lock_ = true
+
+[node name="RayCast2D_Floor1" type="RayCast2D" parent="Rays"]
+position = Vector2(0, 3)
+rotation = -1.5708
+target_position = Vector2(-18, -6.51598e-05)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)

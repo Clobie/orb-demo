@@ -11,7 +11,7 @@ func _ready():
 	$ProgressBar.min_value = 0
 	$ProgressBar.value = hp_max
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func take_damage(amount):
@@ -26,7 +26,7 @@ func take_damage(amount):
 				SceneManager.fade_to_scene(scene)
 			call_deferred("queue_free")
 
-func hit(obj, gpos, dir):
+func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
 	apply_impulse(dir * 200, -lpos)
 

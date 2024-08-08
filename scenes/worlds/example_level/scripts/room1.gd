@@ -8,5 +8,5 @@ func _ready() -> void:
 	directional_light_2d_darkness.visible = true
 	AudioManager.fade_to_track(level_music_path)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

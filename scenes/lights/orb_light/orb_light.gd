@@ -7,7 +7,7 @@ extends RigidBody2D
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func take_damage(amount):
@@ -16,7 +16,7 @@ func take_damage(amount):
 	if hp <= 0:
 		call_deferred("queue_free")
 
-func hit(obj, gpos, dir):
+func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
 	apply_impulse(dir * 200, -lpos)
 	

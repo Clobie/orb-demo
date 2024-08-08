@@ -9,7 +9,7 @@ func _ready():
 	loading_screen = loading_screen_preload.instantiate()
 	add_child(loading_screen)
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func fade_to_scene(scene_path):

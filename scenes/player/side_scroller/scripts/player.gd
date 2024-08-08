@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var ledge_top_ray: RayCast2D = $Rays/RayCast2D_Ledge0
 @onready var ledge_mid_ray: RayCast2D = $Rays/RayCast2D_Ledge1
 @onready var wall_mid_ray: RayCast2D = $Rays/RayCast2D_Wall1
+@onready var floor_mid_ray = $Rays/RayCast2D_Floor1
 @onready var camera_2d = $Camera2D
 @onready var projectile = preload("res://scenes/projectiles/energy_projectile/energy_projectile.tscn")
 
@@ -18,6 +19,10 @@ var double_jump_force: float = 300.0 # 3 blocks
 var run_speed: float = 11000.0 # why is this so high
 var threshold = 0.5
 var look_dir: int = 1
+
+var push_force_base = 1.0
+
+var current_platform
 
 func _ready() -> void:
 	pass
@@ -38,8 +43,11 @@ func shoot_projectile():
 	get_tree().current_scene.add_child(p)
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		shoot_projectile()
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == 1:
+			shoot_projectile()
+		if event.button_index == 2:
+			position = get_global_mouse_position()
 	if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
 		shoot_projectile()
 
@@ -85,6 +93,17 @@ func can_wall_hold():
 	if ledge_top_ray.is_colliding() and ledge_mid_ray.is_colliding() and wall_mid_ray.is_colliding():# and move_axis() != 0:
 		return true
 	return false
+
+func can_floor_hold():
+	if floor_mid_ray.is_colliding() and is_on_floor():
+		if current_platform == floor_mid_ray.get_collider():
+			return true
+	return false
+
+func get_floor_collider():
+	if floor_mid_ray.is_colliding():
+		return floor_mid_ray.get_collider()
+	return null
 
 func is_crouching():
 	return Input.is_action_pressed("down")

@@ -23,7 +23,7 @@ func _physics_process(delta):
 			collider.hit(collider, gpos, direction)
 		damage(collide.get_collider(), collide.get_position())
 
-func damage(collider, gpos):
+func damage(collider, _gpos):
 	if collider.has_method("take_damage"):
 		collider.take_damage(randi_range(15,25))
 

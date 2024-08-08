@@ -21,8 +21,8 @@ bg_color = Color(0.252737, 0.534387, 0, 1)
 
 [node name="DestructibleButton" type="RigidBody2D"]
 material = SubResource("CanvasItemMaterial_i31kw")
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_ortxk")
 gravity_scale = 0.0
 freeze_mode = 1

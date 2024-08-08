@@ -14,7 +14,7 @@ radius = 21.0
 load_path = "res://.godot/imported/light01.png-ba9da9d7832bbf155a87da1e176d3c11.ctex"
 
 [node name="OrbLight" type="RigidBody2D"]
-collision_layer = 6
+collision_layer = 2
 collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_u4ctc")
 gravity_scale = 0.0
