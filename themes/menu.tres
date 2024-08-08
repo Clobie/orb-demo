@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=54 format=3 uid="uid://b3kq74llqlv3x"]
 
-[ext_resource type="FontFile" uid="uid://cjdt30pmhx8am" path="res://_IGNORE/assets/fonts/PermanentMarker-Regular.ttf" id="1_gagwh"]
-[ext_resource type="Texture2D" uid="uid://nd3qxm6nhcfe" path="res://_IGNORE/assets/icons/icons.svg" id="2_1tf31"]
+[ext_resource type="FontFile" uid="uid://cjdt30pmhx8am" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_gagwh"]
+[ext_resource type="Texture2D" uid="uid://nd3qxm6nhcfe" path="res://assets/icons/icons.svg" id="2_1tf31"]
 
 [sub_resource type="FontFile" id="21"]
 fallbacks = Array[Font]([ExtResource("1_gagwh")])

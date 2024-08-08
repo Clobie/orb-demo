@@ -14,6 +14,7 @@ func _ready():
 
 func play_arcane_hit_sfx(pos: Vector2):
 	arcane_sfx.position = pos
+	$ArcaneSFX.play()
 
 func get_next_music_player():
 	if current_music_player == $MusicSFX1:
@@ -41,13 +42,16 @@ func play_music(path):
 
 func fade_to_track(path):
 	var curr = get_current_music_player()
-	var next = get_next_music_player()
-	next.stream = load(path)
-	next.volume_db = -50
-	next.play()
-	if curr == $MusicSFX1:
-		$AnimationPlayer.play("MusicSFX1_to_MusicSFX2")
+	if !curr.playing:
+		play_music(path)
 	else:
-		$AnimationPlayer.play("MusicSFX2_to_MusicSFX1")
-	cycle_current_music_player()
-	current_music_path = path
+		var next = get_next_music_player()
+		next.stream = load(path)
+		next.volume_db = -50
+		next.play()
+		if curr == $MusicSFX1:
+			$AnimationPlayer.play("MusicSFX1_to_MusicSFX2")
+		else:
+			$AnimationPlayer.play("MusicSFX2_to_MusicSFX1")
+		cycle_current_music_player()
+		current_music_path = path

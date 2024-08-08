@@ -24,8 +24,7 @@ func _ready():
 	button_settings.disabled = true
 	button_online.disabled = true
 	player.camera_2d.enabled = false
-	AudioManager.play_music(level_music_path)
-	SceneManager.reveal()
+	AudioManager.fade_to_track(level_music_path)
 	
 	var a = destructible_button_scene.instantiate()
 	a.position = Vector2(randi_range(250, 500), randi_range(50, 400))

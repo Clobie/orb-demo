@@ -18,7 +18,7 @@ func take_damage(amount):
 			get_tree().quit()
 		else:
 			if scene != "":
-				get_tree().change_scene_to_file(scene)
+				SceneManager.fade_to_scene(scene)
 			call_deferred("queue_free")
 
 func hit(obj, gpos):
