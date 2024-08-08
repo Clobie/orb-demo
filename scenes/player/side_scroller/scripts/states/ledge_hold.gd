@@ -28,6 +28,8 @@ func loop_physics_process(delta):
 		unit.apply_gravity(delta*0.05)
 		if !unit.can_ledge_hold():
 			statemachine.set_state("fall")
+	if !unit.can_ledge_hold():
+		statemachine.set_state("fall")
 
 func loop_process(_delta):
 	pass

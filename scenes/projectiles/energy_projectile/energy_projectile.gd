@@ -20,7 +20,7 @@ func _physics_process(delta):
 			bounces -= 1
 			direction = direction.bounce(collide.get_normal()) * Vector2(1, 0.7)
 		if collider.has_method("hit"):
-			collider.hit(collider, gpos)
+			collider.hit(collider, gpos, direction)
 		damage(collide.get_collider(), collide.get_position())
 
 func damage(collider, gpos):
@@ -30,7 +30,6 @@ func damage(collider, gpos):
 func explode():
 	var x = explosion.instantiate()
 	add_child(x)
-	direction = Vector2(0,0)
 	$Sprite2D.visible = false
 	$PointLight2D.visible = false
 	$Timer.start()

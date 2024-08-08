@@ -21,9 +21,9 @@ func take_damage(amount):
 				SceneManager.fade_to_scene(scene)
 			call_deferred("queue_free")
 
-func hit(obj, gpos):
+func hit(obj, gpos, dir):
 	var lpos = global_position - gpos
-	apply_impulse(lpos, -lpos * 100)
+	apply_impulse(dir * 200, -lpos)
 
 func setup(text, tscn):
 	$Label.text = text
