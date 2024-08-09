@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if state is State_CharacterBody2D:
 		state.loop_physics_process(delta)
 	unit.move_and_slide()
-	process_collisions(delta)
+	#process_collisions(delta)
 
 func process_collisions(_delta):
 	for i in unit.get_slide_collision_count():
@@ -34,12 +34,12 @@ func process_collisions(_delta):
 			if normal.angle_to(Vector2.UP) < 0.7853:	# 45 degrees in radians
 				if unit.current_platform != collider:
 					unit.current_platform = collider
-				continue
-			if collider is RigidBody2D:
-				if collider.has_method("hit"):
-					var pos = c.get_position()
-					var force = unit.push_force_base + abs(unit.velocity.length()) / 500.0
-					collider.hit(unit, pos, -normal * force)
+			else:
+				if collider is RigidBody2D:
+					if collider.has_method("hit"):
+						var pos = c.get_position()
+						var force = unit.push_force_base + abs(unit.velocity.length()) / 500.0
+						#collider.hit(unit, pos, -normal * force)
 
 func set_state(new_state: String):
 	if states.has(new_state):

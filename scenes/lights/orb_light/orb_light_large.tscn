@@ -24,7 +24,7 @@ fill_to = Vector2(1, 0.495726)
 
 [node name="OrbLight" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_u4ctc")
 gravity_scale = 0.0
 freeze_mode = 1

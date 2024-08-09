@@ -8,7 +8,7 @@ light_mode = 1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ortxk"]
 friction = 0.0
-bounce = 0.64
+bounce = 0.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgpcj"]
 size = Vector2(94, 24)
@@ -26,7 +26,6 @@ collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_ortxk")
 gravity_scale = 0.0
 freeze_mode = 1
-contact_monitor = true
 script = ExtResource("1_27hk8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

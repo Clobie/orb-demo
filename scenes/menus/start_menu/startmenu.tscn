@@ -212,10 +212,7 @@ position = Vector2(251, 341)
 position = Vector2(742, 164)
 
 [node name="OrbLight4" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(729, 334)
-
-[node name="OrbLight5" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(514, 245)
+position = Vector2(742, 164)
 
 [node name="Ever128x128-photoroom" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_tq26g")
