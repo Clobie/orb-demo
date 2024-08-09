@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var hp = 500
+@onready var hp = 50000
 @onready var hp_max = hp
 @onready var scene = ""
 
