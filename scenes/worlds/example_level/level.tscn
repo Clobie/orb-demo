@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8tsu38tgb055"]
+[gd_scene load_steps=8 format=3 uid="uid://c8tsu38tgb055"]
 
 [ext_resource type="Script" path="res://scenes/worlds/example_level/scripts/room1.gd" id="1_eucn8"]
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="2_0bt5d"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="3_g4cnp"]
 [ext_resource type="PackedScene" uid="uid://cxlw6ocqk475r" path="res://scenes/player/side_scroller/player.tscn" id="4_riniy"]
+[ext_resource type="PackedScene" uid="uid://p2sr3w8b5qcr" path="res://scenes/lights/orb_light/orb_light.tscn" id="5_8v08s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_avpod"]
 light_mode = 1
@@ -46,3 +47,36 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_riniy")]
 position = Vector2(-282, 1040)
+
+[node name="OrbLight" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(-58, 957)
+
+[node name="OrbLight2" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(1227, 772)
+
+[node name="OrbLight3" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(-165, 433)
+
+[node name="OrbLight4" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(-165, -8)
+
+[node name="OrbLight5" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(2196, 947)
+
+[node name="OrbLight6" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(1335, -119)
+
+[node name="OrbLight7" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(2166, -153)
+
+[node name="OrbLight8" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(1133, 201)
+
+[node name="OrbLight9" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(820, 917)
+
+[node name="OrbLight10" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(420, 560)
+
+[node name="OrbLight11" parent="." instance=ExtResource("5_8v08s")]
+position = Vector2(686, 133)

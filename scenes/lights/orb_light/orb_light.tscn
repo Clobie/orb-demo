@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://p2sr3w8b5qcr"]
+[gd_scene load_steps=11 format=3 uid="uid://p2sr3w8b5qcr"]
 
 [ext_resource type="Texture2D" uid="uid://cjdntw8bg7esq" path="res://assets/textures/projectiles/arcane_ball.tres" id="1_n1ca6"]
 [ext_resource type="Script" path="res://scenes/lights/orb_light/orb_light.gd" id="1_uj62a"]
@@ -12,6 +12,26 @@ radius = 21.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ba8vn"]
 load_path = "res://.godot/imported/light01.png-ba9da9d7832bbf155a87da1e176d3c11.ctex"
+
+[sub_resource type="Curve" id="Curve_r37p4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3rlwc"]
+curve = SubResource("Curve_r37p4")
+
+[sub_resource type="Curve" id="Curve_mxquk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cnmfo"]
+curve = SubResource("Curve_mxquk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbnsc"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_cnmfo")
+alpha_curve = SubResource("CurveTexture_3rlwc")
 
 [node name="OrbLight" type="RigidBody2D"]
 collision_layer = 2
@@ -29,3 +49,11 @@ texture = ExtResource("1_n1ca6")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("CompressedTexture2D_ba8vn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_mbnsc")
+texture = ExtResource("1_n1ca6")
+lifetime = 0.5
+trail_lifetime = 0.01

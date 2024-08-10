@@ -16,10 +16,10 @@ func fade_to_scene(scene_path):
 	next_scene_path = scene_path
 	$AnimationPlayer.play("fade_to_scene")
 	
-func _fade_in():
+func _fade_out():
 	loading_screen.start()
 
-func _fade_out():
+func _fade_in():
 	loading_screen.end()
 
 func _load_next_scene():

@@ -2,7 +2,9 @@ extends RigidBody2D
 
 @onready var hp = 256
 @onready var hp_max = hp
-@onready var scene = ""
+
+@export var button_text = ""
+@export var scene_path = ""
 
 var disabled = false
 
@@ -10,7 +12,8 @@ func _ready():
 	$ProgressBar.max_value = hp_max
 	$ProgressBar.min_value = 0
 	$ProgressBar.value = hp_max
-
+	$Label.text = button_text
+	
 func _process(_delta):
 	pass
 
@@ -19,18 +22,10 @@ func take_damage(amount):
 		hp = clamp(hp - amount, 0, hp_max)
 		$ProgressBar.value = hp
 	if hp <= 0:
-		if scene == "quit":
-			get_tree().quit()
-		else:
-			if scene != "":
-				SceneManager.fade_to_scene(scene)
-			call_deferred("queue_free")
+		SceneManager.fade_to_scene(scene_path)
+		call_deferred("queue_free")
 
 func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
 	apply_impulse(dir * 200, -lpos)
-
-func setup(text, tscn):
-	$Label.text = text
-	scene = tscn
 	

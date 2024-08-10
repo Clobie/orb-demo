@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var directional_light_2d_darkness = $Lights/DirectionalLight2D_Darkness
 
-@onready var level_music_path = "res://assets/audio/DavidKBD/05 - DavidKBD - Purgatory Pack - From the Dark Past.ogg"
+@onready var level_music_path = "res://assets/audio/DavidKBD/6- The Veil of Night.ogg"
 
 func _ready() -> void:
 	directional_light_2d_darkness.visible = true

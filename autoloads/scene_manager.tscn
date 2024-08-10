@@ -15,13 +15,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
-"method": &"_fade_in"
+"method": &"_fade_out"
 }, {
 "args": [],
 "method": &"_load_next_scene"
 }, {
 "args": [],
-"method": &"_fade_out"
+"method": &"_fade_in"
 }]
 }
 
