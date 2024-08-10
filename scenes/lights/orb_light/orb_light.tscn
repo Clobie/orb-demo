@@ -1,44 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://p2sr3w8b5qcr"]
+[gd_scene load_steps=7 format=3 uid="uid://p2sr3w8b5qcr"]
 
 [ext_resource type="Texture2D" uid="uid://cjdntw8bg7esq" path="res://assets/textures/projectiles/arcane_ball.tres" id="1_n1ca6"]
 [ext_resource type="Script" path="res://scenes/lights/orb_light/orb_light.gd" id="1_uj62a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u4ctc"]
 friction = 0.0
-bounce = 1.0
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjui5"]
-radius = 21.0
+radius = 15.0333
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ba8vn"]
 load_path = "res://.godot/imported/light01.png-ba9da9d7832bbf155a87da1e176d3c11.ctex"
 
-[sub_resource type="Curve" id="Curve_r37p4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_3rlwc"]
-curve = SubResource("Curve_r37p4")
-
-[sub_resource type="Curve" id="Curve_mxquk"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_cnmfo"]
-curve = SubResource("Curve_mxquk")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbnsc"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_cnmfo")
-alpha_curve = SubResource("CurveTexture_3rlwc")
+[sub_resource type="CircleShape2D" id="CircleShape2D_cla0t"]
+radius = 21.0
 
 [node name="OrbLight" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 7
+input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_u4ctc")
 gravity_scale = 0.0
 freeze_mode = 1
+continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_uj62a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -49,11 +36,12 @@ texture = ExtResource("1_n1ca6")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("CompressedTexture2D_ba8vn")
+texture_scale = 0.5
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-amount = 500
-process_material = SubResource("ParticleProcessMaterial_mbnsc")
-texture = ExtResource("1_n1ca6")
-lifetime = 0.5
-trail_lifetime = 0.01
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cla0t")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

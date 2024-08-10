@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var hp = 256
+@export var hp = 51
 @onready var hp_max = hp
 
 @export var button_text = ""
@@ -22,8 +22,9 @@ func take_damage(amount):
 		hp = clamp(hp - amount, 0, hp_max)
 		$ProgressBar.value = hp
 	if hp <= 0:
-		SceneManager.fade_to_scene(scene_path)
-		call_deferred("queue_free")
+		if scene_path != "":
+			SceneManager.fade_to_scene(scene_path)
+			call_deferred("queue_free")
 
 func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos

@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene load_steps=150 format=3 uid="uid://cxlw6ocqk475r"]
 
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
 [ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/ledge_land.gd" id="29_pvqvo"]
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/ledge_hold.gd" id="30_0a1vd"]
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_jump.gd" id="31_wovvh"]
+[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/die.gd" id="32_i53q8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g8ej"]
 radius = 6.0
@@ -621,9 +622,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1lc4l")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 8.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -638,7 +639,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yxkqy")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 12.0
 }, {
@@ -994,7 +995,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_f3x8k")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_jibvp")
-animation = &"idle"
+animation = &"death"
 metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -1052,3 +1053,9 @@ script = ExtResource("30_0a1vd")
 
 [node name="wall_jump" type="Node" parent="StateMachine"]
 script = ExtResource("31_wovvh")
+
+[node name="death" type="Node" parent="StateMachine"]
+script = ExtResource("32_i53q8")
+
+[node name="Marker2D_RopePoint" type="Marker2D" parent="."]
+position = Vector2(0, -19)

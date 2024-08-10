@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://f7mgjctyb8df"]
+[gd_scene load_steps=14 format=3 uid="uid://f7mgjctyb8df"]
 
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="1_dosua"]
 [ext_resource type="PackedScene" uid="uid://cxlw6ocqk475r" path="res://scenes/player/side_scroller/player.tscn" id="2_15u5h"]
@@ -29,6 +29,9 @@ func _ready():
 func _process(_delta):
 	pass
 "
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o1w00"]
+light_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tq26g"]
 shader = ExtResource("5_vron6")
@@ -181,6 +184,7 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 1, 131072, 1, 2, 131072, 1, 3,
 metadata/_edit_lock_ = true
 
 [node name="Label_GameName1" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_o1w00")
 offset_left = 494.5
 offset_top = 332.0
 offset_right = 805.5
@@ -234,51 +238,56 @@ rotation = -0.472984
 shape = SubResource("CapsuleShape2D_mwmdh")
 metadata/_edit_lock_ = true
 
-[node name="DestructibleButton" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(598, 484)
+[node name="DestructibleButton_Play" parent="." instance=ExtResource("8_44md5")]
+position = Vector2(506, 568)
 button_text = "Play"
 scene_path = "res://scenes/worlds/example_level/level.tscn"
-metadata/_edit_lock_ = true
 
-[node name="DestructibleButton2" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(697, 484)
+[node name="DestructibleButton_Credits" parent="." instance=ExtResource("8_44md5")]
+position = Vector2(763, 598)
 button_text = "Credits"
 scene_path = "res://scenes/menus/credits_menu/credit_menu.tscn"
-metadata/_edit_lock_ = true
+
+[node name="DestructibleButton_Join" parent="." instance=ExtResource("8_44md5")]
+position = Vector2(506, 599)
+button_text = "Join"
+
+[node name="DestructibleButton_Host" parent="." instance=ExtResource("8_44md5")]
+position = Vector2(506, 630)
+button_text = "Host"
+
+[node name="DestructibleButton_Quit" parent="." instance=ExtResource("8_44md5")]
+position = Vector2(763, 629)
+button_text = "Quit"
 
 [node name="Lights" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D_Darkness" type="DirectionalLight2D" parent="Lights"]
-visible = false
 texture_filter = 1
-energy = 0.25
 blend_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="OrbLight" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(186, 121)
+position = Vector2(190, 105)
 
 [node name="OrbLight2" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(1106, 185)
+position = Vector2(1178, 94)
 
 [node name="OrbLight3" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(991, 285)
+position = Vector2(191, 530)
 
 [node name="OrbLight4" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(334, 239)
+position = Vector2(1185, 632)
 
 [node name="OrbLight5" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(872, 202)
-
-[node name="OrbLight6" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(447, 246)
+position = Vector2(653, 300)
 
 [node name="Dungeon2" parent="." instance=ExtResource("1_dosua")]
 layer_0/tile_data = PackedInt32Array(196664, 655360, 14, 196624, 786432, 14, 196625, 851968, 14, 262147, 851968, 14, 2490382, 655360, 10, 2555918, 655360, 10, 2621454, 655360, 10, 2686990, 655360, 10, 2621455, 655360, 10, 2686991, 655360, 10, 2686992, 393216, 13, 2687000, 327680, 13, 2687005, 393216, 13, 2687007, 262144, 13, 2687008, 327680, 13, 2687009, 393216, 13, 2687011, 262144, 13, 2687015, 458752, 10, 2687021, 327680, 13, 2687022, 393216, 13, 2687026, 327680, 13, 2687027, 262144, 13, 2687029, 262144, 13, 2687030, 327680, 13, 2687034, 262144, 13, 2687035, 393216, 13, 2424904, 589824, 9, 2424905, 458752, 9, 2424906, 458752, 9, 2424907, 458752, 9, 2424908, 458752, 9, 2097226, 589824, 9, 2097227, 458752, 9, 2097228, 458752, 9, 2293763, 655360, 10)
 
 [node name="Player" parent="." instance=ExtResource("2_15u5h")]
-position = Vector2(649, 471)
+position = Vector2(725, 585)
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]

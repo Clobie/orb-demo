@@ -7,7 +7,7 @@ friction = 0.0
 rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brhov"]
-radius = 11.0
+radius = 3.0
 
 [sub_resource type="Gradient" id="Gradient_pboiu"]
 offsets = PackedFloat32Array(0.168724, 0.2, 0.690909)
@@ -57,6 +57,8 @@ collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_qflsv")
 gravity_scale = 0.0
 freeze_mode = 1
+continuous_cd = 1
+max_contacts_reported = 1
 script = ExtResource("1_al8im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

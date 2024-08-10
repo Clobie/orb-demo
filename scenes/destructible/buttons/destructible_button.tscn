@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsl8r32mgnt4n"]
+[gd_scene load_steps=11 format=3 uid="uid://dsl8r32mgnt4n"]
 
 [ext_resource type="Script" path="res://scenes/destructible/buttons/destructible_button.gd" id="1_27hk8"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="1_j7ew7"]
@@ -13,11 +13,20 @@ bounce = 0.8
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgpcj"]
 size = Vector2(94, 24)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_532nx"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_03qwn"]
+light_mode = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5uaf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m01mp"]
 bg_color = Color(0.252737, 0.534387, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1u8s2"]
+light_mode = 1
 
 [node name="DestructibleButton" type="RigidBody2D"]
 material = SubResource("CanvasItemMaterial_i31kw")
@@ -32,6 +41,7 @@ script = ExtResource("1_27hk8")
 shape = SubResource("RectangleShape2D_wgpcj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_532nx")
 offset_left = -48.0
 offset_top = -13.0
 offset_right = 48.0
@@ -46,6 +56,7 @@ offset_bottom = 12.0
 color = Color(0, 0, 0, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+material = SubResource("CanvasItemMaterial_03qwn")
 offset_left = -47.0
 offset_top = -12.0
 offset_right = 47.0
@@ -57,6 +68,7 @@ value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1u8s2")
 offset_left = -47.0
 offset_top = -12.0
 offset_right = 47.0

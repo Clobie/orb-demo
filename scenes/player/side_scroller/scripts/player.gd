@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var state_machine = $StateMachine
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var ledge_top_ray: RayCast2D = $Rays/RayCast2D_Ledge0
@@ -8,6 +10,12 @@ extends CharacterBody2D
 @onready var floor_mid_ray = $Rays/RayCast2D_Floor1
 @onready var camera_2d = $Camera2D
 @onready var projectile = preload("res://scenes/projectiles/energy_projectile/energy_projectile.tscn")
+
+@onready var start_pos = global_position
+
+@export var rope_scene: PackedScene
+var rope: Node2D
+var rope_target: Node2D
 
 var controllable: bool = true
 var can_jump: bool = true
@@ -20,8 +28,10 @@ var run_speed: float = 11000.0 # why is this so high
 var threshold = 0.5
 var look_dir: int = 1
 
-var push_force_base = 1.0
+@export var health = 100
+@onready var max_health = health
 
+var push_force_base = 1.0
 var current_platform
 
 func _ready() -> void:
@@ -34,11 +44,12 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func shoot_projectile():
-	var start_pos = global_position - Vector2(0, 20)
+	var startpos = global_position - Vector2(0, 20)
 	var mouse_position = get_global_mouse_position()
-	var direction = (mouse_position - start_pos).normalized()
+	var direction = (mouse_position - startpos).normalized()
+	startpos = startpos + direction * 5
 	var p = projectile.instantiate()
-	p.global_position = start_pos
+	p.global_position = startpos
 	p.direction = direction
 	get_tree().current_scene.add_child(p)
 
@@ -48,6 +59,7 @@ func _input(event):
 			shoot_projectile()
 		if event.button_index == 2:
 			position = get_global_mouse_position()
+			velocity = Vector2(0,0)
 	if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
 		shoot_projectile()
 
@@ -107,3 +119,9 @@ func get_floor_collider():
 
 func is_crouching():
 	return Input.is_action_pressed("down")
+
+func get_rope_point():
+	return $Marker2D_RopePoint.global_position
+
+func die():
+	state_machine.set_state("death")
