@@ -114,8 +114,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bd2t1"]
-radius = 4.0
-height = 8.0
+radius = 14.0
+height = 28.0
 
 [node name="OrbLightReceptable" type="Area2D"]
 collision_layer = 2

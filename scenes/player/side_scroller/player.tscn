@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene load_steps=160 format=3 uid="uid://cxlw6ocqk475r"]
 
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
 [ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
@@ -957,10 +957,27 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.495726)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nn1ii"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kqto6"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub70c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fbqo"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og5nc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldif7"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 4
 collision_priority = 2.0
-platform_floor_layers = 4294967291
 script = ExtResource("1_k1u3f")
 metadata/_edit_lock_ = true
 
@@ -1103,11 +1120,82 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 67)
 shape = SubResource("CircleShape2D_jbcrf")
+disabled = true
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
 position = Vector2(-1, -1)
 texture = SubResource("GradientTexture2D_qjfeu")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -52)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+material = SubResource("CanvasItemMaterial_nn1ii")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -2.0
+offset_right = 15.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.586251, 0.696715, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -3.0
+offset_right = 16.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar_Red" type="ProgressBar" parent="Node2D"]
+material = SubResource("CanvasItemMaterial_kqto6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 15.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_ub70c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fbqo")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar_Green" type="ProgressBar" parent="Node2D"]
+material = SubResource("CanvasItemMaterial_kqto6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 15.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_og5nc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ldif7")
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

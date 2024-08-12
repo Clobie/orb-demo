@@ -21,10 +21,10 @@ func take_damage(amount):
 func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
 	apply_impulse(dir * 50, -lpos)
-
+	
 func _on_area_2d_body_entered(body):
-	if body.has_method("die"):
-		body.die()
+	if body.has_method("take_damage"):
+		body.take_damage(9999)
 
 func can_grapple():
 	return enabled

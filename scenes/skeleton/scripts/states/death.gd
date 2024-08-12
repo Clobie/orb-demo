@@ -10,18 +10,16 @@ func _ready():
 	anim_name = "death"
 
 func enter_state():
+	super()
 	anim.play(anim_name)
-
+	unit.velocity.x = 0
+	$"../../Area2D_AttackArea/CollisionShape2D".disabled = true
+	
 func exit_state():
 	pass
 
 func loop_physics_process(delta):
-	unit.apply_gravity(delta)
-	if unit.is_on_floor():
-		unit.velocity.x = 0
+	pass
 
-func loop_process(_delta):
-	if anim.frame == 9:
-		unit.global_position = unit.start_pos
-		unit.respawn()
-		statemachine.set_state("idle")
+func loop_process(delta):
+	unit.apply_gravity(delta)

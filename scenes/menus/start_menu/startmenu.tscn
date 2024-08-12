@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://f7mgjctyb8df"]
+[gd_scene load_steps=15 format=3 uid="uid://f7mgjctyb8df"]
 
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="1_dosua"]
 [ext_resource type="PackedScene" uid="uid://cxlw6ocqk475r" path="res://scenes/player/side_scroller/player.tscn" id="2_15u5h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="5_vron6"]
 [ext_resource type="Texture2D" uid="uid://djsij8pn15hl5" path="res://assets/textures/everlord/ever128x128-Photoroom.png" id="6_2o5hm"]
 [ext_resource type="PackedScene" uid="uid://dsl8r32mgnt4n" path="res://scenes/destructible/buttons/destructible_button.tscn" id="8_44md5"]
+[ext_resource type="PackedScene" uid="uid://chh225ffexu0" path="res://scenes/skeleton/skeleton.tscn" id="8_noj71"]
 
 [sub_resource type="GDScript" id="GDScript_olxlq"]
 script/source = "extends Node2D
@@ -283,7 +284,12 @@ position = Vector2(653, 300)
 layer_0/tile_data = PackedInt32Array(196664, 655360, 14, 196624, 786432, 14, 196625, 851968, 14, 262147, 851968, 14, 2490382, 655360, 10, 2555918, 655360, 10, 2621454, 655360, 10, 2686990, 655360, 10, 2621455, 655360, 10, 2686991, 655360, 10, 2686992, 393216, 13, 2687000, 327680, 13, 2687005, 393216, 13, 2687007, 262144, 13, 2687008, 327680, 13, 2687009, 393216, 13, 2687011, 262144, 13, 2687015, 458752, 10, 2687021, 327680, 13, 2687022, 393216, 13, 2687026, 327680, 13, 2687027, 262144, 13, 2687029, 262144, 13, 2687030, 327680, 13, 2687034, 262144, 13, 2687035, 393216, 13, 2424904, 589824, 9, 2424905, 458752, 9, 2424906, 458752, 9, 2424907, 458752, 9, 2424908, 458752, 9, 2097226, 589824, 9, 2097227, 458752, 9, 2097228, 458752, 9, 2293763, 655360, 10)
 
 [node name="Player" parent="." instance=ExtResource("2_15u5h")]
-position = Vector2(618, 672)
+position = Vector2(622, 466)
+
+[node name="Skeleton" parent="." instance=ExtResource("8_noj71")]
+position = Vector2(610, 663)
+roam_speed = 3000
+chase_speed = 7000
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]

@@ -23,8 +23,6 @@ func _physics_process(delta: float) -> void:
 	if state is State_CharacterBody2D:
 		state.loop_physics_process(delta)
 	unit.move_and_slide()
-	if unit.health <= 0:
-		set_state("death")
 
 func set_state(new_state: String):
 	if states.has(new_state):

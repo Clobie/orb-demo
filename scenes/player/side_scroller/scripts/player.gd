@@ -10,10 +10,11 @@ extends CharacterBody2D
 @onready var floor_mid_ray = $Rays/RayCast2D_Floor1
 @onready var camera_2d = $Camera2D
 @onready var projectile = preload("res://scenes/projectiles/energy_projectile/energy_projectile.tscn")
-
 @onready var start_pos = global_position
 
-@export var rope_scene: PackedScene
+@export var health = 150
+@onready var health_max = health
+
 var rope: Node2D
 var rope_target: Node2D
 
@@ -32,14 +33,16 @@ var grav_gun_enabled = false
 var grappling = []
 var grappling_last_force = []
 
-@export var health = 100
-@onready var max_health = health
-
 var push_force_base = 1.0
 var current_platform
 
 func _ready() -> void:
 	$Area2D/CollisionShape2D/Sprite2D.visible = false
+	$Node2D/ProgressBar_Green.value = health
+	$Node2D/ProgressBar_Green.max_value = health_max
+	$Node2D/ProgressBar_Red.value = health
+	$Node2D/ProgressBar_Red.max_value = health_max
+	heal(9999)
 
 func _process(delta: float) -> void:
 	pass
@@ -163,6 +166,25 @@ func get_rope_point():
 func die():
 	state_machine.set_state("death")
 
+func respawn():
+	health = health_max
+	$Node2D/ProgressBar_Green.value = health
+	$Node2D/ProgressBar_Red.value = health
+
+func take_damage(amount):
+	if amount > 0:
+		health = clamp(health - amount, 0, health_max)
+		$Node2D/ProgressBar_Green.value = health
+		create_tween().tween_property($Node2D/ProgressBar_Red, "value", health, 0.5)
+	if health <= 0:
+		die()
+
+func heal(amount):
+	if amount > 0:
+		health = clamp(health + amount, 0, health_max)
+		$Node2D/ProgressBar_Green.value = health
+		$Node2D/ProgressBar_Red.value = health
+	
 func _on_area_2d_body_entered(body):
 	if body.has_method("can_grapple"):
 		if body.can_grapple():

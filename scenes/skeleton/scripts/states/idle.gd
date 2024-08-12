@@ -7,9 +7,10 @@ extends State_CharacterBody2D
 
 func _ready():
 	super()
-	anim_name = "death"
+	anim_name = "idle"
 
 func enter_state():
+	super()
 	anim.play(anim_name)
 
 func exit_state():
@@ -21,7 +22,4 @@ func loop_physics_process(delta):
 		unit.velocity.x = 0
 
 func loop_process(_delta):
-	if anim.frame == 9:
-		unit.global_position = unit.start_pos
-		unit.respawn()
-		statemachine.set_state("idle")
+	pass
