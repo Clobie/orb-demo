@@ -4,6 +4,8 @@ extends RigidBody2D
 @onready var hp_max = hp
 @onready var scene = ""
 
+var enabled = true
+
 func _ready():
 	pass
 
@@ -23,4 +25,18 @@ func hit(_obj, gpos, dir):
 func _on_area_2d_body_entered(body):
 	if body.has_method("die"):
 		body.die()
-	print(body)
+
+func can_grapple():
+	return enabled
+
+func can_insert():
+	return true
+	
+func disable():
+	enabled = false
+	linear_velocity = Vector2(0, 0)
+	$CollisionShape2D.set_deferred("disabled", true)
+
+func do_force(force: Vector2):
+	if enabled:
+		apply_force(force, Vector2(0,0))

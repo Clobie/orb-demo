@@ -28,6 +28,10 @@ var run_speed: float = 11000.0 # why is this so high
 var threshold = 0.5
 var look_dir: int = 1
 
+var grav_gun_enabled = false
+var grappling = []
+var grappling_last_force = []
+
 @export var health = 100
 @onready var max_health = health
 
@@ -35,13 +39,42 @@ var push_force_base = 1.0
 var current_platform
 
 func _ready() -> void:
-	pass
+	$Area2D/CollisionShape2D/Sprite2D.visible = false
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
-	pass
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		grav_gun(true)
+	if !grappling.is_empty():
+		var i = -1
+		for item in grappling:
+			i += 1
+			if item.has_method("can_grapple"):
+				if item.can_grapple:
+					var tpos = $Area2D/CollisionShape2D.global_position
+					var opos = item.global_position
+					var force = clamp(tpos.distance_to(opos), 0, 50)
+					var dir = (tpos - opos).normalized()
+					item.do_force(dir * force)
+					grappling_last_force[i] = dir
+
+func grav_gun(enable: bool):
+	if enable:
+		var pos = global_position
+		$Area2D/CollisionShape2D.global_position = get_global_mouse_position()
+		if grav_gun_enabled == false:
+			$Area2D/CollisionShape2D.set_deferred("disabled", false)
+			$Area2D/CollisionShape2D/Sprite2D.visible = true
+			grav_gun_enabled = true
+	else:
+		$Area2D/CollisionShape2D.global_position = global_position
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$Area2D/CollisionShape2D/Sprite2D.visible = false
+		grav_gun_enabled = false
+		grappling = []
+		grappling_last_force = []
 
 func shoot_projectile():
 	var startpos = global_position - Vector2(0, 20)
@@ -54,14 +87,18 @@ func shoot_projectile():
 	get_tree().current_scene.add_child(p)
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == 1:
-			shoot_projectile()
-		if event.button_index == 2:
-			position = get_global_mouse_position()
-			velocity = Vector2(0,0)
-	if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
-		shoot_projectile()
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == 1:
+				shoot_projectile()
+			if event.button_index == 2:
+				pass
+		if event.is_released:
+			grav_gun(false)
+				#position = get_global_mouse_position()
+				#velocity = Vector2(0,0)
+		#if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
+			#shoot_projectile()
 
 func move_axis() -> float:
 	var axis = Input.get_axis("left", "right")
@@ -125,3 +162,18 @@ func get_rope_point():
 
 func die():
 	state_machine.set_state("death")
+
+func _on_area_2d_body_entered(body):
+	if body.has_method("can_grapple"):
+		if body.can_grapple():
+			grappling.push_back(body)
+			grappling_last_force.push_back(Vector2(0,0))
+
+func _on_area_2d_body_exited(body):
+	if body.has_method("can_grapple"):
+		if body.can_grapple():
+			var i = -1
+			for item in grappling:
+				i += 1
+				if item == body:
+					grappling.remove_at(i)

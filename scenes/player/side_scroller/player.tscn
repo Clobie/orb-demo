@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene load_steps=154 format=3 uid="uid://cxlw6ocqk475r"]
 
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
 [ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/ledge_hold.gd" id="30_0a1vd"]
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_jump.gd" id="31_wovvh"]
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/die.gd" id="32_i53q8"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="33_1o0u5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g8ej"]
 radius = 6.0
@@ -941,6 +942,21 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbcrf"]
+radius = 170.0
+
+[sub_resource type="Gradient" id="Gradient_juja0"]
+offsets = PackedFloat32Array(0.0535714, 0.535714, 1)
+colors = PackedColorArray(0.521569, 0, 0.952941, 0.529412, 0.4, 0.662745, 1, 0.313726, 0.521569, 0, 0.952941, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qjfeu"]
+gradient = SubResource("Gradient_juja0")
+width = 337
+height = 337
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.495726)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 collision_priority = 2.0
@@ -979,6 +995,10 @@ rotation = -1.5708
 target_position = Vector2(-18, -6.51598e-05)
 collision_mask = 4
 
+[node name="RayCast2D_GravityGun" type="RayCast2D" parent="Rays"]
+visible = false
+target_position = Vector2(-77, -50)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_3g8ej")
@@ -1013,6 +1033,22 @@ offset_bottom = -3.0
 scale = Vector2(0.25, 0.25)
 text = "State"
 metadata/_edit_lock_ = true
+
+[node name="Nametag" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -53.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("33_1o0u5")
+theme_override_font_sizes/font_size = 12
+text = "Clobie"
+horizontal_alignment = 1
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
 script = ExtResource("19_yyycl")
@@ -1059,3 +1095,19 @@ script = ExtResource("32_i53q8")
 
 [node name="Marker2D_RopePoint" type="Marker2D" parent="."]
 position = Vector2(0, -19)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -66)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 67)
+shape = SubResource("CircleShape2D_jbcrf")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(-1, -1)
+texture = SubResource("GradientTexture2D_qjfeu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
