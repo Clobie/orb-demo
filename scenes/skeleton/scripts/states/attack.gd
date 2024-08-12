@@ -6,11 +6,18 @@ extends State_CharacterBody2D
 # anim_name: String
 
 var rand_attack
+var dir
 
 func _ready():
 	super()
 	anim_name = "attack"
-
+	if anim.flip_h:
+		$"../../Area2D_AttackArea/CollisionShape2D".position = Vector2(-10, -20)
+		dir = -1
+	else:
+		$"../../Area2D_AttackArea/CollisionShape2D".position = Vector2(10, -20)
+		dir = 1
+	
 func enter_state():
 	super()
 	rand_attack = anim_name + str(randi_range(1, 3))
@@ -24,11 +31,17 @@ func loop_physics_process(delta):
 	if unit.is_on_floor():
 		unit.velocity.x = 0
 
-func loop_process(_delta):
+func loop_process(delta):
 	if anim.flip_h:
 		$"../../Area2D_AttackArea/CollisionShape2D".position = Vector2(-10, -20)
+		dir = -1
 	else:
 		$"../../Area2D_AttackArea/CollisionShape2D".position = Vector2(10, -20)
+		dir = 1
+	
+	if anim.frame == 1:
+		leap(delta)
+	
 	match rand_attack:
 		"attack1":
 			if anim.frame == 4:
@@ -51,8 +64,12 @@ func loop_process(_delta):
 				$"../../Area2D_AttackArea/CollisionShape2D".disabled = true
 			if anim.frame == 8:
 				$"../../Area2D_AttackArea/CollisionShape2D".disabled = false
+				leap(delta)
 			if anim.frame == 9:
 				$"../../Area2D_AttackArea/CollisionShape2D".disabled = true
 			if anim.frame == 12:
 				statemachine.set_state("chase")
-		
+
+func leap(delta):
+	unit.velocity.y = -125
+	unit.velocity.x = unit.chase_speed * 1.2 * dir * delta

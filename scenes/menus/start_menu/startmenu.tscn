@@ -289,7 +289,6 @@ position = Vector2(622, 466)
 [node name="Skeleton" parent="." instance=ExtResource("8_noj71")]
 position = Vector2(610, 663)
 roam_speed = 3000
-chase_speed = 7000
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]

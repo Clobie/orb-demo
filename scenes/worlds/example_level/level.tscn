@@ -106,117 +106,94 @@ position = Vector2(732, 179)
 
 [node name="Skeleton" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(615, -278)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton2" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-800, -74)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton3" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-906, 324)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton4" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-741, 316)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton5" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-782, 659)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton6" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(239, 763)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton7" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(217, 589)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton8" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(374, 192)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton9" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(664, 852)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton10" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(846, 854)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton11" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1466, 845)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton12" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1114, 485)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton13" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1183, 147)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton14" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1405, -318)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton15" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1012, -37)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton16" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1086, -185)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton17" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(1302, -97)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton18" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(674, -14)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton19" parent="Skeletons" instance=ExtResource("8_aey2a")]
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton20" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-414, -48)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton21" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-319, 665)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton22" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-338, 241)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Skeleton23" parent="Skeletons" instance=ExtResource("8_aey2a")]
 position = Vector2(-560, 772)
-roam_speed = 3000
-chase_speed = 10000
+roam_speed = 1800
 
 [node name="Player" parent="." instance=ExtResource("4_riniy")]
 position = Vector2(-282, 1040)

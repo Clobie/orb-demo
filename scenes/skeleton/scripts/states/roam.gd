@@ -16,6 +16,9 @@ func enter_state():
 	anim.play(anim_name)
 	while dir == 0:
 		dir = randi_range(-1, 1)
+	await get_tree().create_timer(0.25).timeout
+	$"../../Rays/RayCast2D_FloorLeft".enabled = true
+	$"../../Rays/RayCast2D_FloorRight".enabled = true
 
 func exit_state():
 	pass
@@ -30,7 +33,7 @@ func loop_process(delta):
 		statemachine.set_state("chase")
 
 func roam(delta):
-	if unit.on_edge() or unit.near_wall():
+	if unit.on_edge() or unit.near_wall() and unit.is_on_floor():
 		dir *= -1
 	unit.velocity.x = dir * unit.roam_speed * delta
 	if unit.velocity.x < 0:
