@@ -16,6 +16,7 @@ extends CharacterBody2D
 @onready var ray_cast_2d_floor_left = $Rays/RayCast2D_FloorLeft
 @onready var ray_cast_2d_floor_right = $Rays/RayCast2D_FloorRight
 @onready var ray_cast_2d_player_detector = $Rays/RayCast2D_PlayerDetector
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var dead = false
 
@@ -34,7 +35,8 @@ func take_damage(amount):
 		health = clamp(health - amount, 0, health_max)
 		$Node2D/ProgressBar_Green.value = health
 		create_tween().tween_property($Node2D/ProgressBar_Red, "value", health, 0.5)
-
+	statemachine.set_state("hurt")
+	
 func die():
 	dead = true
 	statemachine.set_state("death")
@@ -42,7 +44,9 @@ func die():
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(2, false)
 	$Node2D.visible = false
-
+	#audio_stream_player_2d.position = global_position
+	audio_stream_player_2d.play()
+	
 func detect_player():
 	var left = ray_cast_2d_farleft.is_colliding()
 	var right = ray_cast_2d_farright.is_colliding()

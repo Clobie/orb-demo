@@ -5,17 +5,13 @@ extends State_CharacterBody2D
 # anim: AnimatedSprite2D
 # anim_name: String
 
-var time = 0.0
-var timeout = 0.0
-
 func _ready():
 	super()
-	anim_name = "idle"
+	anim_name = "hurt"
 
 func enter_state():
 	super()
 	anim.play(anim_name)
-	timeout = randf_range(1.0, 10.0)
 
 func exit_state():
 	pass
@@ -26,11 +22,5 @@ func loop_physics_process(delta):
 		unit.velocity.x = 0
 
 func loop_process(delta):
-	time += delta
-	var p = unit.detect_player()
-	if p:
-		statemachine.set_state("chase")
-	else:
-		if time > timeout:
-			statemachine.set_state("roam")
-			time = 0
+	if anim.frame == 2:
+		statemachine.set_state("idle")

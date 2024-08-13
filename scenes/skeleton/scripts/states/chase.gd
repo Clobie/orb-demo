@@ -18,7 +18,6 @@ func enter_state():
 	get_target()
 	$"../../Rays/RayCast2D_FloorLeft".enabled = false
 	$"../../Rays/RayCast2D_FloorRight".enabled = false
-	#unit.velocity.y = -100
 
 func exit_state():
 	pass
@@ -42,9 +41,6 @@ func chase(delta):
 			dir = -1
 		if dist.x > 0:
 			dir = 1
-		# oops flying skeletons lol
-		#if abs(dist.x) < 100 and dist.y < 100:
-		#	unit.velocity = Vector2(dir * 11000 * delta, dist.y)
 		unit.velocity.x = dir * unit.chase_speed * delta
 		if unit.velocity.x < 0:
 			anim.flip_h = true

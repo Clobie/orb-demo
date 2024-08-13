@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://chh225ffexu0"]
+[gd_scene load_steps=90 format=3 uid="uid://chh225ffexu0"]
 
 [ext_resource type="Script" path="res://scenes/skeleton/skeleton.gd" id="1_h3v7o"]
 [ext_resource type="Texture2D" uid="uid://cu12r3ue2n8qv" path="res://assets/textures/units/skeleton/Skeleton enemy.png" id="1_retwu"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/skeleton/scripts/states/roam.gd" id="6_iwxn0"]
 [ext_resource type="Script" path="res://scenes/skeleton/scripts/states/chase.gd" id="7_gcpgy"]
 [ext_resource type="Script" path="res://scenes/skeleton/scripts/states/attack.gd" id="8_gles2"]
+[ext_resource type="AudioStream" uid="uid://cl1718u7j6aln" path="res://assets/audio/DeadlyKombatFreeversion/bone_breaking_03.wav" id="9_xeb1p"]
+[ext_resource type="Script" path="res://scenes/skeleton/scripts/states/hurt.gd" id="10_hmpms"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dkm4"]
 radius = 7.0
@@ -491,7 +493,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -586,7 +588,9 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -16)
 sprite_frames = SubResource("SpriteFrames_6utv7")
-animation = &"chase"
+animation = &"hurt"
+frame = 2
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Area2D_AttackArea" type="Area2D" parent="."]
@@ -639,25 +643,6 @@ collision_mask = 4
 [node name="RayCast2D_PlayerDetector" type="RayCast2D" parent="Rays"]
 position = Vector2(0, -15)
 target_position = Vector2(0, -64)
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
-script = ExtResource("2_kbd5s")
-state = NodePath("roam")
-
-[node name="idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_jauvp")
-
-[node name="death" type="Node" parent="StateMachine"]
-script = ExtResource("5_8m47c")
-
-[node name="roam" type="Node" parent="StateMachine"]
-script = ExtResource("6_iwxn0")
-
-[node name="chase" type="Node" parent="StateMachine"]
-script = ExtResource("7_gcpgy")
-
-[node name="attack" type="Node" parent="StateMachine"]
-script = ExtResource("8_gles2")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -52)
@@ -725,5 +710,30 @@ theme_override_styles/background = SubResource("StyleBoxFlat_14dn4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1l7yh")
 value = 100.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_xeb1p")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("2_kbd5s")
+state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_jauvp")
+
+[node name="death" type="Node" parent="StateMachine"]
+script = ExtResource("5_8m47c")
+
+[node name="roam" type="Node" parent="StateMachine"]
+script = ExtResource("6_iwxn0")
+
+[node name="chase" type="Node" parent="StateMachine"]
+script = ExtResource("7_gcpgy")
+
+[node name="attack" type="Node" parent="StateMachine"]
+script = ExtResource("8_gles2")
+
+[node name="hurt" type="Node" parent="StateMachine"]
+script = ExtResource("10_hmpms")
 
 [connection signal="body_entered" from="Area2D_AttackArea" to="." method="_on_area_2d_attack_area_body_entered"]

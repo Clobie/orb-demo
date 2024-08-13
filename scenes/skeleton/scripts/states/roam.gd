@@ -6,6 +6,8 @@ extends State_CharacterBody2D
 # anim_name: String
 
 var dir = 0
+var time = 0.0
+var timeout = 0.0
 
 func _ready():
 	super()
@@ -19,6 +21,7 @@ func enter_state():
 	await get_tree().create_timer(0.25).timeout
 	$"../../Rays/RayCast2D_FloorLeft".enabled = true
 	$"../../Rays/RayCast2D_FloorRight".enabled = true
+	timeout = randf_range(5.0, 20.0)
 
 func exit_state():
 	pass
@@ -28,9 +31,14 @@ func loop_physics_process(delta):
 	roam(delta)
 
 func loop_process(delta):
+	time += delta
 	var p = unit.detect_player()
 	if p:
 		statemachine.set_state("chase")
+	else:
+		if time > timeout:
+			statemachine.set_state("idle")
+			time = 0
 
 func roam(delta):
 	if unit.on_edge() or unit.near_wall() and unit.is_on_floor():
