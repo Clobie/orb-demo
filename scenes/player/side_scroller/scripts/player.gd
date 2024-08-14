@@ -11,12 +11,16 @@ extends CharacterBody2D
 @onready var camera_2d = $Camera2D
 @onready var projectile = preload("res://scenes/projectiles/energy_projectile/energy_projectile.tscn")
 @onready var start_pos = global_position
+@onready var timer_can_shoot = $Timer_CanShoot
 
 @export var health = 150
 @onready var health_max = health
 
 var rope: Node2D
 var rope_target: Node2D
+
+var can_shoot = true
+
 
 var controllable: bool = true
 var can_jump: bool = true
@@ -50,6 +54,12 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		grav_gun(true)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if can_shoot:
+			shoot_projectile()
+			can_shoot = false
+			timer_can_shoot.start()
+			
 	if !grappling.is_empty():
 		var i = -1
 		for item in grappling:
@@ -92,8 +102,8 @@ func shoot_projectile():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			if event.button_index == 1:
-				shoot_projectile()
+			#if event.button_index == 1:
+				#shoot_projectile()
 			if event.button_index == 2:
 				pass
 		if event.is_released:
@@ -199,3 +209,8 @@ func _on_area_2d_body_exited(body):
 				i += 1
 				if item == body:
 					grappling.remove_at(i)
+
+func _on_timer_can_shoot_timeout():
+	can_shoot = true
+	timer_can_shoot.stop()
+	

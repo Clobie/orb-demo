@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://chh225ffexu0"]
+[gd_scene load_steps=93 format=3 uid="uid://chh225ffexu0"]
 
 [ext_resource type="Script" path="res://scenes/skeleton/skeleton.gd" id="1_h3v7o"]
 [ext_resource type="Texture2D" uid="uid://cu12r3ue2n8qv" path="res://assets/textures/units/skeleton/Skeleton enemy.png" id="1_retwu"]
@@ -10,9 +10,35 @@
 [ext_resource type="Script" path="res://scenes/skeleton/scripts/states/attack.gd" id="8_gles2"]
 [ext_resource type="AudioStream" uid="uid://cl1718u7j6aln" path="res://assets/audio/DeadlyKombatFreeversion/bone_breaking_03.wav" id="9_xeb1p"]
 [ext_resource type="Script" path="res://scenes/skeleton/scripts/states/hurt.gd" id="10_hmpms"]
+[ext_resource type="Script" path="res://scenes/skeleton/scripts/states/teleport.gd" id="12_pcvb7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dkm4"]
 radius = 7.0
+
+[sub_resource type="Shader" id="Shader_2e55t"]
+code = "shader_type canvas_item;
+//render_mode unshaded;
+
+uniform float progress : hint_range(0.0, 1.0) = 0.5;
+
+float random(vec2 uv) {
+	return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 438.5453);
+}
+
+void fragment() {
+	float size_x = float(textureSize(TEXTURE, 0).x);
+	float size_y = float(textureSize(TEXTURE, 0).y);
+	vec4 pixelColor = texture(TEXTURE, UV);
+	vec2 UVr = vec2(floor(UV.x * size_x) / size_x, floor(UV.y * size_y) / size_y);
+	float visible = step(progress, random(UVr));
+	//float visible = step(0.5 - sin(TIME * 2.0) / 2.0, random(UVr));
+	COLOR = vec4(pixelColor.r, pixelColor.g, pixelColor.b, min(visible, pixelColor.a));
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usavh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_2e55t")
+shader_parameter/progress = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yyyhw"]
 atlas = ExtResource("1_retwu")
@@ -586,6 +612,7 @@ shape = SubResource("CapsuleShape2D_5dkm4")
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_usavh")
 position = Vector2(4, -16)
 sprite_frames = SubResource("SpriteFrames_6utv7")
 animation = &"hurt"
@@ -735,5 +762,8 @@ script = ExtResource("8_gles2")
 
 [node name="hurt" type="Node" parent="StateMachine"]
 script = ExtResource("10_hmpms")
+
+[node name="teleport" type="Node" parent="StateMachine"]
+script = ExtResource("12_pcvb7")
 
 [connection signal="body_entered" from="Area2D_AttackArea" to="." method="_on_area_2d_attack_area_body_entered"]

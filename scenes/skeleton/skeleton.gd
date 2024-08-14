@@ -20,6 +20,14 @@ extends CharacterBody2D
 
 var dead = false
 
+var target
+
+func _ready():
+	$Node2D/ProgressBar_Red.max_value = health_max
+	$Node2D/ProgressBar_Green.max_value = health_max
+	$Node2D/ProgressBar_Red.value = health
+	$Node2D/ProgressBar_Green.value = health
+
 func _process(delta):
 	if health <= 0 and !dead:
 		die()

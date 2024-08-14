@@ -35,8 +35,11 @@ func chase(delta):
 		if abs(dist.x) < 25 * $"../..".scale.x:
 				statemachine.set_state("attack")
 				return
-		if abs(dist.y) > 150 or abs(dist.x) > 200:
+		if abs(dist.x) > 300:
 			statemachine.set_state("roam")
+		if abs(dist.y) > 50:
+			unit.target = target
+			statemachine.set_state("teleport")
 		if dist.x < 0:
 			dir = -1
 		if dist.x > 0:

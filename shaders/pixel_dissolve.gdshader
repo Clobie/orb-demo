@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode unshaded;
+//render_mode unshaded;
 
 uniform float progress : hint_range(0.0, 1.0) = 0.5;
 
@@ -12,7 +12,7 @@ void fragment() {
 	float size_y = float(textureSize(TEXTURE, 0).y);
 	vec4 pixelColor = texture(TEXTURE, UV);
 	vec2 UVr = vec2(floor(UV.x * size_x) / size_x, floor(UV.y * size_y) / size_y);
-	//float visible = step(progress, random(UVr));
-	float visible = step(0.5 - sin(TIME * 2.0) / 2.0, random(UVr));
+	float visible = step(progress, random(UVr));
+	//float visible = step(0.5 - sin(TIME * 2.0) / 2.0, random(UVr));
 	COLOR = vec4(pixelColor.r, pixelColor.g, pixelColor.b, min(visible, pixelColor.a));
 }

@@ -1,10 +1,5 @@
 game type
-	top down
-	autoshooter
-	has a storyline
-	quest objectives?
-	repeatable dungeons?
-	endless challenge mode?
+	sidescroller puzzle game with rpg elements
 
 autoloads
 	scene loader
@@ -14,43 +9,17 @@ autoloads
 
 start menu
 	singleplayer button
-		load singleplayer character select
-	online button
-		load login menu
+		load saved game menu
+	host button
+		load host menu
+	join button
+		load lobby
 	settings button
 		load settings menu
 	credits button
 		load credits menu
 	quit button
 		quit
-
-singleplayer character select menu
-	list of saved characters
-		char a
-		char b
-		char c
-		...
-	play button when character is selected
-		load full local character save data for specific character
-		load singleplayer game
-	create new character button
-		load create character menu
-	back button
-		go back to start menu
-
-multiplayer character select menu
-	list of saved characters
-		char a
-		char b
-		char c
-		...
-	play button when character is selected
-		load full local character save data for specific character
-		join multiplayer lobby
-	create new character button
-		load create character menu
-	back button
-		go back to start menu
 
 settings menu
 	video
