@@ -7,19 +7,20 @@ extends State_CharacterBody2D
 
 func _ready():
 	super()
-	anim_name = "death"
+	anim_name = "hurt"
 
 func enter_state():
 	super()
 	anim.play(anim_name)
-	unit.velocity.x = 0
-	$"../../Area2D_AttackArea/CollisionShape2D".disabled = true
-	
+
 func exit_state():
 	pass
 
-func loop_physics_process(_delta):
-	pass
+func loop_physics_process(delta):
+	unit.apply_gravity(delta)
+	if unit.is_on_floor():
+		unit.velocity.x = 0
 
 func loop_process(delta):
-	unit.apply_gravity(delta)
+	if anim.frame == 2:
+		statemachine.set_state("idle")

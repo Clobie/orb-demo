@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://p2sr3w8b5qcr" path="res://scenes/lights/orb_light/orb_light.tscn" id="5_8v08s"]
 [ext_resource type="PackedScene" uid="uid://ba3l803taay7d" path="res://scenes/lights/orb_light/orb_light_receptable.tscn" id="6_jdqvk"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="7_h1wpf"]
-[ext_resource type="PackedScene" uid="uid://chh225ffexu0" path="res://scenes/skeleton/skeleton.tscn" id="8_aey2a"]
 [ext_resource type="Texture2D" uid="uid://clrcb8bn42udx" path="res://assets/textures/shapes/Arrow (15).png" id="9_8hckt"]
+[ext_resource type="PackedScene" uid="uid://buovv6ol2de4v" path="res://scenes/skeleton2/skeleton2.tscn" id="9_8nnnf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_avpod"]
 light_mode = 1
@@ -111,119 +111,80 @@ position = Vector2(1710, 451)
 [node name="Skeletons" type="Node2D" parent="."]
 position = Vector2(732, 179)
 
-[node name="Skeleton" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(615, -278)
-health = 80
-roam_speed = 1800
+[node name="Skeleton" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-551, 777)
 
-[node name="Skeleton2" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-800, -74)
-health = 80
-roam_speed = 1800
+[node name="Skeleton2" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-802, 666)
 
-[node name="Skeleton3" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-906, 324)
-health = 80
-roam_speed = 1800
+[node name="Skeleton3" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-376, 678)
 
-[node name="Skeleton4" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-741, 316)
-health = 80
-roam_speed = 1800
+[node name="Skeleton4" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-27, 774)
 
-[node name="Skeleton5" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-782, 659)
-health = 80
-roam_speed = 1800
+[node name="Skeleton5" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(303, 769)
 
-[node name="Skeleton6" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(239, 763)
-health = 80
-roam_speed = 1800
+[node name="Skeleton8" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-974, 331)
 
-[node name="Skeleton7" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(217, 589)
-health = 80
-roam_speed = 1800
+[node name="Skeleton9" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-755, 334)
 
-[node name="Skeleton8" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(374, 192)
-health = 80
-roam_speed = 1800
+[node name="Skeleton10" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-955, -56)
 
-[node name="Skeleton9" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(664, 852)
-health = 80
-roam_speed = 1800
+[node name="Skeleton11" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-799, -50)
 
-[node name="Skeleton10" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(846, 854)
-health = 80
-roam_speed = 1800
+[node name="Skeleton12" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-462, -291)
 
-[node name="Skeleton11" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1466, 845)
-health = 80
-roam_speed = 1800
+[node name="Skeleton13" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(582, -272)
 
-[node name="Skeleton12" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1114, 485)
-health = 80
-roam_speed = 1800
+[node name="Skeleton14" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1401, 839)
 
-[node name="Skeleton13" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1183, 147)
-health = 80
-roam_speed = 1800
+[node name="Skeleton15" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1531, 845)
 
-[node name="Skeleton14" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1405, -318)
-health = 80
-roam_speed = 1800
+[node name="Skeleton16" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1096, 769)
 
-[node name="Skeleton15" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1012, -37)
-health = 80
-roam_speed = 1800
+[node name="Skeleton17" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(665, 842)
 
-[node name="Skeleton16" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1086, -185)
-health = 80
-roam_speed = 1800
+[node name="Skeleton18" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(696, 7)
 
-[node name="Skeleton17" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(1302, -97)
-health = 80
-roam_speed = 1800
+[node name="Skeleton19" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1354, -320)
 
-[node name="Skeleton18" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(674, -14)
-health = 80
-roam_speed = 1800
+[node name="Skeleton20" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1458, -320)
 
-[node name="Skeleton19" parent="Skeletons" instance=ExtResource("8_aey2a")]
-health = 80
-roam_speed = 1800
+[node name="Skeleton21" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1509, 325)
 
-[node name="Skeleton20" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-414, -48)
-health = 80
-roam_speed = 1800
+[node name="Skeleton22" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1084, 474)
 
-[node name="Skeleton21" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-319, 665)
-health = 80
-roam_speed = 1800
+[node name="Skeleton23" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(1179, 144)
 
-[node name="Skeleton22" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-338, 241)
-health = 80
-roam_speed = 1800
+[node name="Skeleton24" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-123, -15)
 
-[node name="Skeleton23" parent="Skeletons" instance=ExtResource("8_aey2a")]
-position = Vector2(-560, 772)
-health = 80
-roam_speed = 1800
+[node name="Skeleton25" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(-364, 239)
+
+[node name="Skeleton26" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(125, 306)
+
+[node name="Skeleton27" parent="Skeletons" instance=ExtResource("9_8nnnf")]
+position = Vector2(341, 306)
 
 [node name="Player" parent="." instance=ExtResource("4_riniy")]
 position = Vector2(-282, 1040)

@@ -26,7 +26,7 @@ func loop_physics_process(delta):
 	unit.apply_gravity(delta)
 	chase(delta)
 
-func loop_process(delta):
+func loop_process(_delta):
 	get_target()
 		
 func chase(delta):

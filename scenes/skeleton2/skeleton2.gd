@@ -8,9 +8,9 @@ extends CharacterBody2D
 
 @export var roam_speed = 3000
 @export var chase_speed = 12000
+@export var detect_range = 300
+@export var deaggro_range = 350
 
-@onready var ray_cast_2d_farleft = $Rays/RayCast2D_FarLeft
-@onready var ray_cast_2d_farright = $Rays/RayCast2D_FarRight
 @onready var ray_cast_2d_right = $Rays/RayCast2D_Right
 @onready var ray_cast_2d_left = $Rays/RayCast2D_Left
 @onready var ray_cast_2d_floor_left = $Rays/RayCast2D_FloorLeft
@@ -20,7 +20,7 @@ extends CharacterBody2D
 
 var dead = false
 
-var target
+var target: CharacterBody2D
 
 func _ready():
 	$Node2D/ProgressBar_Red.max_value = health_max
@@ -28,11 +28,11 @@ func _ready():
 	$Node2D/ProgressBar_Red.value = health
 	$Node2D/ProgressBar_Green.value = health
 
-func _process(_delta):
+func _process(delta):
 	if health <= 0 and !dead:
 		die()
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	pass
 	
 func apply_gravity(delta) -> void:
@@ -53,15 +53,8 @@ func die():
 	set_collision_mask_value(2, false)
 	$Node2D.visible = false
 	audio_stream_player_2d.play()
-	
-func detect_player():
-	var left = ray_cast_2d_farleft.is_colliding()
-	var right = ray_cast_2d_farright.is_colliding()
-	if left: return ray_cast_2d_farleft.get_collider()
-	if right: return ray_cast_2d_farright.get_collider()
-	return false
 
-func on_edge():
+func on_ledge():
 	var left = ray_cast_2d_floor_left.is_colliding()
 	var right = ray_cast_2d_floor_right.is_colliding()
 	if (!left and right) or (left and !right):
@@ -79,11 +72,10 @@ func _on_area_2d_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(randi_range(15, 25))
 
-func can_see_player(target):
-	ray_cast_2d_player_detector.target_position = (target.global_position - global_position)
-	return ray_cast_2d_player_detector.get_collider() == target
+func _on_area_2d_detect_player_body_entered(body):
+	if body is CharacterBody2D:
+		target = body
 
-func get_target_seen_position():
-	if ray_cast_2d_player_detector.is_colliding():
-		return ray_cast_2d_player_detector.get_collider().global_position
-	return null
+func _on_area_2d_deaggro_body_exited(body):
+	if body == target:
+		target = null

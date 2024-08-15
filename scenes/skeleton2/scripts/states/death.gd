@@ -18,7 +18,7 @@ func enter_state():
 func exit_state():
 	pass
 
-func loop_physics_process(_delta):
+func loop_physics_process(delta):
 	pass
 
 func loop_process(delta):

@@ -48,7 +48,7 @@ func _ready() -> void:
 	$Node2D/ProgressBar_Red.max_value = health_max
 	heal(9999)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
@@ -75,7 +75,7 @@ func _physics_process(_delta: float) -> void:
 
 func grav_gun(enable: bool):
 	if enable:
-		var pos = global_position
+		#var pos = global_position
 		$Area2D/CollisionShape2D.global_position = get_global_mouse_position()
 		if grav_gun_enabled == false:
 			$Area2D/CollisionShape2D.set_deferred("disabled", false)
@@ -108,10 +108,6 @@ func _input(event):
 				pass
 		if event.is_released:
 			grav_gun(false)
-				#position = get_global_mouse_position()
-				#velocity = Vector2(0,0)
-		#if Input.is_action_pressed("mouse_wheel_down") or Input.is_action_pressed("mouse_wheel_up"):
-			#shoot_projectile()
 
 func move_axis() -> float:
 	var axis = Input.get_axis("left", "right")
@@ -152,7 +148,7 @@ func can_ledge_hold():
 	return false
 
 func can_wall_hold():
-	if ledge_top_ray.is_colliding() and ledge_mid_ray.is_colliding() and wall_mid_ray.is_colliding():# and move_axis() != 0:
+	if ledge_top_ray.is_colliding() and ledge_mid_ray.is_colliding() and wall_mid_ray.is_colliding() and Input.is_action_pressed("up"):
 		return true
 	return false
 

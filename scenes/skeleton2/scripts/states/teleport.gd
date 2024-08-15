@@ -6,7 +6,7 @@ extends State_CharacterBody2D
 # anim_name: String
 
 var dir = 0
-var target
+var destination: Vector2
 
 func _ready():
 	super()
@@ -17,10 +17,9 @@ func enter_state():
 	anim.play(anim_name)
 	unit.velocity.x = 0
 	unit.velocity.y = 0
+	destination = unit.target.global_position
 	disappear()
 	await get_tree().create_timer(0.5).timeout
-	while !unit.target.is_on_floor():
-		await get_tree().create_timer(0.2).timeout
 	teleport()
 	reappear()
 	await get_tree().create_timer(0.5).timeout
@@ -30,10 +29,10 @@ func enter_state():
 func exit_state():
 	pass
 
-func loop_physics_process(_delta):
+func loop_physics_process(delta):
 	unit.velocity.x = 0
 
-func loop_process(_delta):
+func loop_process(delta):
 	pass
 
 func disappear():
@@ -74,4 +73,4 @@ func reappear():
 	)
 
 func teleport():
-	unit.global_position = unit.target.global_position
+	unit.global_position = destination

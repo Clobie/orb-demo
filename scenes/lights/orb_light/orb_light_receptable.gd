@@ -5,7 +5,7 @@ var activated = false
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_body_entered(body):
@@ -20,7 +20,7 @@ func _on_body_entered(body):
 			activated = true
 			$CollisionShape2D.disabled = true
 			
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	pass
 	#$AnimatedSprite2D.play("failure")
 	#activated = false

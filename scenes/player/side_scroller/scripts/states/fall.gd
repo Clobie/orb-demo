@@ -20,6 +20,7 @@ func _ready():
 
 func enter_state():
 	anim.play(anim_name)
+	unit.can_jump = true
 
 func exit_state():
 	pass

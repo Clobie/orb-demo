@@ -83,7 +83,8 @@ theme_override_colors/font_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_font_sizes/font_size = 14
 text = "A - Move Left
 D - Move Right
-S - Slide down wall
+S - Slide Down Wall
+W - Wall Hold
 SPACE - Jump
 MOUSE1 - Arcane Gun
 MOUSE2 - Gravity Gun"
