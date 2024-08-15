@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgwamjdt7p3y5"]
+
+[ext_resource type="Texture2D" uid="uid://ewf5112fdypt" path="res://assets/textures/weapons/weapons.png" id="1_5pitg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, -3)
+texture = ExtResource("1_5pitg")
+region_enabled = true
+region_rect = Rect2(32, 48, 32, 16)
+region_filter_clip_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(23, -4)

@@ -14,6 +14,14 @@ func enter_state():
 	anim.play(anim_name)
 	unit.velocity.x = 0
 	$"../../Area2D_AttackArea/CollisionShape2D".disabled = true
+	$"../../Area2D_HurtArea/CollisionShape2D".disabled = true
+	$"../../Area2D_DetectPlayer/CollisionShape2D".disabled = true
+	$"../../Area2D_Deaggro/CollisionShape2D".disabled = true
+	$"../../Rays/RayCast2D_Right".enabled = false
+	$"../../Rays/RayCast2D_Left".enabled = false
+	$"../../Rays/RayCast2D_FloorLeft".enabled = false
+	$"../../Rays/RayCast2D_FloorRight".enabled = false
+	$"../../Rays/RayCast2D_PlayerDetector".enabled = false
 	
 func exit_state():
 	pass

@@ -18,6 +18,12 @@ extends CharacterBody2D
 @onready var ray_cast_2d_player_detector = $Rays/RayCast2D_PlayerDetector
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
+var death_sounds = [
+	"res://assets/audio/DeadlyKombatFreeversion/bone_breaking_03.wav",
+	"res://assets/audio/DeadlyKombatFreeversion/bone_breaking_53.wav",
+	"res://assets/audio/DeadlyKombatFreeversion/guts_and_gore_59.wav"
+]
+
 var dead = false
 
 var target: CharacterBody2D
@@ -27,7 +33,8 @@ func _ready():
 	$Node2D/ProgressBar_Green.max_value = health_max
 	$Node2D/ProgressBar_Red.value = health
 	$Node2D/ProgressBar_Green.value = health
-
+	audio_stream_player_2d.stream = load(death_sounds[randi_range(0, 2)])
+	
 func _process(delta):
 	if health <= 0 and !dead:
 		die()
