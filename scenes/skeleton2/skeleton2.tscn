@@ -632,34 +632,6 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
-script = ExtResource("4_ni85v")
-state = NodePath("idle")
-
-[node name="idle" type="Node" parent="StateMachine"]
-script = ExtResource("5_hpjvh")
-
-[node name="death" type="Node" parent="StateMachine"]
-script = ExtResource("6_iohye")
-
-[node name="roam" type="Node" parent="StateMachine"]
-script = ExtResource("7_5k8ms")
-
-[node name="chase" type="Node" parent="StateMachine"]
-script = ExtResource("8_w4mbm")
-
-[node name="attack" type="Node" parent="StateMachine"]
-script = ExtResource("9_18fwq")
-
-[node name="hurt" type="Node" parent="StateMachine"]
-script = ExtResource("10_egt6b")
-
-[node name="teleport" type="Node" parent="StateMachine"]
-script = ExtResource("11_1p7fj")
-
-[node name="waiting" type="Node" parent="StateMachine"]
-script = ExtResource("12_0ek0a")
-
 [node name="Area2D_AttackArea" type="Area2D" parent="."]
 collision_layer = 2
 monitorable = false
@@ -785,6 +757,34 @@ theme_override_styles/background = SubResource("StyleBoxFlat_14dn4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1l7yh")
 value = 100.0
 show_percentage = false
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("4_ni85v")
+state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_hpjvh")
+
+[node name="death" type="Node" parent="StateMachine"]
+script = ExtResource("6_iohye")
+
+[node name="roam" type="Node" parent="StateMachine"]
+script = ExtResource("7_5k8ms")
+
+[node name="chase" type="Node" parent="StateMachine"]
+script = ExtResource("8_w4mbm")
+
+[node name="attack" type="Node" parent="StateMachine"]
+script = ExtResource("9_18fwq")
+
+[node name="hurt" type="Node" parent="StateMachine"]
+script = ExtResource("10_egt6b")
+
+[node name="teleport" type="Node" parent="StateMachine"]
+script = ExtResource("11_1p7fj")
+
+[node name="waiting" type="Node" parent="StateMachine"]
+script = ExtResource("12_0ek0a")
 
 [connection signal="body_entered" from="Area2D_AttackArea" to="." method="_on_area_2d_attack_area_body_entered"]
 [connection signal="body_entered" from="Area2D_DetectPlayer" to="." method="_on_area_2d_detect_player_body_entered"]
