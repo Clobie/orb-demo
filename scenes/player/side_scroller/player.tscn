@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene load_steps=162 format=3 uid="uid://cxlw6ocqk475r"]
 
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
 [ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
@@ -975,6 +975,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldif7"]
 bg_color = Color(0, 1, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nheiu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23imh"]
+bg_color = Color(1, 1, 0, 1)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 collision_priority = 2.0
@@ -1060,8 +1066,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -49.0
-offset_top = -53.0
+offset_top = -71.0
 offset_right = 50.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("33_1o0u5")
@@ -1199,10 +1206,66 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ldif7")
 value = 100.0
 show_percentage = false
 
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(0, -47)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D2"]
+material = SubResource("CanvasItemMaterial_nn1ii")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -2.0
+offset_right = 15.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.586251, 0.696715, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -3.0
+offset_right = 16.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar_Yellow" type="ProgressBar" parent="Node2D2"]
+material = SubResource("CanvasItemMaterial_kqto6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 15.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_nheiu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_23imh")
+value = 100.0
+show_percentage = false
+
 [node name="Timer_CanShoot" type="Timer" parent="."]
 wait_time = 0.2
+autostart = true
+
+[node name="Timer_EnergyRegen" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer_CanShoot" to="." method="_on_timer_can_shoot_timeout"]
+[connection signal="timeout" from="Timer_EnergyRegen" to="." method="_on_timer_energy_regen_timeout"]

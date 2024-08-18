@@ -12,7 +12,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func take_damage(amount):
+func take_damage(amount, parent):
 	if amount > 0:
 		hp = clamp(hp - amount, 0, hp_max)
 	if hp <= 0:

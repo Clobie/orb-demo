@@ -113,80 +113,107 @@ position = Vector2(732, 179)
 
 [node name="Skeleton" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-551, 777)
+health = 250
 
 [node name="Skeleton2" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-802, 666)
+health = 250
 
 [node name="Skeleton3" parent="Skeletons" instance=ExtResource("9_8nnnf")]
-position = Vector2(-376, 678)
+position = Vector2(-339, 676)
+health = 250
 
 [node name="Skeleton4" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-27, 774)
+health = 250
 
 [node name="Skeleton5" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(303, 769)
+health = 250
 
 [node name="Skeleton8" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-974, 331)
+health = 250
 
 [node name="Skeleton9" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-755, 334)
+health = 250
 
 [node name="Skeleton10" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-955, -56)
+health = 250
 
 [node name="Skeleton11" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-799, -50)
+health = 250
 
 [node name="Skeleton12" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-462, -291)
+health = 250
 
 [node name="Skeleton13" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(582, -272)
+health = 250
 
 [node name="Skeleton14" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1401, 839)
+health = 250
 
 [node name="Skeleton15" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1531, 845)
+health = 250
 
 [node name="Skeleton16" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1096, 769)
+health = 250
 
 [node name="Skeleton17" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(665, 842)
+health = 250
 
 [node name="Skeleton18" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(696, 7)
+health = 250
 
 [node name="Skeleton19" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1354, -320)
+health = 250
 
 [node name="Skeleton20" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1458, -320)
+health = 250
 
 [node name="Skeleton21" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1509, 325)
+health = 250
 
 [node name="Skeleton22" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1084, 474)
+health = 250
 
 [node name="Skeleton23" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(1179, 144)
+health = 250
 
 [node name="Skeleton24" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-123, -15)
+health = 250
 
 [node name="Skeleton25" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-364, 239)
+health = 250
 
 [node name="Skeleton26" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(125, 306)
+health = 250
 
 [node name="Skeleton27" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(341, 306)
+health = 250
 
-[node name="Player" parent="." instance=ExtResource("4_riniy")]
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("4_riniy")]
 position = Vector2(-282, 1040)
 health = 80
 

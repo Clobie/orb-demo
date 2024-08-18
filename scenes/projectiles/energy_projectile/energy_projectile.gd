@@ -5,6 +5,8 @@ extends RigidBody2D
 var direction: Vector2
 var bounces = 0
 
+var parent: CharacterBody2D
+
 func _ready():
 	pass
 
@@ -25,7 +27,7 @@ func _physics_process(delta):
 
 func damage(collider, _gpos):
 	if collider.has_method("take_damage"):
-		collider.take_damage(randi_range(15,25))
+		collider.take_damage(randi_range(15,25), parent)
 
 func explode():
 	var x = explosion.instantiate()

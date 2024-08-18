@@ -6,6 +6,8 @@ extends RigidBody2D
 @export var button_text = ""
 @export var scene_path = ""
 
+@export var function = ""
+
 var disabled = false
 
 func _ready():
@@ -17,15 +19,19 @@ func _ready():
 func _process(_delta):
 	pass
 
-func take_damage(amount):
+func take_damage(amount, parent):
 	if amount > 0:
 		hp = clamp(hp - amount, 0, hp_max)
 		$ProgressBar.value = hp
 	if hp <= 0:
+		if function == "host":
+			NetworkManager.create_server()
+		elif function == "join":
+			NetworkManager.connect_to_server()
 		if scene_path != "":
 			SceneManager.fade_to_scene(scene_path)
 			call_deferred("queue_free")
-
+		
 func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
 	apply_impulse(dir * 200, -lpos)

@@ -16,6 +16,9 @@ extends CharacterBody2D
 @export var health = 150
 @onready var health_max = health
 
+@export var energy = 100
+@onready var energy_max = energy
+
 var rope: Node2D
 var rope_target: Node2D
 
@@ -47,6 +50,9 @@ func _ready() -> void:
 	$Node2D/ProgressBar_Red.value = health
 	$Node2D/ProgressBar_Red.max_value = health_max
 	heal(9999)
+	
+	$Node2D2/ProgressBar_Yellow.value = energy_max
+	
 
 func _process(_delta: float) -> void:
 	pass
@@ -90,14 +96,18 @@ func grav_gun(enable: bool):
 		grappling_last_force = []
 
 func shoot_projectile():
-	var startpos = global_position - Vector2(0, 20)
-	var mouse_position = get_global_mouse_position()
-	var direction = (mouse_position - startpos).normalized()
-	startpos = startpos + direction * 5
-	var p = projectile.instantiate()
-	p.global_position = startpos
-	p.direction = direction
-	get_tree().current_scene.add_child(p)
+	if energy > 10:
+		energy = clamp(energy - 10, 0, energy_max)
+		$Node2D2/ProgressBar_Yellow.value = energy
+		var startpos = global_position - Vector2(0, 20)
+		var mouse_position = get_global_mouse_position()
+		var direction = (mouse_position - startpos).normalized()
+		startpos = startpos + direction * 5
+		var p = projectile.instantiate()
+		p.global_position = startpos
+		p.direction = direction
+		p.parent = $"."
+		get_tree().current_scene.add_child(p)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -209,4 +219,7 @@ func _on_area_2d_body_exited(body):
 func _on_timer_can_shoot_timeout():
 	can_shoot = true
 	timer_can_shoot.stop()
-	
+
+func _on_timer_energy_regen_timeout():
+	energy = clamp(energy + 2, 0, energy_max)
+	$Node2D2/ProgressBar_Yellow.value = energy

@@ -45,11 +45,13 @@ func _physics_process(delta):
 func apply_gravity(delta) -> void:
 	velocity.y += gravity * delta
 
-func take_damage(amount):
+func take_damage(amount, parent):
 	if amount > 0:
 		health = clamp(health - amount, 0, health_max)
 		$Node2D/ProgressBar_Green.value = health
 		create_tween().tween_property($Node2D/ProgressBar_Red, "value", health, 0.5)
+		if !target:
+			target = parent
 	statemachine.set_state("hurt")
 	
 func die():
