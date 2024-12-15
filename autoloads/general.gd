@@ -10,4 +10,3 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("escape"):
 		SceneManager.fade_to_scene("res://scenes/menus/start_menu/startmenu.tscn")
-

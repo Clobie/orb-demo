@@ -31,7 +31,7 @@ func chase(delta):
 	if !unit.target:
 		statemachine.set_state("idle")
 	else:
-		var dist = unit.target.global_position.distance_to(unit.global_position)
+		#var dist = unit.target.global_position.distance_to(unit.global_position)
 		var tpos = unit.target.global_position
 		var lpos = unit.global_position
 		var d = tpos - lpos

@@ -239,26 +239,9 @@ shape = SubResource("CapsuleShape2D_mwmdh")
 metadata/_edit_lock_ = true
 
 [node name="DestructibleButton_Play" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(527, 512)
+position = Vector2(613, 552)
 button_text = "Play"
 scene_path = "res://scenes/worlds/example_level/level.tscn"
-
-[node name="DestructibleButton_Credits" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(625, 484)
-button_text = "Credits"
-scene_path = "res://scenes/menus/credits_menu/credit_menu.tscn"
-
-[node name="DestructibleButton_Join" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(723, 512)
-button_text = "Join"
-scene_path = "res://scenes/worlds/example_level/level.tscn"
-function = "join"
-
-[node name="DestructibleButton_Host" parent="." instance=ExtResource("8_44md5")]
-position = Vector2(625, 512)
-button_text = "Host"
-scene_path = "res://scenes/worlds/example_level/level.tscn"
-function = "host"
 
 [node name="Lights" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

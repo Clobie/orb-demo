@@ -32,11 +32,14 @@ func can_grapple():
 func can_insert():
 	return true
 	
-func disable():
+func disable(pos):
 	enabled = false
 	linear_velocity = Vector2(0, 0)
 	$CollisionShape2D.set_deferred("disabled", true)
-
+	$Area2D.set_deferred("monitorable", false)
+	$Area2D.set_deferred("monitoring", false)
+	set_deferred("position", pos)
+	
 func do_force(force: Vector2):
 	if enabled:
 		apply_force(force, Vector2(0,0))

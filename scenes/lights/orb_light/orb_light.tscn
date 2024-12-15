@@ -24,8 +24,8 @@ physics_material_override = SubResource("PhysicsMaterial_u4ctc")
 gravity_scale = 0.0
 freeze_mode = 1
 continuous_cd = 1
-contact_monitor = true
 max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_uj62a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

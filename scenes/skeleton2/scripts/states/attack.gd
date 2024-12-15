@@ -81,6 +81,7 @@ func loop_process(delta):
 
 func leap(delta):
 	unit.velocity.x = unit.chase_speed * 1.5 * dir * delta
+	unit.velocity.y = -unit.chase_speed * 0.25 * delta
 
 func stop():
 	unit.velocity.x = 0

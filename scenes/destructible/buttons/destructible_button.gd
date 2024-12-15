@@ -24,10 +24,10 @@ func take_damage(amount, parent):
 		hp = clamp(hp - amount, 0, hp_max)
 		$ProgressBar.value = hp
 	if hp <= 0:
-		if function == "host":
-			NetworkManager.create_server()
-		elif function == "join":
-			NetworkManager.connect_to_server()
+		#if function == "host":
+		#	NetworkManager.create_server()
+		#elif function == "join":
+		#	NetworkManager.connect_to_server()
 		if scene_path != "":
 			SceneManager.fade_to_scene(scene_path)
 			call_deferred("queue_free")
