@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8tsu38tgb055"]
+[gd_scene load_steps=13 format=3 uid="uid://c8tsu38tgb055"]
 
 [ext_resource type="Script" path="res://scenes/worlds/example_level/scripts/room1.gd" id="1_eucn8"]
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="2_0bt5d"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="7_h1wpf"]
 [ext_resource type="Texture2D" uid="uid://clrcb8bn42udx" path="res://assets/textures/shapes/Arrow (15).png" id="9_8hckt"]
 [ext_resource type="PackedScene" uid="uid://buovv6ol2de4v" path="res://scenes/skeleton2/skeleton2.tscn" id="9_8nnnf"]
+[ext_resource type="PackedScene" uid="uid://cayg1edc1j1f6" path="res://scenes/drone/Drone.tscn" id="10_y4jxr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_avpod"]
 light_mode = 1
@@ -52,6 +53,7 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight2D_Darkness" type="DirectionalLight2D" parent="Lights"]
 visible = false
 texture_filter = 1
+energy = 1.1
 blend_mode = 1
 metadata/_edit_lock_ = true
 
@@ -285,6 +287,32 @@ health = 90
 roam_speed = 2000
 detect_range = 350
 deaggro_range = 450
+
+[node name="Drones" type="Node2D" parent="."]
+
+[node name="Drone" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(853, 883)
+
+[node name="Drone2" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(-317, -153)
+
+[node name="Drone3" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(1187, -134)
+
+[node name="Drone4" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(2392, -123)
+
+[node name="Drone5" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(2357, 935)
+
+[node name="Drone6" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(1186, 462)
+
+[node name="Drone7" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(-307, 469)
+
+[node name="Drone8" parent="Drones" instance=ExtResource("10_y4jxr")]
+position = Vector2(611, 483)
 
 [node name="Players" type="Node2D" parent="."]
 

@@ -64,7 +64,6 @@ var current_platform
 	$Jump/AudioStreamPlayer6
 ]
 
-
 func _ready() -> void:
 	$Area2D/CollisionShape2D/Sprite2D.visible = false
 	$Node2D/ProgressBar_Green.value = health
@@ -72,12 +71,9 @@ func _ready() -> void:
 	$Node2D/ProgressBar_Red.value = health
 	$Node2D/ProgressBar_Red.max_value = health_max
 	heal(9999)
-	
 	$Node2D2/ProgressBar_Yellow.value = energy_max
-	
 	add_to_group("Player")
 	
-
 func _process(_delta: float) -> void:
 	pass
 
