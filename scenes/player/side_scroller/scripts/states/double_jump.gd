@@ -17,6 +17,7 @@ func enter_state():
 	unit.can_double_jump = false
 	if unit.move_axis() != 0:
 		change_dir_once = true
+	unit.play_random_jump_sound()
 
 func exit_state():
 	pass

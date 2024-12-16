@@ -25,6 +25,8 @@ func loop_physics_process(delta):
 	else:
 		unit.velocity.x = unit.move_axis() * unit.run_speed * delta
 		unit.apply_gravity(delta)
+		if anim.frame == 2 or anim.frame == 6:
+			unit.play_random_footstep()
 		if unit.is_on_floor():
 			unit.can_jump = true
 			unit.can_double_jump = true

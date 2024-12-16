@@ -15,6 +15,7 @@ func _on_body_entered(body):
 			#body.global_position = $CollisionShape2D.global_position
 			body.disable($CollisionShape2D.global_position)
 			activated = true
+			$CollisionShape2D.set_deferred("disabled", true)
 			$AnimatedSprite2D.play("activating")
 			await $AnimatedSprite2D.animation_finished
 			$AnimatedSprite2D.play("charging")

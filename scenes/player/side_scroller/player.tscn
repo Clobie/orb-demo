@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene load_steps=178 format=3 uid="uid://cxlw6ocqk475r"]
 
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
 [ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
@@ -33,6 +33,22 @@
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_jump.gd" id="31_wovvh"]
 [ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/die.gd" id="32_i53q8"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="33_1o0u5"]
+[ext_resource type="AudioStream" uid="uid://c8icybsj1ryk" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_01.wav" id="34_hsya3"]
+[ext_resource type="AudioStream" uid="uid://bmqw3wlaroxml" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_02.wav" id="35_tglw3"]
+[ext_resource type="AudioStream" uid="uid://dysyha78ia2nn" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_03.wav" id="36_5cgat"]
+[ext_resource type="AudioStream" uid="uid://egm1sjctxhk3" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_04.wav" id="37_jfcfe"]
+[ext_resource type="AudioStream" uid="uid://b5ivo3h6ax2ut" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_05.wav" id="38_ckle7"]
+[ext_resource type="AudioStream" uid="uid://08imgwb6uttb" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_06.wav" id="39_grkgy"]
+[ext_resource type="AudioStream" uid="uid://dhl4bsklq6fax" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_07.wav" id="40_xm71n"]
+[ext_resource type="AudioStream" uid="uid://b3dvifedh15hc" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_08.wav" id="41_8s112"]
+[ext_resource type="AudioStream" uid="uid://dby8r7chi38cg" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_09.wav" id="42_gr60g"]
+[ext_resource type="AudioStream" uid="uid://cpn5jrrnruk42" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_10.wav" id="43_ebhtd"]
+[ext_resource type="AudioStream" uid="uid://dfsttrp7pmfwn" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_01.wav" id="44_h7qlw"]
+[ext_resource type="AudioStream" uid="uid://dbs3wrj0cwx42" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_02.wav" id="45_p6d2c"]
+[ext_resource type="AudioStream" uid="uid://b8k8w81deeag" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_03.wav" id="46_at77n"]
+[ext_resource type="AudioStream" uid="uid://juoshgbvfjkr" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_04.wav" id="47_mh0aj"]
+[ext_resource type="AudioStream" uid="uid://qmhwyai3emqh" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_05.wav" id="48_2fgmy"]
+[ext_resource type="AudioStream" uid="uid://dko7q2hugsicm" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_06.wav" id="49_u0hnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g8ej"]
 radius = 6.0
@@ -1266,7 +1282,74 @@ autostart = true
 wait_time = 0.1
 autostart = true
 
+[node name="Timer_HealthRegen" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Footsteps" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("34_hsya3")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("35_tglw3")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("36_5cgat")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("37_jfcfe")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("38_ckle7")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("39_grkgy")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("40_xm71n")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("41_8s112")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("42_gr60g")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Footsteps"]
+stream = ExtResource("43_ebhtd")
+volume_db = -20.0
+
+[node name="Jump" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("44_h7qlw")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("45_p6d2c")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("46_at77n")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("47_mh0aj")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("48_2fgmy")
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Jump"]
+stream = ExtResource("49_u0hnx")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer_CanShoot" to="." method="_on_timer_can_shoot_timeout"]
 [connection signal="timeout" from="Timer_EnergyRegen" to="." method="_on_timer_energy_regen_timeout"]
+[connection signal="timeout" from="Timer_HealthRegen" to="." method="_on_timer_health_regen_timeout"]

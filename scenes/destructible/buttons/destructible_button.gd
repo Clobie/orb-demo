@@ -19,7 +19,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func take_damage(amount, parent):
+func take_damage(amount, _parent):
 	if amount > 0:
 		hp = clamp(hp - amount, 0, hp_max)
 		$ProgressBar.value = hp

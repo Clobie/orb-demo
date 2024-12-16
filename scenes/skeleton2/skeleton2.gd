@@ -18,6 +18,9 @@ extends CharacterBody2D
 @onready var ray_cast_2d_player_detector = $Rays/RayCast2D_PlayerDetector
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
+const HP_ORB = preload("res://scenes/gatherable/hp_orb.tscn")
+const ENERGY_ORB = preload("res://scenes/gatherable/energy_orb.tscn")
+
 var death_sounds = [
 	"res://assets/audio/DeadlyKombatFreeversion/bone_breaking_03.wav",
 	"res://assets/audio/DeadlyKombatFreeversion/bone_breaking_53.wav",
@@ -62,6 +65,15 @@ func die():
 	set_collision_mask_value(2, false)
 	$Node2D.visible = false
 	audio_stream_player_2d.play()
+	
+	for i in range(5):
+		var hp = HP_ORB.instantiate()
+		hp.global_position = global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
+		get_tree().root.add_child(hp)
+	for i in range(5):
+		var en = ENERGY_ORB.instantiate()
+		en.global_position = global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
+		get_tree().root.add_child(en)
 
 func on_ledge():
 	var left = ray_cast_2d_floor_left.is_colliding()

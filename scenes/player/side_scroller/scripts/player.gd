@@ -24,7 +24,6 @@ var rope_target: Node2D
 
 var can_shoot = true
 
-
 var controllable: bool = true
 var can_jump: bool = true
 var can_double_jump: bool = true
@@ -43,6 +42,29 @@ var grappling_last_force = []
 var push_force_base = 1.0
 var current_platform
 
+@onready var audio_array_footsteps = [
+	$Footsteps/AudioStreamPlayer,
+	$Footsteps/AudioStreamPlayer2,
+	$Footsteps/AudioStreamPlayer3,
+	$Footsteps/AudioStreamPlayer4,
+	$Footsteps/AudioStreamPlayer5,
+	$Footsteps/AudioStreamPlayer6,
+	$Footsteps/AudioStreamPlayer7,
+	$Footsteps/AudioStreamPlayer8,
+	$Footsteps/AudioStreamPlayer9,
+	$Footsteps/AudioStreamPlayer10
+]
+
+@onready var audio_array_jumping = [
+	$Jump/AudioStreamPlayer,
+	$Jump/AudioStreamPlayer2,
+	$Jump/AudioStreamPlayer3,
+	$Jump/AudioStreamPlayer4,
+	$Jump/AudioStreamPlayer5,
+	$Jump/AudioStreamPlayer6
+]
+
+
 func _ready() -> void:
 	$Area2D/CollisionShape2D/Sprite2D.visible = false
 	$Node2D/ProgressBar_Green.value = health
@@ -52,6 +74,8 @@ func _ready() -> void:
 	heal(9999)
 	
 	$Node2D2/ProgressBar_Yellow.value = energy_max
+	
+	add_to_group("Player")
 	
 
 func _process(_delta: float) -> void:
@@ -65,24 +89,42 @@ func _physics_process(_delta: float) -> void:
 			shoot_projectile()
 			can_shoot = false
 			timer_can_shoot.start()
-			
+	
+	if grav_gun_enabled:
+		energy -= 1
+	
 	if !grappling.is_empty():
-		var i = -1
-		for item in grappling:
-			i += 1
-			if item.has_method("can_grapple"):
-				if item.can_grapple:
-					var tpos = $Area2D/CollisionShape2D.global_position
-					var opos = item.global_position
-					var force = clamp(tpos.distance_to(opos), 0, 50)
-					var dir = (tpos - opos).normalized()
-					item.do_force(dir * force)
-					grappling_last_force[i] = dir
+		if energy == 0:
+			grav_gun(false)
+		else:
+			var i = -1
+			for item in grappling:
+				i += 1
+				if item.has_method("can_grapple"):
+					if item.can_grapple:
+						var tpos = $Area2D/CollisionShape2D.global_position
+						var opos = item.global_position
+						var force = clamp(tpos.distance_to(opos), 0, 100)
+						var dir = (tpos - opos).normalized()
+						item.do_force(dir * force)
+						grappling_last_force[i] = dir
+
+func play_random_footstep():
+	randomize()
+	var stream = audio_array_footsteps[randi() % audio_array_footsteps.size()]
+	stream.play()
+
+func play_random_jump_sound():
+	randomize()
+	var stream = audio_array_jumping[randi() % audio_array_jumping.size()]
+	stream.play()
 
 func grav_gun(enable: bool):
 	if enable:
 		#var pos = global_position
 		$Area2D/CollisionShape2D.global_position = get_global_mouse_position()
+		if energy < 25:
+			return
 		if grav_gun_enabled == false:
 			$Area2D/CollisionShape2D.set_deferred("disabled", false)
 			$Area2D/CollisionShape2D/Sprite2D.visible = true
@@ -200,6 +242,11 @@ func heal(amount):
 		health = clamp(health + amount, 0, health_max)
 		$Node2D/ProgressBar_Green.value = health
 		$Node2D/ProgressBar_Red.value = health
+
+func restore_energy(amount):
+	if amount > 0:
+		energy = clamp(energy + amount, 0, energy_max)
+		$Node2D2/ProgressBar_Yellow.value = energy
 	
 func _on_area_2d_body_entered(body):
 	if body.has_method("can_grapple"):
@@ -221,5 +268,8 @@ func _on_timer_can_shoot_timeout():
 	timer_can_shoot.stop()
 
 func _on_timer_energy_regen_timeout():
-	energy = clamp(energy + 2, 0, energy_max)
+	energy = clamp(energy + 1, 0, energy_max)
 	$Node2D2/ProgressBar_Yellow.value = energy
+
+func _on_timer_health_regen_timeout():
+	heal(1)

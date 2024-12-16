@@ -13,6 +13,8 @@ func enter_state():
 	anim.play(anim_name)
 	unit.velocity.y = -unit.jump_force
 	unit.can_jump = false
+	unit.play_random_footstep()
+	unit.play_random_jump_sound()
 
 func exit_state():
 	pass

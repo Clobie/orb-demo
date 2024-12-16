@@ -12,7 +12,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func take_damage(amount, parent):
+func take_damage(amount, _parent):
 	if amount > 0:
 		hp = clamp(hp - amount, 0, hp_max)
 	if hp <= 0:
@@ -20,7 +20,7 @@ func take_damage(amount, parent):
 
 func hit(_obj, gpos, dir):
 	var lpos = global_position - gpos
-	apply_impulse(dir * 50, -lpos)
+	apply_impulse(dir * 100, -lpos)
 	
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage"):

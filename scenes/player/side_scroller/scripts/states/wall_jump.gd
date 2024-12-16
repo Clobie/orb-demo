@@ -14,6 +14,7 @@ func enter_state():
 	unit.velocity.y = -unit.jump_force
 	unit.velocity.x = unit.move_axis() * unit.jump_force
 	unit.can_jump = false
+	unit.play_random_jump_sound()
 
 func exit_state():
 	pass
