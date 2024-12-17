@@ -8,13 +8,18 @@ extends State_CharacterBody2D
 var time = 0.0
 var timeout = 0.0
 
+var can_scan_state_change = true
+
 func _ready():
 	super()
 	anim_name = "roam"
 
 func enter_state():
 	super()
-	anim.play(anim_name)
+	if unit.can_scan:
+		anim.play("chase")
+	else:
+		anim.play(anim_name)
 	timeout = randf_range(5.0, 15.0)
 	unit.velocity.x = (randi() % 2) * 2 - 1
 	unit.velocity.y = (randi() % 2) * 2 - 1
@@ -27,6 +32,9 @@ func loop_physics_process(delta):
 	pass
 
 func loop_process(delta):
+	if unit.can_scan:
+		anim.play("chase")
+		
 	time += delta
 	if time > timeout:
 		statemachine.set_state("idle")

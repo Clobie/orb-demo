@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmksvjk0ue65n"]
+
+[ext_resource type="Script" path="res://scenes/weapons/scripts/laser.gd" id="1_t3uys"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f62ub"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 153.85
+initial_velocity_max = 239.82
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0.301961, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D"]
+target_position = Vector2(2000, 0)
+collision_mask = 7
+script = ExtResource("1_t3uys")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 19, 0)
+width = 2.0
+default_color = Color(1, 0, 0, 0.72549)
+
+[node name="Sparks" type="GPUParticles2D" parent="."]
+position = Vector2(60, 0)
+rotation = -3.14159
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_f62ub")
+lifetime = 0.2
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 1.866
+autostart = true
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

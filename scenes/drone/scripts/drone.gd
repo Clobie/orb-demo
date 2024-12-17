@@ -7,11 +7,22 @@ var vertical_speed_multiplier = 0.25
 
 var chase_distance = 350
 var chase_speed = 125
-var chase_speed_ramp = 300
+var chase_speed_ramp = 250
+
+var scan_attempts = 0
+var max_scan_attempts = 3
 
 var ray_length = 75
 
 var target = null
+
+@onready var timer_can_scan = $Timer_CanScan
+var can_scan = true
+
+@onready var laser = $Laser
+
+
+@onready var prog_bar = $TextureProgressBar_Scanner
 
 @onready var ray_cast_2d_up = $Rays/RayCast2D_Up
 @onready var ray_cast_2d_down = $Rays/RayCast2D_Down
@@ -23,16 +34,18 @@ func _ready():
 	$Rays/RayCast2D_Down.target_position = Vector2(0, 1) * ray_length
 	$Rays/RayCast2D_Right.target_position = Vector2(1, 0) * ray_length
 	$Rays/RayCast2D_Left.target_position = Vector2(-1, 0) * ray_length
-
-func _physics_process(delta):
+	prog_bar.visible = false
 	
+func _physics_process(delta):
 	if target:
 		if target.global_position.x < global_position.x:
 			$AnimatedSprite2D.flip_h = true
 			$PointLight2D.position = Vector2(-4, 0)
+			$Laser.position = Vector2(-4, 0)
 		if target.global_position.x > global_position.x:
 			$AnimatedSprite2D.flip_h = false
 			$PointLight2D.position = Vector2(4, 0)
+			$Laser.position = Vector2(4, 0)
 	else:
 		if velocity.x < 0:
 			$AnimatedSprite2D.flip_h = true
@@ -60,4 +73,10 @@ func get_biased_roam_direction():
 	return direction
 
 func _on_area_2d_body_entered(body):
-	target = body
+	if can_scan:
+		can_scan = false
+		target = body
+		timer_can_scan.start()
+	
+func _on_timer_can_scan_timeout():
+	can_scan = true
