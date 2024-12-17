@@ -6,7 +6,7 @@ extends State_CharacterBody2D
 # anim_name: String
 
 var time = 0.0
-var timeout = 30.0
+var timeout = 2.0
 
 func _ready():
 	super()
@@ -29,9 +29,12 @@ func loop_process(delta):
 		unit.scan_attempts = 0
 		unit.laser.deactivate()
 		unit.can_scan = true
+		unit.prog_bar_angry.visible = false
+		time = 0
 		statemachine.set_state("roam")
 		
 	if unit.target:
+		unit.prog_bar_angry.visible = true
 		var dist = unit.target.global_position.distance_to(unit.global_position)
 		var move_dir = unit.get_biased_roam_direction()
 		var player_dir = ((unit.target.global_position + Vector2(0, -10)) - unit.global_position).normalized()

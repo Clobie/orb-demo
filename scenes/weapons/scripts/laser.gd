@@ -20,7 +20,6 @@ func _ready():
 func _physics_process(delta):
 	target_position = Vector2.RIGHT * max_range
 	force_raycast_update()
-
 	if is_colliding():
 		target_position = to_local( get_collision_point() )
 		sparks.position = target_position
@@ -32,7 +31,6 @@ func _physics_process(delta):
 		sparks.emitting = false
 		tick_timer.stop()
 		is_hitting_target = false
-
 	line.points[1] = target_position
 
 func activate():

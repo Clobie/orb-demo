@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 var speed = 50
-var speed_ramp = 150
+var speed_ramp = 250
 var horizontal_speed_multiplier = 2.0
 var vertical_speed_multiplier = 0.25
 
 var chase_distance = 350
-var chase_speed = 125
-var chase_speed_ramp = 250
+var chase_speed = 100
+var chase_speed_ramp = 500
 
 var scan_attempts = 0
 var max_scan_attempts = 3
@@ -23,6 +23,9 @@ var can_scan = true
 
 
 @onready var prog_bar = $TextureProgressBar_Scanner
+@onready var prog_bar_angry = $TextureProgressBar_Angry
+
+
 
 @onready var ray_cast_2d_up = $Rays/RayCast2D_Up
 @onready var ray_cast_2d_down = $Rays/RayCast2D_Down

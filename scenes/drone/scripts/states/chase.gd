@@ -32,17 +32,23 @@ func loop_process(delta):
 		if dist > unit.chase_distance:
 			unit.target = null
 			unit.can_scan = true
-			aggro_timer = 0.0
+			#aggro_timer = 0.0
+			unit.prog_bar_angry.visible = false
 			statemachine.set_state("roam")
 		else:
 			var dir = unit.get_biased_roam_direction()
 			if dist < 55 and unit.target.velocity.length() < 5:
 				aggro_timer = 0.0
+				unit.prog_bar_angry.value = aggro_timer * (100.0 / aggro_timer_timeout)
+				unit.prog_bar_angry.visible = false
 				statemachine.set_state("scan")
 			else:
 				aggro_timer += delta
+				unit.prog_bar_angry.value = aggro_timer * (100.0 / aggro_timer_timeout)
+				unit.prog_bar_angry.visible = true
 				if aggro_timer > aggro_timer_timeout:
 					aggro_timer = 0.0
+					unit.prog_bar_angry.visible = false
 					statemachine.set_state("attack")
 				unit.velocity.x = clamp(unit.velocity.x + (dir.x * delta * unit.chase_speed_ramp), -unit.chase_speed, unit.chase_speed)
 				unit.velocity.y = clamp(unit.velocity.y + (dir.y * delta * unit.chase_speed_ramp), -unit.chase_speed, unit.chase_speed)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cayg1edc1j1f6"]
+[gd_scene load_steps=39 format=4 uid="uid://cayg1edc1j1f6"]
 
 [ext_resource type="Script" path="res://scenes/drone/scripts/drone.gd" id="1_hv4hp"]
 [ext_resource type="Texture2D" uid="uid://d1ppawcxvbx1w" path="res://assets/textures/papoycore/D3.png" id="1_n0mbj"]
@@ -139,20 +139,37 @@ stereo = true
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sv55e"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_lnvd3"]
+[sub_resource type="Gradient" id="Gradient_ebt55"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aa4yw"]
-gradient = SubResource("Gradient_lnvd3")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0o3e2"]
+gradient = SubResource("Gradient_ebt55")
 width = 20
 height = 2
 
-[sub_resource type="Gradient" id="Gradient_7nwud"]
+[sub_resource type="Gradient" id="Gradient_2pu1t"]
 offsets = PackedFloat32Array(0.00529101, 1)
-colors = PackedColorArray(0, 0.74902, 1, 1, 0, 0.74902, 1, 1)
+colors = PackedColorArray(0, 0.882353, 1, 1, 0, 0.882353, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_khjtq"]
-gradient = SubResource("Gradient_7nwud")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ebr2i"]
+gradient = SubResource("Gradient_2pu1t")
+width = 20
+height = 2
+
+[sub_resource type="Gradient" id="Gradient_npaxy"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_26tcs"]
+gradient = SubResource("Gradient_npaxy")
+width = 20
+height = 2
+
+[sub_resource type="Gradient" id="Gradient_ouddq"]
+offsets = PackedFloat32Array(0.00529101, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_03eja"]
+gradient = SubResource("Gradient_ouddq")
 width = 20
 height = 2
 
@@ -223,8 +240,17 @@ offset_left = -10.0
 offset_top = -14.0
 offset_right = 10.0
 offset_bottom = -12.0
-texture_under = SubResource("GradientTexture2D_aa4yw")
-texture_progress = SubResource("GradientTexture2D_khjtq")
+texture_under = SubResource("GradientTexture2D_0o3e2")
+texture_progress = SubResource("GradientTexture2D_ebr2i")
+
+[node name="TextureProgressBar_Angry" type="TextureProgressBar" parent="."]
+material = SubResource("CanvasItemMaterial_sv55e")
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 10.0
+offset_bottom = -12.0
+texture_under = SubResource("GradientTexture2D_26tcs")
+texture_progress = SubResource("GradientTexture2D_03eja")
 
 [node name="Timer_CanScan" type="Timer" parent="."]
 wait_time = 180.0
