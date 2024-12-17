@@ -15,7 +15,7 @@ func _ready():
 func enter_state():
 	super()
 	anim.play(anim_name)
-	timeout = randf_range(1.0, 10.0)
+	timeout = randf_range(5.0, 15.0)
 	unit.velocity.x = (randi() % 2) * 2 - 1
 	unit.velocity.y = (randi() % 2) * 2 - 1
 	unit.velocity = unit.velocity.normalized() * unit.speed
@@ -31,12 +31,18 @@ func loop_process(delta):
 	if time > timeout:
 		statemachine.set_state("idle")
 		time = 0
-	var dir = unit.get_biased_roam_direction()
-	var hspeed = unit.speed * unit.horizontal_speed_multiplier
-	var hspeed_ramp = unit.speed_ramp * unit.horizontal_speed_multiplier
-	var vspeed = unit.speed * unit.vertical_speed_multiplier
-	var vspeed_ramp = unit.speed_ramp * unit.vertical_speed_multiplier
-	unit.velocity.x = clamp(unit.velocity.x + (dir.x * delta * hspeed_ramp), -hspeed, hspeed)
-	unit.velocity.y = clamp(unit.velocity.y + (dir.y * delta * vspeed_ramp), -vspeed, vspeed)
+	elif unit.target:
+		statemachine.set_state("chase")
+	else:
+		var dir = unit.get_biased_roam_direction()
+		var hspeed = unit.speed * unit.horizontal_speed_multiplier
+		var hspeed_ramp = unit.speed_ramp * unit.horizontal_speed_multiplier
+		var vspeed = unit.speed * unit.vertical_speed_multiplier
+		var vspeed_ramp = unit.speed_ramp * unit.vertical_speed_multiplier
+		unit.velocity.x = clamp(unit.velocity.x + (dir.x * delta * hspeed_ramp), -hspeed, hspeed)
+		unit.velocity.y = clamp(unit.velocity.y + (dir.y * delta * vspeed_ramp), -vspeed, vspeed)
+	
+	if unit.target:
+		statemachine.set_state("chase")
 	
 	
