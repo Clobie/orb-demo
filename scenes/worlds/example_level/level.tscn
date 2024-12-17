@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8tsu38tgb055"]
+[gd_scene load_steps=14 format=3 uid="uid://c8tsu38tgb055"]
 
 [ext_resource type="Script" path="res://scenes/worlds/example_level/scripts/room1.gd" id="1_eucn8"]
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="2_0bt5d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://clrcb8bn42udx" path="res://assets/textures/shapes/Arrow (15).png" id="9_8hckt"]
 [ext_resource type="PackedScene" uid="uid://buovv6ol2de4v" path="res://scenes/skeleton2/skeleton2.tscn" id="9_8nnnf"]
 [ext_resource type="PackedScene" uid="uid://cayg1edc1j1f6" path="res://scenes/drone/Drone.tscn" id="10_y4jxr"]
+[ext_resource type="PackedScene" uid="uid://hqrfseqd22mr" path="res://scenes/slime/slime.tscn" id="11_ykbud"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_avpod"]
 light_mode = 1
@@ -319,6 +320,62 @@ position = Vector2(611, 483)
 [node name="Player" parent="Players" instance=ExtResource("4_riniy")]
 position = Vector2(-282, 1040)
 health = 80
+
+[node name="Slimes" type="Node2D" parent="."]
+position = Vector2(1909, 313)
+
+[node name="Slime" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1986, 524)
+
+[node name="Slime2" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-918, 640)
+
+[node name="Slime3" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(2, 637)
+
+[node name="Slime4" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-786, 163)
+
+[node name="Slime5" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1020, 65)
+
+[node name="Slime6" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1890, 198)
+
+[node name="Slime7" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1212, -137)
+
+[node name="Slime8" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-462, -138)
+
+[node name="Slime9" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(372, 201)
+
+[node name="Slime10" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1681, -431)
+
+[node name="Slime11" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-494, -408)
+
+[node name="Slime12" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(269, -451)
+
+[node name="Slime13" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-51, 347)
+
+[node name="Slime14" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-545, 703)
+
+[node name="Slime15" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1716, 630)
+
+[node name="Slime16" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-1832, -189)
+
+[node name="Slime17" parent="Slimes" instance=ExtResource("11_ykbud")]
+position = Vector2(-928, 458)
+
+[node name="Slime18" parent="Slimes" instance=ExtResource("11_ykbud")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

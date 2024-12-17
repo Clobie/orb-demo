@@ -72,7 +72,7 @@ func get_biased_roam_direction():
 		direction = direction.normalized()
 	if target:
 		var tdir = (target.global_position - global_position).normalized()
-		direction = (direction + tdir).normalized()
+		direction = (direction + tdir * 2).normalized()
 	return direction
 
 func _on_area_2d_body_entered(body):

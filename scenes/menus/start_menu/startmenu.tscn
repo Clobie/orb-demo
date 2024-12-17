@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://f7mgjctyb8df"]
+[gd_scene load_steps=14 format=3 uid="uid://f7mgjctyb8df"]
 
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="1_dosua"]
 [ext_resource type="PackedScene" uid="uid://cxlw6ocqk475r" path="res://scenes/player/side_scroller/player.tscn" id="2_15u5h"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://p2sr3w8b5qcr" path="res://scenes/lights/orb_light/orb_light.tscn" id="5_hymml"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="5_vron6"]
 [ext_resource type="Texture2D" uid="uid://djsij8pn15hl5" path="res://assets/textures/everlord/ever128x128-Photoroom.png" id="6_2o5hm"]
-[ext_resource type="PackedScene" uid="uid://cayg1edc1j1f6" path="res://scenes/drone/Drone.tscn" id="8_4xhwp"]
 [ext_resource type="PackedScene" uid="uid://dsl8r32mgnt4n" path="res://scenes/destructible/buttons/destructible_button.tscn" id="8_44md5"]
 
 [sub_resource type="GDScript" id="GDScript_olxlq"]
@@ -273,9 +272,6 @@ layer_0/tile_data = PackedInt32Array(196664, 655360, 14, 196624, 786432, 14, 196
 
 [node name="Player" parent="." instance=ExtResource("2_15u5h")]
 position = Vector2(616, 535)
-
-[node name="Drone" parent="." instance=ExtResource("8_4xhwp")]
-position = Vector2(448, 468)
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]

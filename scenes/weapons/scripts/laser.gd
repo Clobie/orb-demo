@@ -3,6 +3,7 @@ extends RayCast2D
 @onready var line = $Line2D
 @onready var sparks = $Sparks
 @onready var tick_timer = $TickTimer
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 const max_range = 2000
 const base_dps = 150.0
@@ -36,6 +37,8 @@ func _physics_process(delta):
 func activate():
 	set_physics_process(true)
 	$Line2D.visible = true
+	if !audio_stream_player_2d.playing:
+		audio_stream_player_2d.play()
 
 func deactivate():
 	set_physics_process(false)
@@ -43,6 +46,8 @@ func deactivate():
 	target_position = Vector2.ZERO
 	sparks.emitting = false
 	$Line2D.visible = false
+	if audio_stream_player_2d.playing:
+		audio_stream_player_2d.stop()
 
 func damage(ent):
 	if ent.is_in_group("Player"):
