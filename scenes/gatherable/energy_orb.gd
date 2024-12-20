@@ -3,7 +3,7 @@ extends Node2D
 var base_speed = 0
 var additive_speed = 0
 
-@onready var player = get_tree().get_root().get_node("Room1/Players/Player")
+@onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 var value = 0
 
