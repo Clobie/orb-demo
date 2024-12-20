@@ -21,8 +21,8 @@ func loop_physics_process(delta):
 	if unit.health <= 0:
 		statemachine.set_state("die")
 	else:
-		if anim.frame == 4:
-			statemachine.set_state("idle")
+		if anim.frame == 2:
+			statemachine.set_state("roam")
 
 func loop_process(delta):
 	pass

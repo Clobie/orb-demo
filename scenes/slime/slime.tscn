@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://hqrfseqd22mr"]
+[gd_scene load_steps=37 format=3 uid="uid://hqrfseqd22mr"]
 
 [ext_resource type="Script" path="res://scenes/slime/slime.gd" id="1_68v8m"]
+[ext_resource type="Shader" path="res://shaders/slime.gdshader" id="1_gcnqk"]
 [ext_resource type="Texture2D" uid="uid://c57747v3vkkf" path="res://assets/textures/units/slime/slime-Sheet.png" id="1_kpuur"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine_characterbody2d.gd" id="3_ljyxq"]
 [ext_resource type="Script" path="res://scenes/slime/scripts/states/idle.gd" id="4_umu38"]
@@ -9,6 +10,11 @@
 [ext_resource type="Script" path="res://scenes/slime/scripts/states/attack.gd" id="7_ioao7"]
 [ext_resource type="Script" path="res://scenes/slime/scripts/states/die.gd" id="8_82fb0"]
 [ext_resource type="Script" path="res://scenes/slime/scripts/states/chase.gd" id="9_48am4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_74jeq"]
+resource_local_to_scene = true
+shader = ExtResource("1_gcnqk")
+shader_parameter/toggle = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40ucb"]
 atlas = ExtResource("1_kpuur")
@@ -201,11 +207,10 @@ collision_mask = 4
 script = ExtResource("1_68v8m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_74jeq")
 position = Vector2(-1, -11.5)
 sprite_frames = SubResource("SpriteFrames_fsy65")
-animation = &"attack"
-frame = 4
-frame_progress = 1.0
+animation = &"hurt"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

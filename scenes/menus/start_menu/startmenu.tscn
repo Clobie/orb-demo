@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://f7mgjctyb8df"]
+[gd_scene load_steps=15 format=3 uid="uid://f7mgjctyb8df"]
 
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="1_dosua"]
 [ext_resource type="PackedScene" uid="uid://cxlw6ocqk475r" path="res://scenes/player/side_scroller/player.tscn" id="2_15u5h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="5_vron6"]
 [ext_resource type="Texture2D" uid="uid://djsij8pn15hl5" path="res://assets/textures/everlord/ever128x128-Photoroom.png" id="6_2o5hm"]
 [ext_resource type="PackedScene" uid="uid://dsl8r32mgnt4n" path="res://scenes/destructible/buttons/destructible_button.tscn" id="8_44md5"]
+[ext_resource type="PackedScene" uid="uid://hqrfseqd22mr" path="res://scenes/slime/slime.tscn" id="8_faiqj"]
 
 [sub_resource type="GDScript" id="GDScript_olxlq"]
 script/source = "extends Node2D
@@ -272,6 +273,12 @@ layer_0/tile_data = PackedInt32Array(196664, 655360, 14, 196624, 786432, 14, 196
 
 [node name="Player" parent="." instance=ExtResource("2_15u5h")]
 position = Vector2(616, 535)
+
+[node name="Slime" parent="." instance=ExtResource("8_faiqj")]
+position = Vector2(911, 652)
+
+[node name="Slime2" parent="." instance=ExtResource("8_faiqj")]
+position = Vector2(1077, 657)
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]
