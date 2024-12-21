@@ -257,13 +257,13 @@ metadata/_edit_lock_ = true
 position = Vector2(190, 105)
 
 [node name="OrbLight2" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(1178, 94)
+position = Vector2(1163, 102)
 
 [node name="OrbLight3" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(191, 530)
+position = Vector2(312, 501)
 
 [node name="OrbLight4" parent="Lights" instance=ExtResource("5_hymml")]
-position = Vector2(1185, 632)
+position = Vector2(886, 561)
 
 [node name="OrbLight5" parent="Lights" instance=ExtResource("5_hymml")]
 position = Vector2(653, 300)
@@ -275,10 +275,7 @@ layer_0/tile_data = PackedInt32Array(196664, 655360, 14, 196624, 786432, 14, 196
 position = Vector2(616, 535)
 
 [node name="Slime" parent="." instance=ExtResource("8_faiqj")]
-position = Vector2(911, 652)
-
-[node name="Slime2" parent="." instance=ExtResource("8_faiqj")]
-position = Vector2(1077, 657)
+position = Vector2(209, 569)
 
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Singleplayer" to="." method="_on_button_singleplayer_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/MarginContainer/VBoxContainer/Button_Online" to="." method="_on_button_online_pressed"]

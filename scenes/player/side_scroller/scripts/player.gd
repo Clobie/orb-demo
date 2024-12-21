@@ -73,7 +73,12 @@ func _ready() -> void:
 	heal(9999)
 	$Node2D2/ProgressBar_Yellow.value = energy_max
 	add_to_group("Player")
-	
+	SignalBus.boss_spawn_point.connect(_on_boss_get_spawn_point)
+
+func _on_boss_get_spawn_point(position):
+	global_position = position + Vector2(-150, 0)
+	start_pos = position + Vector2(-150, 0)
+
 func _process(_delta: float) -> void:
 	pass
 
@@ -264,7 +269,7 @@ func _on_timer_can_shoot_timeout():
 	timer_can_shoot.stop()
 
 func _on_timer_energy_regen_timeout():
-	energy = clamp(energy + 1, 0, energy_max)
+	energy = clamp(energy + 3, 0, energy_max)
 	$Node2D2/ProgressBar_Yellow.value = energy
 
 func _on_timer_health_regen_timeout():
