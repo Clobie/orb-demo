@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cg55fljrqtwy7"]
+[gd_scene load_steps=104 format=3 uid="uid://cg55fljrqtwy7"]
 
 [ext_resource type="Texture2D" uid="uid://ds6m2x6ffbtgc" path="res://assets/textures/units/necromancer/Necromancer_creativekind-Sheet.png" id="1_2augq"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/necromancer.gd" id="1_6ckxo"]
@@ -16,6 +16,12 @@
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_2.gd" id="13_mw02t"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_3.gd" id="14_g1nwp"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/run.gd" id="15_yci3i"]
+[ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_4.gd" id="16_y0snc"]
+[ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_5.gd" id="18_p8m03"]
+[ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_6.gd" id="19_ted4u"]
+[ext_resource type="AudioStream" uid="uid://dutdfxjd0wc68" path="res://assets/audio/Laugh/laugh1.wav" id="20_p4wxc"]
+[ext_resource type="AudioStream" uid="uid://b1lgjt2qtw4su" path="res://assets/audio/Laugh/laugh2.wav" id="21_a52o7"]
+[ext_resource type="AudioStream" uid="uid://cmwaid81hcokg" path="res://assets/audio/Laugh/laugh3.wav" id="22_lrjgv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_urqwq"]
 light_mode = 1
@@ -603,7 +609,7 @@ animations = [{
 }]
 
 [node name="Necromancer" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_6ckxo")
@@ -658,10 +664,8 @@ shape = SubResource("CapsuleShape2D_lynb8")
 material = SubResource("ShaderMaterial_qyw7l")
 position = Vector2(0, -52)
 sprite_frames = SubResource("SpriteFrames_vxw8q")
-animation = &"attack3"
+animation = &"attack2"
 autoplay = "idle"
-frame = 13
-frame_progress = 0.364438
 
 [node name="Rays" type="Node2D" parent="."]
 position = Vector2(1, -23)
@@ -691,6 +695,12 @@ target_position = Vector2(-250, 0)
 collision_mask = 7
 collide_with_areas = true
 
+[node name="RayCast2D_FindFloor" type="RayCast2D" parent="Rays"]
+position = Vector2(-104, -52)
+target_position = Vector2(0, 187)
+collision_mask = 4
+collide_with_areas = true
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1, -30)
 energy = 0.25
@@ -699,6 +709,15 @@ texture_scale = 0.25
 
 [node name="StaffPosition" type="Node2D" parent="."]
 position = Vector2(17, -68)
+
+[node name="AudioStreamPlayer2D_Laugh1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_p4wxc")
+
+[node name="AudioStreamPlayer2D_Laugh2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_a52o7")
+
+[node name="AudioStreamPlayer2D_Laugh3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_lrjgv")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
 script = ExtResource("3_0vwnp")
@@ -712,6 +731,9 @@ script = ExtResource("7_wal82")
 
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("6_ba8e6")
+
+[node name="run" type="Node" parent="StateMachine"]
+script = ExtResource("15_yci3i")
 
 [node name="stalk" type="Node" parent="StateMachine"]
 script = ExtResource("8_saku6")
@@ -731,5 +753,11 @@ script = ExtResource("13_mw02t")
 [node name="attack3" type="Node" parent="StateMachine"]
 script = ExtResource("14_g1nwp")
 
-[node name="run" type="Node" parent="StateMachine"]
-script = ExtResource("15_yci3i")
+[node name="attack4" type="Node" parent="StateMachine"]
+script = ExtResource("16_y0snc")
+
+[node name="attack5" type="Node" parent="StateMachine"]
+script = ExtResource("18_p8m03")
+
+[node name="attack6" type="Node" parent="StateMachine"]
+script = ExtResource("19_ted4u")

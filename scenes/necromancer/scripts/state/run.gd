@@ -30,19 +30,20 @@ func loop_process(delta):
 	time += delta
 	if time > timeout:
 		time = 0.0
-		if unit.health > unit.health_max / 2:
-			var random_attack = randi() % 2  # Generate 0 or 1 randomly
-			if random_attack == 0:
-				statemachine.set_state("attack1")
-			else:
-				statemachine.set_state("attack2")
+		if !unit.can_see_player():
+			statemachine.set_state("teleport")
 		else:
-			var attacks = ["attack1", "attack2", "attack3", "attack3"]
-			var random_index = randi() % attacks.size()
-			statemachine.set_state(attacks[random_index])
+			if unit.health > unit.health_max / 2:
+				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4"]
+				var random_index = randi() % attacks.size()
+				statemachine.set_state(attacks[random_index])
+			else:
+				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4", "attack5", "attack6"]
+				var random_index = randi() % attacks.size()
+				statemachine.set_state(attacks[random_index])
 
 	var dist = unit.target.global_position.distance_to(unit.global_position)
-	if dist < 300:
+	if dist > 350:
 		unit.velocity = lerp(unit.velocity, Vector2.ZERO, 5 * delta)
 	else:
 		var dir = unit.get_biased_escape_direction()

@@ -32,6 +32,9 @@ func enter_state():
 	
 	# wait 5 seconds
 	await get_tree().create_timer(teleport_time / 2.0).timeout
+	var state = statemachine.get_state()
+	if state.name != 'teleport':
+		return
 	
 	# teleport
 	unit.global_position = destination
@@ -42,13 +45,24 @@ func enter_state():
 	
 	# wait 5 seconds
 	await get_tree().create_timer(teleport_time / 2.0).timeout
+	state = statemachine.get_state()
+	if state.name != 'teleport':
+		return
 	anim.material.set_shader_parameter("dissolve", prev_dissolve)
 	
 	if unit.engaged:
+		if !unit.can_see_player():
+			statemachine.set_state("teleport")
+		else:
+			if unit.health > unit.health_max / 2:
+				var attacks = ["attack1", "attack2", "attack3", "attack4"]
+				var random_index = randi() % attacks.size()
+				statemachine.set_state(attacks[random_index])
+			else:
+				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack5", "attack6"]
+				var random_index = randi() % attacks.size()
+				statemachine.set_state(attacks[random_index])
 		unit.set_collision_layer_value(2, true)
-	
-	if unit.engaged:
-		statemachine.set_state("chase")
 	else:
 		statemachine.set_state("stalk")
 	

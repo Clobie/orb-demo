@@ -24,7 +24,7 @@ func enter_state():
 	unit.point_light_2d.blend_mode = 0
 	unit.point_light_2d.energy = 0.75
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	statemachine.set_state("dialogue")
 
 func exit_state():

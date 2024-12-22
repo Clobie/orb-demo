@@ -14,6 +14,13 @@ const HP_ORB = preload("res://scenes/gatherable/hp_orb.tscn")
 const ENERGY_ORB = preload("res://scenes/gatherable/energy_orb.tscn")
 const GROUND_EXPLOSION = preload("res://scenes/spell_attacks/ground_explosion.tscn")
 const FIREBALL = preload("res://scenes/spell_attacks/fireball.tscn")
+const SHURIKEN = preload("res://scenes/spell_attacks/shuriken.tscn")
+const PORTAL_SPAWNER = preload("res://scenes/spell_attacks/portal_spawner.tscn")
+
+@onready var audio_stream_player_2d_laugh_1 = $AudioStreamPlayer2D_Laugh1
+@onready var audio_stream_player_2d_laugh_2 = $AudioStreamPlayer2D_Laugh2
+@onready var audio_stream_player_2d_laugh_3 = $AudioStreamPlayer2D_Laugh3
+
 
 @onready var label = $Chat/Label
 
@@ -23,6 +30,7 @@ var health = health_max
 @onready var target = get_tree().get_nodes_in_group("Player")[0]
 
 @onready var ray_cast_2d_find_player = $Rays/RayCast2D_FindPlayer
+@onready var ray_cast_2d_find_floor = $Rays/RayCast2D_FindFloor
 
 @onready var ray_cast_2d_up = $Rays/RayCast2D_Up
 @onready var ray_cast_2d_down = $Rays/RayCast2D_Down
@@ -69,12 +77,18 @@ func _physics_process(delta):
 	var dst = target.global_position.distance_to(global_position)
 	
 	ray_cast_2d_find_player.target_position = dr*dst*1.2
+	ray_cast_2d_find_floor.global_position = target.global_position
+	ray_cast_2d_find_floor.target_position = Vector2(0, 500)
 
 func can_see_player():
 	if ray_cast_2d_find_player.is_colliding():
 		return ray_cast_2d_find_player.get_collider() == target
 	return false
 
+func floor_pos_below_target():
+	if ray_cast_2d_find_floor.is_colliding():
+		return ray_cast_2d_find_floor.get_collision_point()
+	return null
 	
 func calculate_direction(bias_factor: float, include_target: bool = false, invert_target: bool = false) -> Vector2:
 	var direction = Vector2.ZERO

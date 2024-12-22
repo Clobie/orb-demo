@@ -6,7 +6,7 @@ extends State_CharacterBody2D
 # anim_name: String
 
 var time = 0.0
-var timeout = 5.0
+var timeout = 15.0
 var alpha = 0.15
 var dark_light_energy = 0.15
 var flashing = false

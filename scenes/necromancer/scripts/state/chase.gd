@@ -15,7 +15,7 @@ func _ready():
 func enter_state():
 	super()
 	anim.play(anim_name)
-	timeout = randf_range(0.0, 2.0)
+	timeout = randf_range(1.0, 4.0)
 	unit.velocity.x = (randi() % 2) * 2 - 1
 	unit.velocity.y = (randi() % 2) * 2 - 1
 	unit.velocity = unit.velocity.normalized() * unit.speed
@@ -36,11 +36,11 @@ func loop_process(delta):
 			statemachine.set_state("teleport")
 		else:
 			if unit.health > unit.health_max / 2:
-				var attacks = ["attack1", "attack2"]
+				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4"]
 				var random_index = randi() % attacks.size()
 				statemachine.set_state(attacks[random_index])
 			else:
-				var attacks = ["attack1", "attack2", "attack3"]
+				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4", "attack5", "attack6"]
 				var random_index = randi() % attacks.size()
 				statemachine.set_state(attacks[random_index])
 

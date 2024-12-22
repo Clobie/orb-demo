@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwvr5qrpbinos"]
+
+[ext_resource type="Script" path="res://scenes/spell_attacks/explosion.gd" id="1_5kma1"]
+[ext_resource type="Texture2D" uid="uid://cxk6dxob6yggj" path="res://assets/textures/vfx/Explosion.png" id="1_n3ukr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabup"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d5ym"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvrps"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rs1h"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgb3i"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msh37"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nigni"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjdxb"]
+atlas = ExtResource("1_n3ukr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e7dh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tabup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d5ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvrps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rs1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgb3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msh37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nigni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjdxb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 23.0
+}]
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_5kma1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7e7dh")
+frame = 7
+frame_progress = 1.0

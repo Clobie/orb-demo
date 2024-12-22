@@ -1,7 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7cicy86fu36f"]
+[gd_scene load_steps=16 format=3 uid="uid://b7cicy86fu36f"]
 
 [ext_resource type="Script" path="res://scenes/spell_attacks/fireball.gd" id="1_hp0kv"]
 [ext_resource type="Texture2D" uid="uid://bqayqp0hgkpli" path="res://assets/textures/vfx/Fireball_68x9.png" id="1_jqfc3"]
+[ext_resource type="AudioStream" uid="uid://mvv0np3ymxdy" path="res://assets/audio/SFX/Explosion Medium 2-1.wav" id="3_tnuew"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojwh5"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7g31b"]
 atlas = ExtResource("1_jqfc3")
@@ -81,11 +85,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ojwh5"]
-radius = 5.0
-
-[node name="Fireball" type="Node2D"]
+[node name="Fireball" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 5
+gravity_scale = 0.0
 script = ExtResource("1_hp0kv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ojwh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29, 0)
@@ -94,13 +101,10 @@ sprite_frames = SubResource("SpriteFrames_ki66o")
 autoplay = "default"
 frame_progress = 0.937889
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
-monitorable = false
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tnuew")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_ojwh5")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

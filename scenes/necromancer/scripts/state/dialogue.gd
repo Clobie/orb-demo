@@ -21,13 +21,18 @@ var typing_speed = 0.1  # Time in seconds between letters
 func _ready():
 	super()
 	anim_name = "idle"
-	unit.engaged = true
 
 func enter_state():
 	super()
 	anim.play(anim_name)
 	unit.set_collision_layer_value(2, false)
-	talk()  # Start the dialog when entering the state
+	unit.engaged = true
+	talk()
+	await get_tree().create_timer(3.0).timeout
+	anim.material.set_shader_parameter("greyscale", false)
+	anim.material.set_shader_parameter("dissolve", false)
+	anim.material.set_shader_parameter("alpha", 1.0)
+	anim.material.set_shader_parameter("chroma_offset", false)
 
 func exit_state():
 	pass

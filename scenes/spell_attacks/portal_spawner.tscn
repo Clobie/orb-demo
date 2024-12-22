@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b30dv0v4kg7k4"]
+
+[ext_resource type="Texture2D" uid="uid://bgtchgmukaos2" path="res://assets/textures/portals/Pixel Gates.png" id="1_68h0x"]
+[ext_resource type="Script" path="res://scenes/spell_attacks/portal_spawner.gd" id="1_sxshl"]
+[ext_resource type="Shader" path="res://shaders/necromancer.gdshader" id="2_dleqa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrjtl"]
+resource_local_to_scene = true
+shader = ExtResource("2_dleqa")
+shader_parameter/greyscale = false
+shader_parameter/dissolve = true
+shader_parameter/dissolve_level = 0.0
+shader_parameter/alpha = 1.0
+shader_parameter/chroma_offset = true
+shader_parameter/chroma_offset_value = 5.0
+
+[node name="PortalSpawner" type="Node2D"]
+script = ExtResource("1_sxshl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mrjtl")
+position = Vector2(0, -56)
+texture = ExtResource("1_68h0x")
+region_enabled = true
+region_rect = Rect2(528, 0, 104, 112)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

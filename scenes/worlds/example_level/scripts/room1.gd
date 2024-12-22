@@ -14,7 +14,6 @@ func _ready() -> void:
 
 func _on_boss_dead():
 	create_tween().tween_property($Lights/DirectionalLight2D_Darkness, "energy", 0.0, 3.0)
-	#$Lights/DirectionalLight2D_Darkness.visible = false
 	
 func _process(_delta: float) -> void:
 	if !level_complete:
@@ -23,7 +22,7 @@ func _process(_delta: float) -> void:
 			if orb.activated:
 				active += 1
 		$CanvasLayer/Label.text = "Activated Orbs: " + str(active) + "/7"
-		if active == 1:
+		if active == 7:
 			level_complete = true
 			$CanvasLayer/Label2.visible = true
 			var t = create_tween().tween_property($CanvasLayer/Label2, "modulate", Color.TRANSPARENT, 5.0)

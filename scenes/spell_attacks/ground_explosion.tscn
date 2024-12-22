@@ -1,13 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://beoso4omvcifm"]
+[gd_scene load_steps=27 format=3 uid="uid://beoso4omvcifm"]
 
 [ext_resource type="Texture2D" uid="uid://uun8yist7yib" path="res://assets/textures/vfx/Air Burst.png" id="1_mm00r"]
 [ext_resource type="Script" path="res://scenes/spell_attacks/ground_explosion.gd" id="1_poh2b"]
 [ext_resource type="Texture2D" uid="uid://5d7yloa3do5f" path="res://assets/textures/vfx/Preparing Burst.png" id="2_gct75"]
 [ext_resource type="Shader" path="res://shaders/ground_explosion.gdshader" id="2_phc0e"]
+[ext_resource type="AudioStream" uid="uid://0xaif58otb6v" path="res://assets/audio/SFX/Explosion Large 1-1.wav" id="5_p4cda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lksqc"]
 shader = ExtResource("2_phc0e")
 shader_parameter/toggle = true
+shader_parameter/alpha = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4vq8"]
 atlas = ExtResource("1_mm00r")
@@ -113,7 +115,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"explode",
-"speed": 12.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -145,7 +147,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"start",
-"speed": 12.0
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnrx6"]
@@ -159,7 +161,9 @@ material = SubResource("ShaderMaterial_lksqc")
 position = Vector2(1, -24)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_pxfvs")
-animation = &"start"
+animation = &"explode"
+frame = 8
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -190,4 +194,12 @@ position = Vector2(35, -30)
 target_position = Vector2(0, 35)
 collision_mask = 4
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p4cda")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

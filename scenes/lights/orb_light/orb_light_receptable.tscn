@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ba3l803taay7d"]
+[gd_scene load_steps=19 format=3 uid="uid://ba3l803taay7d"]
 
 [ext_resource type="Script" path="res://scenes/lights/orb_light/orb_light_receptable.gd" id="1_n02s1"]
 [ext_resource type="Texture2D" uid="uid://cwsf7mmc5fpc2" path="res://assets/textures/receptacles/Sprite-0001.png" id="1_wu7x7"]
+[ext_resource type="AudioStream" uid="uid://dvmbflnff14qp" path="res://assets/audio/SFX/electromechanical-pulse-190403.mp3" id="3_6gerf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vnd1h"]
 light_mode = 1
@@ -133,6 +134,9 @@ animation = &"idle"
 position = Vector2(1, -46)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bd2t1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6gerf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

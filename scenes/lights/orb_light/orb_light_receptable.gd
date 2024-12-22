@@ -17,6 +17,7 @@ func _on_body_entered(body):
 			activated = true
 			$CollisionShape2D.set_deferred("disabled", true)
 			$AnimatedSprite2D.play("activating")
+			$AudioStreamPlayer2D.play()
 			await $AnimatedSprite2D.animation_finished
 			$AnimatedSprite2D.play("charging")
 			
