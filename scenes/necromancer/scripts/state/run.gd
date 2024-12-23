@@ -15,7 +15,7 @@ func _ready():
 func enter_state():
 	super()
 	anim.play(anim_name)
-	timeout = randf_range(0.0, 2.0)
+	timeout = randf_range(0.0, 1.0)
 	unit.velocity.x = (randi() % 2) * 2 - 1
 	unit.velocity.y = (randi() % 2) * 2 - 1
 	unit.velocity = unit.velocity.normalized() * unit.speed
