@@ -17,6 +17,10 @@ extends CharacterBody2D
 @onready var ray_cast_2d_floor_right = $Rays/RayCast2D_FloorRight
 @onready var ray_cast_2d_player_detector = $Rays/RayCast2D_PlayerDetector
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d_2 = $AudioStreamPlayer2D2
+
+
+
 
 const HP_ORB = preload("res://scenes/gatherable/hp_orb.tscn")
 const ENERGY_ORB = preload("res://scenes/gatherable/energy_orb.tscn")
@@ -95,8 +99,9 @@ func _on_area_2d_attack_area_body_entered(body):
 
 func _on_area_2d_detect_player_body_entered(body):
 	if body is CharacterBody2D:
-		target = body
-		$AudioStreamPlayer2D.play()
+		if target != body:
+			target = body
+			$AudioStreamPlayer2D2.play()
 
 func _on_area_2d_deaggro_body_exited(body):
 	if body == target:

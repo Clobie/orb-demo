@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8tsu38tgb055"]
+[gd_scene load_steps=17 format=3 uid="uid://c8tsu38tgb055"]
 
 [ext_resource type="Script" path="res://scenes/worlds/example_level/scripts/room1.gd" id="1_eucn8"]
 [ext_resource type="PackedScene" uid="uid://dyxtfb5bp0j5n" path="res://tilemaps/dungeon1.tscn" id="2_0bt5d"]
@@ -19,6 +19,37 @@ light_mode = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qux44"]
 shader = ExtResource("3_g4cnp")
 shader_parameter/darkness = 2.714
+
+[sub_resource type="Shader" id="Shader_2e55t"]
+code = "shader_type canvas_item;
+//render_mode unshaded;
+
+uniform float progress : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 color_mask: source_color = vec4(0.0, 0.0, 0.0, 0.5);
+
+float random(vec2 uv) {
+	return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 438.5453);
+}
+
+void fragment() {
+	float size_x = float(textureSize(TEXTURE, 0).x);
+	float size_y = float(textureSize(TEXTURE, 0).y);
+	vec4 pixelColor = texture(TEXTURE, UV);
+	vec2 UVr = vec2(floor(UV.x * size_x) / size_x, floor(UV.y * size_y) / size_y);
+	float visible = step(progress, random(UVr));
+	//float visible = step(0.5 - sin(TIME * 2.0) / 2.0, random(UVr));
+	if(progress > 0.0){
+		COLOR = vec4(color_mask.r, color_mask.g, color_mask.b, min(visible, pixelColor.a));
+	} else {
+		COLOR = vec4(pixelColor.r, pixelColor.g, pixelColor.b, min(visible, pixelColor.a)) * vec4(1.0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mja52"]
+resource_local_to_scene = true
+shader = SubResource("Shader_2e55t")
+shader_parameter/progress = 0.0
+shader_parameter/color_mask = Color(0.347817, 0.347817, 0.347817, 0.5)
 
 [node name="Room1" type="Node2D"]
 script = ExtResource("1_eucn8")
@@ -166,6 +197,9 @@ health = 90
 roam_speed = 2000
 detect_range = 350
 deaggro_range = 450
+
+[node name="AnimatedSprite2D" parent="Skeletons/Skeleton" index="1"]
+material = SubResource("ShaderMaterial_mja52")
 
 [node name="Skeleton2" parent="Skeletons" instance=ExtResource("9_8nnnf")]
 position = Vector2(-802, 666)
@@ -423,3 +457,5 @@ metadata/_edit_lock_ = true
 z_index = 1
 position = Vector2(1408, 2907)
 metadata/_edit_lock_ = true
+
+[editable path="Skeletons/Skeleton"]
