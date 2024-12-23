@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvhl7057l6ir2"]
+
+[ext_resource type="PackedScene" uid="uid://db7rpxqfpgbg1" path="res://scenes/spell_attacks/beam.tscn" id="1_ib3bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utdww"]
+size = Vector2(85, 107)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 31
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(421, 365)
+shape = SubResource("RectangleShape2D_utdww")
+
+[node name="Beam" parent="." instance=ExtResource("1_ib3bn")]
+position = Vector2(262, 358)

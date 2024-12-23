@@ -30,15 +30,19 @@ func loop_process(delta):
 	time += delta
 	if time > timeout:
 		time = 0.0
-		if !unit.can_see_player():
+		
+		if !unit.dialogue2_done and unit.health < unit.health_max / 2.0:
+			unit.dialogue2_done = true
+			statemachine.set_state("dialogue2")
+		elif !unit.can_see_player():
 			statemachine.set_state("teleport")
 		else:
 			if unit.health > unit.health_max / 2:
-				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4"]
+				var attacks = ["attack2", "attack3", "attack4", "attack5"]
 				var random_index = randi() % attacks.size()
 				statemachine.set_state(attacks[random_index])
 			else:
-				var attacks = ["attack1", "attack2", "attack3", "attack4", "attack4", "attack4", "attack5", "attack6"]
+				var attacks = ["attack1", "attack3", "attack4", "attack5", "attack6"]
 				var random_index = randi() % attacks.size()
 				statemachine.set_state(attacks[random_index])
 

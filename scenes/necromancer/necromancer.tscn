@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://cg55fljrqtwy7"]
+[gd_scene load_steps=106 format=3 uid="uid://cg55fljrqtwy7"]
 
 [ext_resource type="Texture2D" uid="uid://ds6m2x6ffbtgc" path="res://assets/textures/units/necromancer/Necromancer_creativekind-Sheet.png" id="1_2augq"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/necromancer.gd" id="1_6ckxo"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/dialogue.gd" id="7_wal82"]
 [ext_resource type="Texture2D" uid="uid://bx23s7daekryr" path="res://assets/textures/lights/light01.png" id="8_4hqnh"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/stalk.gd" id="8_saku6"]
+[ext_resource type="PackedScene" uid="uid://db7rpxqfpgbg1" path="res://scenes/spell_attacks/beam.tscn" id="9_kgp16"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/die.gd" id="10_bhh5a"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_1.gd" id="12_wgnn8"]
+[ext_resource type="Script" path="res://scenes/necromancer/scripts/state/dialogue_2.gd" id="13_f0pxn"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_2.gd" id="13_mw02t"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/attack_3.gd" id="14_g1nwp"]
 [ext_resource type="Script" path="res://scenes/necromancer/scripts/state/run.gd" id="15_yci3i"]
@@ -656,17 +658,6 @@ offset_right = 79.0
 offset_bottom = -72.0
 theme = ExtResource("2_0bbpk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -22)
-shape = SubResource("CapsuleShape2D_lynb8")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_qyw7l")
-position = Vector2(0, -52)
-sprite_frames = SubResource("SpriteFrames_vxw8q")
-animation = &"attack2"
-autoplay = "idle"
-
 [node name="Rays" type="Node2D" parent="."]
 position = Vector2(1, -23)
 
@@ -701,6 +692,28 @@ target_position = Vector2(0, 187)
 collision_mask = 4
 collide_with_areas = true
 
+[node name="Beams" type="Node2D" parent="."]
+position = Vector2(17, -68)
+
+[node name="Beam" parent="Beams" instance=ExtResource("9_kgp16")]
+
+[node name="Beam2" parent="Beams" instance=ExtResource("9_kgp16")]
+
+[node name="Beam3" parent="Beams" instance=ExtResource("9_kgp16")]
+
+[node name="Beam4" parent="Beams" instance=ExtResource("9_kgp16")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -22)
+shape = SubResource("CapsuleShape2D_lynb8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_qyw7l")
+position = Vector2(0, -52)
+sprite_frames = SubResource("SpriteFrames_vxw8q")
+animation = &"attack1"
+autoplay = "idle"
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1, -30)
 energy = 0.25
@@ -728,6 +741,9 @@ script = ExtResource("4_gwfbq")
 
 [node name="dialogue" type="Node" parent="StateMachine"]
 script = ExtResource("7_wal82")
+
+[node name="dialogue2" type="Node" parent="StateMachine"]
+script = ExtResource("13_f0pxn")
 
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("6_ba8e6")

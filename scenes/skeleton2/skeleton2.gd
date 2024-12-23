@@ -96,6 +96,7 @@ func _on_area_2d_attack_area_body_entered(body):
 func _on_area_2d_detect_player_body_entered(body):
 	if body is CharacterBody2D:
 		target = body
+		$AudioStreamPlayer2D.play()
 
 func _on_area_2d_deaggro_body_exited(body):
 	if body == target:

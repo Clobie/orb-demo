@@ -5,6 +5,10 @@ var speed_ramp = 500
 
 var ray_length = 50
 
+var anim_paused = false
+
+var dialogue2_done = false
+
 var engaged = false
 @onready var staff_position = $StaffPosition
 
@@ -21,10 +25,11 @@ const PORTAL_SPAWNER = preload("res://scenes/spell_attacks/portal_spawner.tscn")
 @onready var audio_stream_player_2d_laugh_2 = $AudioStreamPlayer2D_Laugh2
 @onready var audio_stream_player_2d_laugh_3 = $AudioStreamPlayer2D_Laugh3
 
+@onready var beams = $Beams
 
 @onready var label = $Chat/Label
 
-var health_max = 3750
+var health_max = 5000
 var health = health_max
 
 @onready var target = get_tree().get_nodes_in_group("Player")[0]
@@ -58,14 +63,14 @@ func _on_boss_get_spawn_point(position):
 	global_position = position
 	
 func _physics_process(delta):
-	if target:
+	if target and !anim_paused:
 		if target.global_position.x < global_position.x:
 			$AnimatedSprite2D.flip_h = true
 			staff_position.position.x = -17
 		if target.global_position.x > global_position.x:
 			$AnimatedSprite2D.flip_h = false
 			staff_position.position.x = 17
-	else:
+	elif !anim_paused:
 		if velocity.x < 0:
 			$AnimatedSprite2D.flip_h = true
 			staff_position.position.x = -17

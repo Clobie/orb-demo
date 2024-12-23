@@ -1045,11 +1045,10 @@ shape = SubResource("CapsuleShape2D_3g8ej")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -50)
 zoom = Vector2(1.75, 1.75)
 limit_smoothed = true
 position_smoothing_enabled = true
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

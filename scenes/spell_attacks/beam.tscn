@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://db7rpxqfpgbg1"]
+
+[ext_resource type="Script" path="res://scenes/spell_attacks/beam.gd" id="1_4qyy1"]
+[ext_resource type="AudioStream" uid="uid://dy63u0b1wxgij" path="res://assets/audio/SFX/Mecha DESIGNED LASERS AND EXPLOSIONS 29.wav" id="2_k3ejj"]
+[ext_resource type="Texture2D" uid="uid://3mego5rjpryu" path="res://assets/textures/projectiles/arcane_ball2.tres" id="3_5pbst"]
+
+[node name="Beam" type="RayCast2D"]
+collision_mask = 5
+script = ExtResource("1_4qyy1")
+
+[node name="Line2D4" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 19, 0)
+width = 2.0
+default_color = Color(0.358988, 6.70822e-07, 1.20327e-07, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 19, 0)
+width = 2.0
+default_color = Color(0.605674, 1.66051e-06, 3.85046e-07, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 19, 0)
+width = 2.0
+default_color = Color(0.947406, 3.77826e-06, 1.73271e-06, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 19, 0)
+width = 2.0
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 1.866
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k3ejj")
+volume_db = -10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_5pbst")
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]
