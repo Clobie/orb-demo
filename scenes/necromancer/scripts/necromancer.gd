@@ -29,7 +29,7 @@ const PORTAL_SPAWNER = preload("res://scenes/spell_attacks/portal_spawner.tscn")
 
 @onready var label = $Chat/Label
 
-var health_max = 5000
+var health_max = 6000
 var health = health_max
 
 @onready var target = get_tree().get_nodes_in_group("Player")[0]
