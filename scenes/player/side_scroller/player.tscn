@@ -1093,49 +1093,6 @@ theme_override_font_sizes/font_size = 12
 text = "Clobie"
 horizontal_alignment = 1
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
-script = ExtResource("19_yyycl")
-state = NodePath("idle")
-
-[node name="idle" type="Node" parent="StateMachine"]
-script = ExtResource("15_8ocho")
-
-[node name="jump" type="Node" parent="StateMachine"]
-script = ExtResource("16_o6hoa")
-
-[node name="double_jump" type="Node" parent="StateMachine"]
-script = ExtResource("17_74v0w")
-
-[node name="fall" type="Node" parent="StateMachine"]
-script = ExtResource("17_g60vj")
-
-[node name="run" type="Node" parent="StateMachine"]
-script = ExtResource("17_hh1rh")
-
-[node name="shoot" type="Node" parent="StateMachine"]
-script = ExtResource("20_lps2u")
-
-[node name="land" type="Node" parent="StateMachine"]
-script = ExtResource("22_qntrn")
-
-[node name="wall_land" type="Node" parent="StateMachine"]
-script = ExtResource("27_qw4g7")
-
-[node name="wall_hold" type="Node" parent="StateMachine"]
-script = ExtResource("28_gvqsm")
-
-[node name="ledge_land" type="Node" parent="StateMachine"]
-script = ExtResource("29_pvqvo")
-
-[node name="ledge_hold" type="Node" parent="StateMachine"]
-script = ExtResource("30_0a1vd")
-
-[node name="wall_jump" type="Node" parent="StateMachine"]
-script = ExtResource("31_wovvh")
-
-[node name="death" type="Node" parent="StateMachine"]
-script = ExtResource("32_i53q8")
-
 [node name="Marker2D_RopePoint" type="Marker2D" parent="."]
 position = Vector2(0, -19)
 
@@ -1347,6 +1304,49 @@ stream = ExtResource("48_2fgmy")
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Jump"]
 stream = ExtResource("49_u0hnx")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("19_yyycl")
+state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("15_8ocho")
+
+[node name="jump" type="Node" parent="StateMachine"]
+script = ExtResource("16_o6hoa")
+
+[node name="double_jump" type="Node" parent="StateMachine"]
+script = ExtResource("17_74v0w")
+
+[node name="fall" type="Node" parent="StateMachine"]
+script = ExtResource("17_g60vj")
+
+[node name="run" type="Node" parent="StateMachine"]
+script = ExtResource("17_hh1rh")
+
+[node name="shoot" type="Node" parent="StateMachine"]
+script = ExtResource("20_lps2u")
+
+[node name="land" type="Node" parent="StateMachine"]
+script = ExtResource("22_qntrn")
+
+[node name="wall_land" type="Node" parent="StateMachine"]
+script = ExtResource("27_qw4g7")
+
+[node name="wall_hold" type="Node" parent="StateMachine"]
+script = ExtResource("28_gvqsm")
+
+[node name="ledge_land" type="Node" parent="StateMachine"]
+script = ExtResource("29_pvqvo")
+
+[node name="ledge_hold" type="Node" parent="StateMachine"]
+script = ExtResource("30_0a1vd")
+
+[node name="wall_jump" type="Node" parent="StateMachine"]
+script = ExtResource("31_wovvh")
+
+[node name="death" type="Node" parent="StateMachine"]
+script = ExtResource("32_i53q8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

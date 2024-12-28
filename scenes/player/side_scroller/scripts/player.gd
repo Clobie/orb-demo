@@ -83,13 +83,22 @@ func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) or Input.is_action_pressed("ability2"):
 		grav_gun(true)
+	else:
+		grav_gun(false)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if can_shoot:
 			shoot_projectile()
 			can_shoot = false
 			timer_can_shoot.start()
+	else:
+		if Input.is_action_pressed("shoot"):
+			if can_shoot:
+				shoot_projectile(true)
+				can_shoot = false
+				timer_can_shoot.start()
+	
 	
 	if grav_gun_enabled:
 		energy -= 1
@@ -122,8 +131,12 @@ func play_random_jump_sound():
 
 func grav_gun(enable: bool):
 	if enable:
-		#var pos = global_position
-		$Area2D/CollisionShape2D.global_position = get_global_mouse_position()
+		var axis_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down").normalized()
+		if !axis_dir:
+			axis_dir = Input.get_vector("left", "right", "up", "down").normalized()
+		var mousepos = get_global_mouse_position()
+		var pos = global_position + (axis_dir * 300) if Input.is_action_pressed("ability2") else mousepos
+		$Area2D/CollisionShape2D.global_position = pos
 		if energy < 25:
 			return
 		if grav_gun_enabled == false:
@@ -138,13 +151,18 @@ func grav_gun(enable: bool):
 		grappling = []
 		grappling_last_force = []
 
-func shoot_projectile():
+func shoot_projectile(joystick = false):
 	if energy > 10:
+		var stick_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down").normalized()
+		if !stick_dir:
+			stick_dir = Input.get_vector("left", "right", "up", "down").normalized()
 		energy = clamp(energy - 10, 0, energy_max)
 		$Node2D2/ProgressBar_Yellow.value = energy
 		var startpos = global_position - Vector2(0, 20)
 		var mouse_position = get_global_mouse_position()
-		var direction = (mouse_position - startpos).normalized()
+		var direction = stick_dir if joystick else (mouse_position - startpos).normalized()
+		if joystick and !stick_dir:
+			direction = Vector2(anim.scale.x, 0)
 		startpos = startpos + direction * 5
 		var p = projectile.instantiate()
 		p.global_position = startpos
@@ -161,6 +179,7 @@ func _input(event):
 				pass
 		if event.is_released:
 			grav_gun(false)
+	
 
 func move_axis() -> float:
 	var axis = Input.get_axis("left", "right")
@@ -201,7 +220,7 @@ func can_ledge_hold():
 	return false
 
 func can_wall_hold():
-	if ledge_top_ray.is_colliding() and ledge_mid_ray.is_colliding() and wall_mid_ray.is_colliding() and Input.is_action_pressed("up"):
+	if ledge_top_ray.is_colliding() and ledge_mid_ray.is_colliding() and wall_mid_ray.is_colliding() and (Input.is_action_pressed("up") or Input.is_action_pressed("wall_hold")):
 		return true
 	return false
 

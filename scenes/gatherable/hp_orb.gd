@@ -20,3 +20,4 @@ func _process(delta):
 			call_deferred("queue_free")
 			if player.has_method("heal"):
 				player.heal(value)
+				BattleText.display_heal(value, player.global_position + Vector2(0, -75))

@@ -27,7 +27,9 @@ func _physics_process(delta):
 
 func damage(collider, _gpos):
 	if collider.has_method("take_damage"):
-		collider.take_damage(randi_range(15,25), collider)
+		var val = randi_range(15,25)
+		collider.take_damage(val, collider)
+		BattleText.display_normal(val, collider.global_position + Vector2(0, -40))
 
 func explode():
 	var x = explosion.instantiate()
