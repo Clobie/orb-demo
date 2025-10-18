@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Godot Project"
-run/main_scene="res://scenes/menus/start_menu/startmenu.tscn"
+config/name="orb-demo"
+run/main_scene="uid://b1y7n8rpl5pwq"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icons/icon.svg"
 
