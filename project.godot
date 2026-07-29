@@ -8,12 +8,17 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="orb-demo"
+config/name="Orb Game"
 run/main_scene="uid://b1y7n8rpl5pwq"
-config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://assets/icons/icon.svg"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="uid://s2q5w4ehy1hk"
+config/tags=PackedStringArray("game")
 
 [autoload]
 

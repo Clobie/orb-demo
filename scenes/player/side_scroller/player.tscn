@@ -1,54 +1,54 @@
-[gd_scene load_steps=178 format=3 uid="uid://cxlw6ocqk475r"]
+[gd_scene format=3 uid="uid://cxlw6ocqk475r"]
 
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
-[ext_resource type="Shader" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
-[ext_resource type="Texture2D" uid="uid://mivakrx3pkja" path="res://assets/textures/units/side_scroller_character/player air spin 48x48.png" id="3_6n3en"]
-[ext_resource type="Texture2D" uid="uid://ldb82p76dsi2" path="res://assets/textures/units/side_scroller_character/Player Crouch-Idle 48x48.png" id="4_k03gv"]
-[ext_resource type="Texture2D" uid="uid://doj317yiusadr" path="res://assets/textures/units/side_scroller_character/player crouch-walk 48x48.png" id="5_7fgn0"]
-[ext_resource type="Texture2D" uid="uid://bcrpbraedkkep" path="res://assets/textures/units/side_scroller_character/Player Death 64x64.png" id="6_ixg0k"]
-[ext_resource type="Texture2D" uid="uid://d61couk7c6j8" path="res://assets/textures/units/side_scroller_character/Player Hurt 48x48.png" id="7_hj7kk"]
-[ext_resource type="Texture2D" uid="uid://dxxg4el2eouu3" path="res://assets/textures/units/side_scroller_character/Character Idle 48x48.png" id="7_s4isa"]
-[ext_resource type="Texture2D" uid="uid://y6pbxwg14el3" path="res://assets/textures/units/side_scroller_character/Player Jab 48x48.png" id="8_6vyl5"]
-[ext_resource type="Texture2D" uid="uid://ul1lt5o17loh" path="res://assets/textures/units/side_scroller_character/player jump 48x48.png" id="9_m7bet"]
-[ext_resource type="Texture2D" uid="uid://bm0exxuu5aaeg" path="res://assets/textures/units/side_scroller_character/player land 48x48.png" id="10_c4kw5"]
-[ext_resource type="Texture2D" uid="uid://deblbjur1jk5x" path="res://assets/textures/units/side_scroller_character/Player Roll 48x48.png" id="10_yd2hu"]
-[ext_resource type="Texture2D" uid="uid://bnr4556uyvia1" path="res://assets/textures/units/side_scroller_character/run cycle 48x48.png" id="11_et86i"]
-[ext_resource type="Texture2D" uid="uid://cn5xo61sm3qw" path="res://assets/textures/units/side_scroller_character/player shoot 2H 48x48.png" id="12_ihhw4"]
-[ext_resource type="Texture2D" uid="uid://cqr0nl6p8to00" path="res://assets/textures/units/side_scroller_character/player ledge climb 48x48.png" id="12_rslc4"]
-[ext_resource type="Texture2D" uid="uid://bx23s7daekryr" path="res://assets/textures/lights/light01.png" id="13_lsjyh"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/idle.gd" id="15_8ocho"]
-[ext_resource type="Texture2D" uid="uid://c6sk8kv2aj8i" path="res://assets/textures/units/side_scroller_character/Player Side-Climb 48x48.png" id="15_61e7y"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/jump.gd" id="16_o6hoa"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/double_jump.gd" id="17_74v0w"]
-[ext_resource type="Texture2D" uid="uid://fktysqw3r8lg" path="res://assets/textures/units/side_scroller_character/wall land 48x48.png" id="17_fkiid"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/fall.gd" id="17_g60vj"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/move.gd" id="17_hh1rh"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine_characterbody2d.gd" id="19_yyycl"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/shoot.gd" id="20_lps2u"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/land.gd" id="22_qntrn"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_land.gd" id="27_qw4g7"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_hold.gd" id="28_gvqsm"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/ledge_land.gd" id="29_pvqvo"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/ledge_hold.gd" id="30_0a1vd"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/wall_jump.gd" id="31_wovvh"]
-[ext_resource type="Script" path="res://scenes/player/side_scroller/scripts/states/die.gd" id="32_i53q8"]
+[ext_resource type="Script" uid="uid://c55psdpws1toy" path="res://scenes/player/side_scroller/scripts/player.gd" id="1_k1u3f"]
+[ext_resource type="Shader" uid="uid://ciyg3d17ra66b" path="res://shaders/white_mask.gdshader" id="2_hitbc"]
+[ext_resource type="Texture2D" uid="uid://cis7k1li1ybin" path="res://assets/textures/units/side_scroller_character/player air spin 48x48.png" id="3_6n3en"]
+[ext_resource type="Texture2D" uid="uid://dmpin0hfo071j" path="res://assets/textures/units/side_scroller_character/Player Crouch-Idle 48x48.png" id="4_k03gv"]
+[ext_resource type="Texture2D" uid="uid://b8kk0800drunk" path="res://assets/textures/units/side_scroller_character/player crouch-walk 48x48.png" id="5_7fgn0"]
+[ext_resource type="Texture2D" uid="uid://b87dub8w6bga8" path="res://assets/textures/units/side_scroller_character/Player Death 64x64.png" id="6_ixg0k"]
+[ext_resource type="Texture2D" uid="uid://cxr7ovl22t2su" path="res://assets/textures/units/side_scroller_character/Player Hurt 48x48.png" id="7_hj7kk"]
+[ext_resource type="Texture2D" uid="uid://bk0ftjiel8whs" path="res://assets/textures/units/side_scroller_character/Character Idle 48x48.png" id="7_s4isa"]
+[ext_resource type="Texture2D" uid="uid://b78shg584k1h2" path="res://assets/textures/units/side_scroller_character/Player Jab 48x48.png" id="8_6vyl5"]
+[ext_resource type="Texture2D" uid="uid://cj6tjkinatf25" path="res://assets/textures/units/side_scroller_character/player jump 48x48.png" id="9_m7bet"]
+[ext_resource type="Texture2D" uid="uid://cm4cg1n3dg510" path="res://assets/textures/units/side_scroller_character/player land 48x48.png" id="10_c4kw5"]
+[ext_resource type="Texture2D" uid="uid://pwnkljgpxhrh" path="res://assets/textures/units/side_scroller_character/Player Roll 48x48.png" id="10_yd2hu"]
+[ext_resource type="Texture2D" uid="uid://chg30xkxr6lf0" path="res://assets/textures/units/side_scroller_character/run cycle 48x48.png" id="11_et86i"]
+[ext_resource type="Texture2D" uid="uid://bnfhkbtec04d" path="res://assets/textures/units/side_scroller_character/player shoot 2H 48x48.png" id="12_ihhw4"]
+[ext_resource type="Texture2D" uid="uid://b0s4wbetwsdu4" path="res://assets/textures/units/side_scroller_character/player ledge climb 48x48.png" id="12_rslc4"]
+[ext_resource type="Texture2D" uid="uid://7a6h33q811ba" path="res://assets/textures/lights/light01.png" id="13_lsjyh"]
+[ext_resource type="Script" uid="uid://bfi3atc6m81cb" path="res://scenes/player/side_scroller/scripts/states/idle.gd" id="15_8ocho"]
+[ext_resource type="Texture2D" uid="uid://q5dvkis4y1g1" path="res://assets/textures/units/side_scroller_character/Player Side-Climb 48x48.png" id="15_61e7y"]
+[ext_resource type="Script" uid="uid://dd5vxxl0jh2bi" path="res://scenes/player/side_scroller/scripts/states/jump.gd" id="16_o6hoa"]
+[ext_resource type="Script" uid="uid://bkn4gyiv0d2xm" path="res://scenes/player/side_scroller/scripts/states/double_jump.gd" id="17_74v0w"]
+[ext_resource type="Texture2D" uid="uid://b7opwre0xc0ti" path="res://assets/textures/units/side_scroller_character/wall land 48x48.png" id="17_fkiid"]
+[ext_resource type="Script" uid="uid://ci662hgghfnp8" path="res://scenes/player/side_scroller/scripts/states/fall.gd" id="17_g60vj"]
+[ext_resource type="Script" uid="uid://rcvlsto7fxc4" path="res://scenes/player/side_scroller/scripts/states/move.gd" id="17_hh1rh"]
+[ext_resource type="Script" uid="uid://ctv53jstvqyia" path="res://scripts/state_machine/state_machine_characterbody2d.gd" id="19_yyycl"]
+[ext_resource type="Script" uid="uid://by4e8ihj11qho" path="res://scenes/player/side_scroller/scripts/states/shoot.gd" id="20_lps2u"]
+[ext_resource type="Script" uid="uid://dh785g0aor7up" path="res://scenes/player/side_scroller/scripts/states/land.gd" id="22_qntrn"]
+[ext_resource type="Script" uid="uid://ber36f2pot8hf" path="res://scenes/player/side_scroller/scripts/states/wall_land.gd" id="27_qw4g7"]
+[ext_resource type="Script" uid="uid://ipp5abr88l0u" path="res://scenes/player/side_scroller/scripts/states/wall_hold.gd" id="28_gvqsm"]
+[ext_resource type="Script" uid="uid://bsltg5l52p2n2" path="res://scenes/player/side_scroller/scripts/states/ledge_land.gd" id="29_pvqvo"]
+[ext_resource type="Script" uid="uid://d4iipwi5a7ivg" path="res://scenes/player/side_scroller/scripts/states/ledge_hold.gd" id="30_0a1vd"]
+[ext_resource type="Script" uid="uid://cd74ih52gt8fm" path="res://scenes/player/side_scroller/scripts/states/wall_jump.gd" id="31_wovvh"]
+[ext_resource type="Script" uid="uid://bqpod00i8al8s" path="res://scenes/player/side_scroller/scripts/states/die.gd" id="32_i53q8"]
 [ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://themes/menu.tres" id="33_1o0u5"]
-[ext_resource type="AudioStream" uid="uid://c8icybsj1ryk" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_01.wav" id="34_hsya3"]
-[ext_resource type="AudioStream" uid="uid://bmqw3wlaroxml" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_02.wav" id="35_tglw3"]
-[ext_resource type="AudioStream" uid="uid://dysyha78ia2nn" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_03.wav" id="36_5cgat"]
-[ext_resource type="AudioStream" uid="uid://egm1sjctxhk3" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_04.wav" id="37_jfcfe"]
-[ext_resource type="AudioStream" uid="uid://b5ivo3h6ax2ut" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_05.wav" id="38_ckle7"]
-[ext_resource type="AudioStream" uid="uid://08imgwb6uttb" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_06.wav" id="39_grkgy"]
-[ext_resource type="AudioStream" uid="uid://dhl4bsklq6fax" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_07.wav" id="40_xm71n"]
-[ext_resource type="AudioStream" uid="uid://b3dvifedh15hc" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_08.wav" id="41_8s112"]
-[ext_resource type="AudioStream" uid="uid://dby8r7chi38cg" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_09.wav" id="42_gr60g"]
-[ext_resource type="AudioStream" uid="uid://cpn5jrrnruk42" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_10.wav" id="43_ebhtd"]
-[ext_resource type="AudioStream" uid="uid://dfsttrp7pmfwn" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_01.wav" id="44_h7qlw"]
-[ext_resource type="AudioStream" uid="uid://dbs3wrj0cwx42" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_02.wav" id="45_p6d2c"]
-[ext_resource type="AudioStream" uid="uid://b8k8w81deeag" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_03.wav" id="46_at77n"]
-[ext_resource type="AudioStream" uid="uid://juoshgbvfjkr" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_04.wav" id="47_mh0aj"]
-[ext_resource type="AudioStream" uid="uid://qmhwyai3emqh" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_05.wav" id="48_2fgmy"]
-[ext_resource type="AudioStream" uid="uid://dko7q2hugsicm" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_06.wav" id="49_u0hnx"]
+[ext_resource type="AudioStream" uid="uid://6i0unt107stl" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_01.wav" id="34_hsya3"]
+[ext_resource type="AudioStream" uid="uid://crjs6kn03npjs" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_02.wav" id="35_tglw3"]
+[ext_resource type="AudioStream" uid="uid://ca8swx6sj6b6o" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_03.wav" id="36_5cgat"]
+[ext_resource type="AudioStream" uid="uid://cf1tfh05sqc6h" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_04.wav" id="37_jfcfe"]
+[ext_resource type="AudioStream" uid="uid://dfdmtuc6pgd18" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_05.wav" id="38_ckle7"]
+[ext_resource type="AudioStream" uid="uid://ovcclcttbynd" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_06.wav" id="39_grkgy"]
+[ext_resource type="AudioStream" uid="uid://dseo7eck12dn5" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_07.wav" id="40_xm71n"]
+[ext_resource type="AudioStream" uid="uid://bj5yw8rdklwr7" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_08.wav" id="41_8s112"]
+[ext_resource type="AudioStream" uid="uid://bs2nven3d5hbl" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_09.wav" id="42_gr60g"]
+[ext_resource type="AudioStream" uid="uid://dwkdm7hc670bf" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Run/Footsteps_Rock_Run_10.wav" id="43_ebhtd"]
+[ext_resource type="AudioStream" uid="uid://dqn7rbrra1lkv" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_01.wav" id="44_h7qlw"]
+[ext_resource type="AudioStream" uid="uid://dlnugqyuye64m" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_02.wav" id="45_p6d2c"]
+[ext_resource type="AudioStream" uid="uid://bufrlp6nn33xi" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_03.wav" id="46_at77n"]
+[ext_resource type="AudioStream" uid="uid://ddyfvvqrxtv7m" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_04.wav" id="47_mh0aj"]
+[ext_resource type="AudioStream" uid="uid://d2dsihwc8iwnt" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_05.wav" id="48_2fgmy"]
+[ext_resource type="AudioStream" uid="uid://d1bqla5hqhm11" path="res://assets/audio/Footsteps/Footsteps_Rock/Footsteps_Rock_Jump/Footsteps_Rock_Jump_Start_06.wav" id="49_u0hnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g8ej"]
 radius = 6.0
@@ -997,60 +997,61 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23imh"]
 bg_color = Color(1, 1, 0, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=392953447]
 z_index = 5
 collision_mask = 4
 collision_priority = 2.0
 script = ExtResource("1_k1u3f")
 metadata/_edit_lock_ = true
 
-[node name="Rays" type="Node2D" parent="."]
+[node name="Rays" type="Node2D" parent="." unique_id=1256681704]
 position = Vector2(0, -16)
 metadata/_edit_lock_ = true
 
-[node name="RayCast2D_Ledge0" type="RayCast2D" parent="Rays"]
+[node name="RayCast2D_Ledge0" type="RayCast2D" parent="Rays" unique_id=1094129258]
 position = Vector2(0, -15)
 rotation = -1.5708
 target_position = Vector2(0, 9)
 collision_mask = 4
 metadata/_edit_lock_ = true
 
-[node name="RayCast2D_Ledge1" type="RayCast2D" parent="Rays"]
+[node name="RayCast2D_Ledge1" type="RayCast2D" parent="Rays" unique_id=1219902442]
 position = Vector2(0, -11)
 rotation = -1.5708
 target_position = Vector2(0, 7)
 collision_mask = 4
 metadata/_edit_lock_ = true
 
-[node name="RayCast2D_Wall1" type="RayCast2D" parent="Rays"]
+[node name="RayCast2D_Wall1" type="RayCast2D" parent="Rays" unique_id=1170027919]
 position = Vector2(0, -5)
 rotation = -1.5708
 target_position = Vector2(0, 7)
 collision_mask = 4
 metadata/_edit_lock_ = true
 
-[node name="RayCast2D_Floor1" type="RayCast2D" parent="Rays"]
+[node name="RayCast2D_Floor1" type="RayCast2D" parent="Rays" unique_id=1000403061]
 position = Vector2(0, 3)
 rotation = -1.5708
 target_position = Vector2(-18, -6.51598e-05)
 collision_mask = 4
 
-[node name="RayCast2D_GravityGun" type="RayCast2D" parent="Rays"]
+[node name="RayCast2D_GravityGun" type="RayCast2D" parent="Rays" unique_id=2135589120]
 visible = false
 target_position = Vector2(-77, -50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=892540803]
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_3g8ej")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=285718610]
 position = Vector2(0, -50)
 zoom = Vector2(1.75, 1.75)
+process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=635255239]
 texture_filter = 1
 material = SubResource("ShaderMaterial_f3x8k")
 position = Vector2(0, -16)
@@ -1058,14 +1059,14 @@ sprite_frames = SubResource("SpriteFrames_jibvp")
 animation = &"death"
 metadata/_edit_lock_ = true
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1436013488]
 position = Vector2(0, -16)
 energy = 0.5
 texture = ExtResource("13_lsjyh")
 texture_scale = 2.0
 metadata/_edit_lock_ = true
 
-[node name="debug" type="TextEdit" parent="."]
+[node name="debug" type="TextEdit" parent="." unique_id=369315732]
 visible = false
 offset_left = -21.0
 offset_top = -55.0
@@ -1075,7 +1076,7 @@ scale = Vector2(0.25, 0.25)
 text = "State"
 metadata/_edit_lock_ = true
 
-[node name="Nametag" type="Label" parent="."]
+[node name="Nametag" type="Label" parent="." unique_id=280295950]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -1093,27 +1094,27 @@ theme_override_font_sizes/font_size = 12
 text = "Clobie"
 horizontal_alignment = 1
 
-[node name="Marker2D_RopePoint" type="Marker2D" parent="."]
+[node name="Marker2D_RopePoint" type="Marker2D" parent="." unique_id=2085190305]
 position = Vector2(0, -19)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=858518831]
 position = Vector2(0, -66)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=576404503]
 position = Vector2(1, 67)
 shape = SubResource("CircleShape2D_jbcrf")
 disabled = true
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1468985947]
 position = Vector2(-1, -1)
 texture = SubResource("GradientTexture2D_qjfeu")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=1433570270]
 position = Vector2(0, -52)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=659751749]
 material = SubResource("CanvasItemMaterial_nn1ii")
 anchors_preset = 8
 anchor_left = 0.5
@@ -1128,7 +1129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.586251, 0.696715, 1, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=1898148641]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1142,7 +1143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ProgressBar_Red" type="ProgressBar" parent="Node2D"]
+[node name="ProgressBar_Red" type="ProgressBar" parent="Node2D" unique_id=1744369424]
 material = SubResource("CanvasItemMaterial_kqto6")
 anchors_preset = 8
 anchor_left = 0.5
@@ -1161,7 +1162,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2fbqo")
 value = 100.0
 show_percentage = false
 
-[node name="ProgressBar_Green" type="ProgressBar" parent="Node2D"]
+[node name="ProgressBar_Green" type="ProgressBar" parent="Node2D" unique_id=290541164]
 material = SubResource("CanvasItemMaterial_kqto6")
 anchors_preset = 8
 anchor_left = 0.5
@@ -1180,10 +1181,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ldif7")
 value = 100.0
 show_percentage = false
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Node2D2" type="Node2D" parent="." unique_id=313917340]
 position = Vector2(0, -47)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D2"]
+[node name="ColorRect" type="ColorRect" parent="Node2D2" unique_id=1669660432]
 material = SubResource("CanvasItemMaterial_nn1ii")
 anchors_preset = 8
 anchor_left = 0.5
@@ -1198,7 +1199,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.586251, 0.696715, 1, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D2"]
+[node name="ColorRect2" type="ColorRect" parent="Node2D2" unique_id=244588192]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1212,7 +1213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ProgressBar_Yellow" type="ProgressBar" parent="Node2D2"]
+[node name="ProgressBar_Yellow" type="ProgressBar" parent="Node2D2" unique_id=1694867745]
 material = SubResource("CanvasItemMaterial_kqto6")
 anchors_preset = 8
 anchor_left = 0.5
@@ -1231,121 +1232,121 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_23imh")
 value = 100.0
 show_percentage = false
 
-[node name="Timer_CanShoot" type="Timer" parent="."]
+[node name="Timer_CanShoot" type="Timer" parent="." unique_id=1094043022]
 wait_time = 0.2
 autostart = true
 
-[node name="Timer_EnergyRegen" type="Timer" parent="."]
+[node name="Timer_EnergyRegen" type="Timer" parent="." unique_id=1052747658]
 wait_time = 0.1
 autostart = true
 
-[node name="Timer_HealthRegen" type="Timer" parent="."]
+[node name="Timer_HealthRegen" type="Timer" parent="." unique_id=2035447731]
 wait_time = 0.5
 autostart = true
 
-[node name="Footsteps" type="Node" parent="."]
+[node name="Footsteps" type="Node" parent="." unique_id=918878653]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Footsteps" unique_id=1745319675]
 stream = ExtResource("34_hsya3")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Footsteps" unique_id=1897234438]
 stream = ExtResource("35_tglw3")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Footsteps" unique_id=476204559]
 stream = ExtResource("36_5cgat")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Footsteps" unique_id=720777412]
 stream = ExtResource("37_jfcfe")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Footsteps" unique_id=739266859]
 stream = ExtResource("38_ckle7")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Footsteps" unique_id=1572508503]
 stream = ExtResource("39_grkgy")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Footsteps" unique_id=264543261]
 stream = ExtResource("40_xm71n")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Footsteps" unique_id=747282938]
 stream = ExtResource("41_8s112")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Footsteps" unique_id=1246290362]
 stream = ExtResource("42_gr60g")
 volume_db = -20.0
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Footsteps"]
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Footsteps" unique_id=1124966692]
 stream = ExtResource("43_ebhtd")
 volume_db = -20.0
 
-[node name="Jump" type="Node" parent="."]
+[node name="Jump" type="Node" parent="." unique_id=1743177012]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Jump" unique_id=1156992801]
 stream = ExtResource("44_h7qlw")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Jump" unique_id=110983944]
 stream = ExtResource("45_p6d2c")
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Jump" unique_id=1224690852]
 stream = ExtResource("46_at77n")
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Jump" unique_id=1802643202]
 stream = ExtResource("47_mh0aj")
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Jump" unique_id=258227728]
 stream = ExtResource("48_2fgmy")
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Jump"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Jump" unique_id=2088910320]
 stream = ExtResource("49_u0hnx")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+[node name="StateMachine" type="Node" parent="." unique_id=961244757 node_paths=PackedStringArray("state")]
 script = ExtResource("19_yyycl")
 state = NodePath("idle")
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="idle" type="Node" parent="StateMachine" unique_id=133061267]
 script = ExtResource("15_8ocho")
 
-[node name="jump" type="Node" parent="StateMachine"]
+[node name="jump" type="Node" parent="StateMachine" unique_id=98122260]
 script = ExtResource("16_o6hoa")
 
-[node name="double_jump" type="Node" parent="StateMachine"]
+[node name="double_jump" type="Node" parent="StateMachine" unique_id=102309076]
 script = ExtResource("17_74v0w")
 
-[node name="fall" type="Node" parent="StateMachine"]
+[node name="fall" type="Node" parent="StateMachine" unique_id=2076035045]
 script = ExtResource("17_g60vj")
 
-[node name="run" type="Node" parent="StateMachine"]
+[node name="run" type="Node" parent="StateMachine" unique_id=1458787879]
 script = ExtResource("17_hh1rh")
 
-[node name="shoot" type="Node" parent="StateMachine"]
+[node name="shoot" type="Node" parent="StateMachine" unique_id=168987070]
 script = ExtResource("20_lps2u")
 
-[node name="land" type="Node" parent="StateMachine"]
+[node name="land" type="Node" parent="StateMachine" unique_id=1408050291]
 script = ExtResource("22_qntrn")
 
-[node name="wall_land" type="Node" parent="StateMachine"]
+[node name="wall_land" type="Node" parent="StateMachine" unique_id=1261727878]
 script = ExtResource("27_qw4g7")
 
-[node name="wall_hold" type="Node" parent="StateMachine"]
+[node name="wall_hold" type="Node" parent="StateMachine" unique_id=1151074274]
 script = ExtResource("28_gvqsm")
 
-[node name="ledge_land" type="Node" parent="StateMachine"]
+[node name="ledge_land" type="Node" parent="StateMachine" unique_id=1444036933]
 script = ExtResource("29_pvqvo")
 
-[node name="ledge_hold" type="Node" parent="StateMachine"]
+[node name="ledge_hold" type="Node" parent="StateMachine" unique_id=943546275]
 script = ExtResource("30_0a1vd")
 
-[node name="wall_jump" type="Node" parent="StateMachine"]
+[node name="wall_jump" type="Node" parent="StateMachine" unique_id=294160915]
 script = ExtResource("31_wovvh")
 
-[node name="death" type="Node" parent="StateMachine"]
+[node name="death" type="Node" parent="StateMachine" unique_id=91236089]
 script = ExtResource("32_i53q8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
